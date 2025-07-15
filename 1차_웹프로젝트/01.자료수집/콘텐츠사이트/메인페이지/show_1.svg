@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164" height="177" viewBox="0 0 164 177">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ff4e8f;
+      }
+
+      .cls-2 {
+        clip-path: url(#clip-PC_-_홈_인덱스_-_메인_7);
+      }
+
+      .cls-3 {
+        clip-path: url(#clip-path);
+      }
+
+      .cls-4 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-path">
+      <rect id="사각형_1160" data-name="사각형 1160" class="cls-1" width="109.227" height="127.128" transform="translate(0.001 -0.001)"/>
+    </clipPath>
+    <clipPath id="clip-PC_-_홈_인덱스_-_메인_7">
+      <rect width="164" height="177"/>
+    </clipPath>
+  </defs>
+  <g id="PC_-_홈_인덱스_-_메인_7" data-name="PC - 홈 / 인덱스 - 메인 – 7" class="cls-2">
+    <rect class="cls-4" width="164" height="177"/>
+    <g id="마스크_그룹_596" data-name="마스크 그룹 596" class="cls-3" transform="translate(27 25.992)">
+      <path id="패스_425" data-name="패스 425" class="cls-1" d="M109.227,15.535,94.938.19,94.759,0A269.9,269.9,0,0,1,54.517,3.041,266.1,266.1,0,0,1,14.468,0L0,15.535v.008Q2,27.673,3.045,39.68t1.09,23.882A302.444,302.444,0,0,1,0,111.582v.008l14.468,15.539q10.06-1.519,20.1-2.277t20.05-.764a269.127,269.127,0,0,1,40.146,3.041l14.468-15.539v-.008c0-.016-.008-.035-.012-.05-5.628-31.263-5.376-63.291.012-95.989ZM54.613,110.558c-21.679,0-39.257-21.039-39.257-47s17.579-47,39.257-47,39.257,21.043,39.257,47-17.575,47-39.257,47" transform="translate(0.001 -0.001)"/>
+    </g>
+  </g>
+</svg>

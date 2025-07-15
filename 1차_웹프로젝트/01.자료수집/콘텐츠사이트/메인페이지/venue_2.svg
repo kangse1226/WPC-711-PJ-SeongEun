@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164" height="177" viewBox="0 0 164 177">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-PC_-_홈_인덱스_-_메인_11);
+      }
+
+      .cls-2 {
+        fill: #00c376;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-PC_-_홈_인덱스_-_메인_11">
+      <rect width="164" height="177"/>
+    </clipPath>
+  </defs>
+  <g id="PC_-_홈_인덱스_-_메인_11" data-name="PC - 홈 / 인덱스 - 메인 – 11" class="cls-1">
+    <rect class="cls-3" width="164" height="177"/>
+    <path id="패스_426" data-name="패스 426" class="cls-2" d="M9.563,0,0,132.924H96.108L86.545,0Z" transform="translate(34 24.619)"/>
+  </g>
+</svg>

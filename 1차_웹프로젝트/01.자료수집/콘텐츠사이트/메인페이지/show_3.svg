@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="164" height="177" viewBox="0 0 164 177">
+  <defs>
+    <style>
+      .cls-1 {
+        clip-path: url(#clip-PC_-_홈_인덱스_-_메인_9);
+      }
+
+      .cls-2 {
+        fill: #0094ff;
+      }
+
+      .cls-3 {
+        fill: #fff;
+      }
+    </style>
+    <clipPath id="clip-PC_-_홈_인덱스_-_메인_9">
+      <rect width="164" height="177"/>
+    </clipPath>
+  </defs>
+  <g id="PC_-_홈_인덱스_-_메인_9" data-name="PC - 홈 / 인덱스 - 메인 – 9" class="cls-1">
+    <rect class="cls-3" width="164" height="177"/>
+    <g id="그룹_616" data-name="그룹 616" transform="translate(15 27.082)">
+      <path id="패스_418" data-name="패스 418" class="cls-2" d="M23.308,0l13,36.146h71.941L95.054,0Z" transform="translate(-14.251 -0.001)"/>
+      <path id="패스_419" data-name="패스 419" class="cls-2" d="M107.906,235.274l13,36.146h72.441l-13.193-36.146Z" transform="translate(-65.974 -143.846)"/>
+      <path id="패스_420" data-name="패스 420" class="cls-2" d="M0,93.016V148.3H41.933L22.056,93.016Z" transform="translate(0 -56.87)"/>
+      <path id="패스_421" data-name="패스 421" class="cls-2" d="M241.885,93.016,262.067,148.3h19.061V93.016Z" transform="translate(-147.888 -56.87)"/>
+    </g>
+  </g>
+</svg>
