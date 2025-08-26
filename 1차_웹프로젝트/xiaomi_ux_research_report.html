@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>샤오미 웹사이트 리뉴얼 UX 리서치 보고서</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            margin: 20px auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.8em;
+            font-weight: 700;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 40px;
+            font-size: 1.2em;
+        }
+        
+        .section {
+            margin: 40px 0;
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border: 1px solid #e3f2fd;
+        }
+        
+        .section h2 {
+            color: #2980b9;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #3498db;
+            position: relative;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -3px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: #e74c3c;
+        }
+        
+        .market-data {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .data-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 0.3s ease;
+        }
+        
+        .data-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .data-card h3 {
+            font-size: 2.2em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+        
+        .data-card p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .competitor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin: 25px 0;
+        }
+        
+        .competitor-card {
+            background: white;
+            border: 2px solid #ecf0f1;
+            border-radius: 12px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .competitor-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #e74c3c);
+        }
+        
+        .competitor-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+        
+        .competitor-card h4 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .positioning-map {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            border-radius: 15px;
+            padding: 30px;
+            margin: 25px 0;
+            position: relative;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .positioning-grid {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            border: 2px dashed #95a5a6;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+        }
+        
+        .positioning-brand {
+            position: absolute;
+            background: #3498db;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            transform: translate(-50%, -50%);
+        }
+        
+        .xiaomi-pos { top: 30%; left: 70%; background: #ff6b35; }
+        .apple-pos { top: 20%; left: 20%; background: #007AFF; }
+        .samsung-pos { top: 25%; left: 40%; background: #1428A0; }
+        .sony-pos { top: 15%; left: 60%; background: #000000; }
+        .lg-pos { top: 70%; left: 80%; background: #A50034; }
+        
+        .axis-label {
+            position: absolute;
+            font-weight: bold;
+            color: #7f8c8d;
+        }
+        
+        .x-axis { bottom: -30px; left: 50%; transform: translateX(-50%); }
+        .y-axis { left: -80px; top: 50%; transform: translateY(-50%) rotate(-90deg); }
+        
+        .trends-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        
+        .trend-item {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .trend-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+        
+        .keywords-cloud {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin: 25px 0;
+        }
+        
+        .keyword {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-weight: 500;
+            font-size: varying;
+        }
+        
+        .keyword.large { font-size: 1.4em; padding: 12px 20px; }
+        .keyword.medium { font-size: 1.2em; padding: 10px 18px; }
+        .keyword.small { font-size: 1em; }
+        
+        .website-analysis {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
+        .website-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .website-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .website-header {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .website-content {
+            padding: 20px;
+        }
+        
+        .feature-list {
+            list-style: none;
+            margin: 15px 0;
+        }
+        
+        .feature-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        
+        .feature-list li:before {
+            content: '✓';
+            color: #27ae60;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .bar-chart {
+            display: flex;
+            align-items: flex-end;
+            height: 200px;
+            gap: 20px;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        
+        .bar {
+            background: linear-gradient(to top, #667eea, #764ba2);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+            padding: 10px 5px;
+            border-radius: 8px 8px 0 0;
+            font-weight: bold;
+            min-width: 80px;
+        }
+        
+        .bar-samsung { height: 85%; }
+        .bar-apple { height: 80%; }
+        .bar-xiaomi { height: 55%; }
+        .bar-oppo { height: 45%; }
+        .bar-vivo { height: 40%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>샤오미 웹사이트 리뉴얼</h1>
+        <p class="subtitle">UX 리서치 분석 보고서 2025</p>
+        
+        <!-- 1. 시장 환경 및 동향 -->
+        <div class="section">
+            <h2>01. 시장 환경 및 동향</h2>
+            <div class="market-data">
+                <div class="data-card">
+                    <h3>$1.25T</h3>
+                    <p>2034년 예상 시장규모<br>(CAGR 2.8%)</p>
+                </div>
+                <div class="data-card">
+                    <h3>5G+AI</h3>
+                    <p>핵심 성장동력<br>스마트홈 확산</p>
+                </div>
+                <div class="data-card">
+                    <h3>지속가능성</h3>
+                    <p>50% 기업이<br>친환경 솔루션 투자</p>
+                </div>
+                <div class="data-card">
+                    <h3>AR/VR</h3>
+                    <p>폴더블 스크린<br>신기술 확산</p>
+                </div>
+            </div>
+            <p><strong>주요 동향:</strong> 글로벌 소비자 전자제품 시장은 5G 네트워크 확산, 스마트홈 기술 발전, AR/VR 기술 발전에 의해 지속 성장하고 있습니다. 2025년 글로벌 매출은 1.29조 달러로 전년 대비 2% 성장이 예상됩니다.</p>
+        </div>
+        
+        <!-- 2. 시장 니즈 -->
+        <div class="section">
+            <h2>02. 시장 니즈 분석</h2>
+            <div class="trends-list">
+                <div class="trend-item">
+                    <h4>🎯 가성비 중심</h4>
+                    <p>중급 가격대에서 프리미엄 기능을 원하는 소비자 증가</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🤖 AI 통합</h4>
+                    <p>온디바이스 AI, 이미지 편집 AI 등 지능형 기능 요구</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🌍 신흥시장</h4>
+                    <p>인도, 동남아시아에서 5G 스마트폰 수요 급증</p>
+                </div>
+                <div class="trend-item">
+                    <h4>♻️ 지속가능성</h4>
+                    <p>친환경 제품 및 패키징에 대한 관심 증가</p>
+                </div>
+                <div class="trend-item">
+                    <h4>📱 생태계</h4>
+                    <p>스마트홈, IoT 연결성을 위한 통합 플랫폼 선호</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🎮 엔터테인먼트</h4>
+                    <p>게임, 스트리밍을 위한 고성능 디스플레이 수요</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 3. 포지셔닝 맵 -->
+        <div class="section">
+            <h2>03. 이미지 기반 포지셔닝 맵</h2>
+            <div class="positioning-map">
+                <div class="positioning-grid">
+                    <div class="positioning-brand apple-pos">Apple</div>
+                    <div class="positioning-brand samsung-pos">Samsung</div>
+                    <div class="positioning-brand xiaomi-pos">Xiaomi</div>
+                    <div class="positioning-brand sony-pos">Sony</div>
+                    <div class="positioning-brand lg-pos">LG</div>
+                </div>
+                <div class="axis-label x-axis">가격 접근성 →</div>
+                <div class="axis-label y-axis">← 브랜드 프리미엄</div>
+            </div>
+            <p><strong>포지셔닝 분석:</strong> 샤오미는 '프리미엄 기능의 가성비' 포지션에서 강점을 보이며, Apple의 브랜드 프리미엄과 LG의 가격 경쟁력 사이의 스위트 스팟을 차지하고 있습니다.</p>
+        </div>
+        
+        <!-- 4. 주요 경쟁사 분석 -->
+        <div class="section">
+            <h2>04. 주요 경쟁사 분석</h2>
+            
+            <div class="chart-container">
+                <h3>글로벌 스마트폰 시장점유율 (2024-2025)</h3>
+                <div class="bar-chart">
+                    <div class="bar bar-samsung">
+                        <span>21%</span>
+                        <small>Samsung</small>
+                    </div>
+                    <div class="bar bar-apple">
+                        <span>20%</span>
+                        <small>Apple</small>
+                    </div>
+                    <div class="bar bar-xiaomi">
+                        <span>13.5%</span>
+                        <small>Xiaomi</small>
+                    </div>
+                    <div class="bar bar-oppo">
+                        <span>11%</span>
+                        <small>Oppo</small>
+                    </div>
+                    <div class="bar bar-vivo">
+                        <span>9%</span>
+                        <small>Vivo</small>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="competitor-grid">
+                <div class="competitor-card">
+                    <h4>🇺🇸 미국 - Apple & Google</h4>
+                    <p><strong>Apple:</strong> 프리미엄 생태계, 20% 시장점유율</p>
+                    <ul class="feature-list">
+                        <li>통합 생태계 (iPhone, Mac, iPad)</li>
+                        <li>프리미엄 디자인 & 사용자 경험</li>
+                        <li>높은 브랜드 로열티</li>
+                    </ul>
+                    <p><strong>Google:</strong> Pixel 브랜드, AI 우선</p>
+                    <ul class="feature-list">
+                        <li>순수 안드로이드 경험</li>
+                        <li>AI 카메라 기능</li>
+                        <li>구글 서비스 통합</li>
+                    </ul>
+                </div>
+                
+                <div class="competitor-card">
+                    <h4>🇰🇷 한국 - Samsung & LG</h4>
+                    <p><strong>Samsung:</strong> 글로벌 1위, 21% 시장점유율</p>
+                    <ul class="feature-list">
+                        <li>Galaxy 브랜드 강화</li>
+                        <li>폴더블 스마트폰 선도</li>
+                        <li>다양한 가격대 라인업</li>
+                    </ul>
+                    <p><strong>LG:</strong> 스마트폰 사업 철수, 가전 집중</p>
+                    <ul class="feature-list">
+                        <li>프리미엄 가전제품</li>
+                        <li>스마트홈 솔루션</li>
+                        <li>OLED TV 기술 리더</li>
+                    </ul>
+                </div>
+                
+                <div class="competitor-card">
+                    <h4>🇨🇳 중국 - Xiaomi & Huawei</h4>
+                    <p><strong>Xiaomi:</strong> 3위 브랜드, 13.5% 시장점유율</p>
+                    <ul class="feature-list">
+                        <li>MI 생태계 확장</li>
+                        <li>가성비 중심 전략</li>
+                        <li>글로벌 확장 가속화</li>
+                    </ul>
+                    <p><strong>Huawei:</strong> 중국 내 강세 유지</p>
+                    <ul class="feature-list">
+                        <li>HarmonyOS 발전</li>
+                        <li>5G 인프라 기술</li>
+                        <li>중국 시장 집중</li>
+                    </ul>
+                </div>
+                
+                <div class="competitor-card">
+                    <h4>🇯🇵 일본 - Sony & Panasonic</h4>
+                    <p><strong>Sony:</strong> 프리미엄 오디오/비주얼</p>
+                    <ul class="feature-list">
+                        <li>Xperia 스마트폰</li>
+                        <li>고품질 카메라 센서</li>
+                        <li>엔터테인먼트 콘텐츠 연계</li>
+                    </ul>
+                    <p><strong>Panasonic:</strong> B2B 및 가전 집중</p>
+                    <ul class="feature-list">
+                        <li>산업용 전자기기</li>
+                        <li>친환경 기술</li>
+                        <li>스마트홈 솔루션</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 5. 시장 트렌드 -->
+        <div class="section">
+            <h2>05. 시장 트렌드 관련 자료</h2>
+            <div class="trends-list">
+                <div class="trend-item">
+                    <h4>📡 5G 확산</h4>
+                    <p>인도 및 아프리카에서 저가 5G 스마트폰 수요 급증, 통신사 주도 시장 확대</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🧠 AI 통합</h4>
+                    <p>온디바이스 LLM 및 이미지 편집 AI가 중급폰에도 적용되기 시작</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🏠 스마트홈</h4>
+                    <p>IoT 기기 연결성과 음성 제어 기능 강화, 통합 플랫폼 경쟁 심화</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🥽 XR 기술</h4>
+                    <p>AR/VR 헤드셋 및 폴더블 스크린 기술의 대중화 시작</p>
+                </div>
+                <div class="trend-item">
+                    <h4>⚡ 전기차</h4>
+                    <p>EV 전자부품 시장 확대, 자동차-스마트폰 연동 강화</p>
+                </div>
+                <div class="trend-item">
+                    <h4>🌱 지속가능성</h4>
+                    <p>재활용 소재 사용, 탄소중립 제조공정, 친환경 패키징 의무화</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 6. 주요 키워드 -->
+        <div class="section">
+            <h2>06. 주제 관련 주요 키워드</h2>
+            <div class="keywords-cloud">
+                <span class="keyword large">AI Integration</span>
+                <span class="keyword medium">5G Connectivity</span>
+                <span class="keyword large">Smart Ecosystem</span>
+                <span class="keyword small">가성비</span>
+                <span class="keyword medium">Sustainable Tech</span>
+                <span class="keyword small">폴더블</span>
+                <span class="keyword large">IoT Platform</span>
+                <span class="keyword medium">Camera AI</span>
+                <span class="keyword small">Wireless Charging</span>
+                <span class="keyword medium">Gaming Performance</span>
+                <span class="keyword small">Fast Charging</span>
+                <span class="keyword large">Smart Home</span>
+                <span class="keyword medium">Cloud Storage</span>
+                <span class="keyword small">Voice Control</span>
+                <span class="keyword medium">AR/VR Ready</span>
+                <span class="keyword small">Premium Design</span>
+                <span class="keyword medium">Global Expansion</span>
+                <span class="keyword small">User Experience</span>
+            </div>
+        </div>
+        
+        <!-- 7. 웹사이트 트렌드 분석 -->
+        <div class="section">
+            <h2>07. 경쟁업체 웹사이트 시각적·기능적 트렌드</h2>
+            <div class="website-analysis">
+                <div class="website-card">
+                    <div class="website-header">
+                        <h4>Apple.com</h4>
+                    </div>
+                    <div class="website-content">
+                        <h5>시각적 특징</h5>
+                        <ul class="feature-list">
+                            <li>미니멀한 화이트 스페이스</li>
+                            <li>대형 제품 이미지 중심</li>
+                            <li>일관된 타이포그래피</li>
+                            <li>모션 그래픽 활용</li>
+                        </ul>
+                        <h5>기능적 특징</h5>
+                        <ul class="feature-list">
+                            <li>직관적인 제품 비교 도구</li>
+                            <li>개인화된 추천 시스템</li>
+                            <li>원클릭 구매 프로세스</li>
+                            <li>AR 제품 체험</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-header">
+                        <h4>Samsung.com</h4>
+                    </div>
+                    <div class="website-content">
+                        <h5>시각적 특징</h5>
+                        <ul class="feature-list">
+                            <li>다이나믹한 비디오 배너</li>
+                            <li>브랜드 컬러 적극 활용</li>
+                            <li>풀스크린 제품 쇼케이스</li>
+                            <li>패럴랙스 스크롤 효과</li>
+                        </ul>
+                        <h5>기능적 특징</h5>
+                        <ul class="feature-list">
+                            <li>Galaxy 생태계 강조</li>
+                            <li>사용자 맞춤 컨텐츠</li>
+                            <li>실시간 재고 확인</li>
+                            <li>AI 추천 서비스</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-header">
+                        <h4>Mi.com</h4>
+                    </div>
+                    <div class="website-content">
+                        <h5>시각적 특징</h5>
+                        <ul class="feature-list">
+                            <li>가격 정보 명시적 표시</li>
+                            <li>제품 스펙 상세 비교</li>
+                            <li>오렌지 포인트 컬러</li>
+                            <li>글로벌 현지화 디자인</li>
+                        </ul>
+                        <h5>기능적 특징</h5>
+                        <ul class="feature-list">
+                            <li>커뮤니티 플랫폼 연계</li>
+                            <li>플래시 세일 이벤트</li>
+                            <li>Mi 생태계 제품 연결</li>
+                            <li>소셜 커머스 기능</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-header">
+                        <h4>Sony.com</h4>
+                    </div>
+                    <div class="website-content">
+                        <h5>시각적 특징</h5>
+                        <ul class="feature-list">
+                            <li>프리미엄 이미지 퀄리티</li>
+                            <li>다크 테마 중심</li>
+                            <li>기술 스펙 시각화</li>
+                            <li>엔터테인먼트 컨텐츠 연계</li>
+                        </ul>
+                        <h5>기능적 특징</h5>
+                        <ul class="feature-list">
+                            <li>제품 체험 콘텐츠</li>
+                            <li>프로페셔널 사용자 지원</li>
+                            <li>음악/영화 플랫폼 연동</li>
+                            <li>기술 혁신 스토리텔링</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="website-card">
+                    <div class="website-header">
+                        <h4>LG.com</h4>
+                    </div>
+                    <div class="website-content">
+                        <h5>시각적 특징</h5>
+                        <ul class="feature-
