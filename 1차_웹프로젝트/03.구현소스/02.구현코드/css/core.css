@@ -37,7 +37,10 @@ body{
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */
-    max-width: 1360px;
+    max-width: 1920px;
+
+   /* 세로기준 화면 꽉차게-> 넘치면 안보이게 oh하든가 미디어쿼리하든가 */
+    height: 100vh;
     /* padding: 0 20px; */
     /* 블록박스 중앙정렬 -> 마.영.오! */
     margin: 0 auto;    
