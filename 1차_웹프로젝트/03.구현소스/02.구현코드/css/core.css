@@ -3,6 +3,7 @@
 /* 공통 셋팅을 위한 클래스 + 웹폰트 */
 
 /* 웹폰트 CDN */
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Gugi&family=Nanum+Gothic&family=Single+Day&family=ZCOOL+KuaiLe&display=swap');
 /* 
     0. 메뉴 등 일반체
@@ -28,12 +29,7 @@ body{
 }
 
 /********* 공통 클래스 *********/
-/* 임시표시타이틀 */
-.temp-tit{
-    position: absolute;
-    font-size: 2vw;
-    color: #ccc;
-}
+
 /* 중앙속박스 */
 .inbox{
     /* 최대가로크기 */
@@ -47,10 +43,7 @@ body{
 }
 
 /* 그룹파트박스 */
-.group-part{
-    /* 상하패딩 넣기 */
-    padding: 60px 0;
-}
+
 
 /* 플렉스박스 클래스 */
 .fx-box{
@@ -70,11 +63,7 @@ body{
 }
 
 /* 공통 서브타이틀 */
-.stit{
-    padding-bottom: 32px;
-    font-size: 3.8rem;
-    font-weight: normal;
-}
+
 
 /* IR(Images Replacement) 
 - 배경이미지 설명 숨기기 클래스 */
