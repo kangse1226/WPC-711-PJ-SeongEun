@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XIAOMI - JUST FOR FUN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, 
+                rgba(245, 245, 245, 0.9) 0%, 
+                rgba(220, 220, 220, 0.8) 50%, 
+                rgba(200, 200, 200, 0.9) 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 배경 장식 효과 */
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, 
+                rgba(255, 255, 255, 0.3) 0%, 
+                rgba(0, 0, 0, 0.1) 70%);
+            z-index: 1;
+        }
+
+        /* 텍스트 컨테이너 */
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+            position: relative;
+        }
+
+        /* 브랜드 로고 - JUST 위에 위치 */
+        .brand-logo {
+            font-size: 1.5rem;
+            font-weight: 300;
+            letter-spacing: 0.2em;
+            color: #333;
+            margin-bottom: 0.5rem;
+            z-index: 3;
+            position: relative;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeInUp 1.5s ease-out 0.5s forwards;
+        }
+
+        /* 비디오 컨테이너 */
+        .video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        /* 배경 비디오 */
+        .background-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+        }
+
+        /* 메인 타이틀 - 영상이 텍스트 모양으로 보이도록 */
+        .main-title {
+            font-size: clamp(3rem, 10vw, 6rem);
+            font-weight: 900;
+            letter-spacing: 0.02em;
+            text-align: center;
+            line-height: 0.9;
+            z-index: 2;
+            position: relative;
+            white-space: nowrap;
+            
+            /* 텍스트를 마스크로 사용하여 뒤의 비디오가 보이도록 */
+            color: transparent;
+            background: rgba(255, 255, 255, 0.1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            
+            /* 애니메이션 */
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 2s ease-out 1s forwards;
+        }
+
+        /* 텍스트 영역에만 비디오가 보이도록 하는 마스크 효과 */
+        .main-title::before {
+            content: 'JUST FOR FUN';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #333, #666, #999, #ccc, #333);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientFallback 4s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        /* 실제 비디오 마스크 (텍스트 모양으로 비디오 자르기) */
+        .video-text-mask {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .video-text-mask video {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            /* 텍스트 모양으로 마스크 적용 */
+            -webkit-mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="80" font-weight="900" letter-spacing="2">JUST FOR FUN</text></svg>');
+            mask: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 200"><text x="50%" y="50%" text-anchor="middle" dominant-baseline="middle" font-family="Arial, sans-serif" font-size="80" font-weight="900" letter-spacing="2">JUST FOR FUN</text></svg>');
+            -webkit-mask-size: contain;
+            mask-size: contain;
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+            -webkit-mask-position: center;
+            mask-position: center;
+        }
+
+        /* 텍스트 그림자 효과 */
+        .main-title::after {
+            content: 'JUST FOR FUN';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            transform: translate(3px, 3px);
+            z-index: -1;
+        }
+
+        /* 햄버거 메뉴 버튼 */
+        .hamburger-menu {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 100;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+
+        .hamburger-menu span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background-color: #333;
+            margin: 5px 0;
+            transition: 0.3s;
+            border-radius: 2px;
+        }
+
+        .hamburger-menu:hover span {
+            background-color: #666;
+        }
+
+        /* 애니메이션 키프레임 */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes gradientFallback {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        /* 스크롤 인디케이터 */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 3rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 2;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 3s forwards, bounce 2s ease-in-out 4s infinite;
+        }
+
+        .scroll-indicator::before {
+            content: '';
+            width: 2px;
+            height: 30px;
+            background: #666;
+            display: block;
+            margin: 0 auto 10px;
+        }
+
+        .scroll-indicator::after {
+            content: 'SCROLL';
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            color: #666;
+            display: block;
+            text-align: center;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* 반응형 디자인 */
+        @media (max-width: 768px) {
+            .brand-logo {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+
+            .main-title {
+                font-size: clamp(2.5rem, 12vw, 4.5rem);
+                letter-spacing: 0.01em;
+            }
+
+            .hamburger-menu {
+                top: 1.5rem;
+                right: 1.5rem;
+            }
+
+            .scroll-indicator {
+                bottom: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-logo {
+                font-size: 1rem;
+            }
+
+            .main-title {
+                font-size: clamp(2rem, 15vw, 3.5rem);
+                letter-spacing: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <!-- 비디오 컨테이너 -->
+        <div class="video-container">
+            <!-- 배경 비디오 (필요시 사용) -->
+            <video class="background-video" autoplay muted loop>
+                <!-- 여기에 비디오 파일명을 넣으세요 (예: your-video.mp4) -->
+                <source src="your-background-video.mp4" type="video/mp4">
+                <!-- 비디오 로드 실패시 대체 이미지 -->
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- 텍스트 영역에만 보이는 비디오 마스크 -->
+        <div class="video-text-mask">
+            <video autoplay muted loop>
+                <!-- 텍스트 안에 보일 메인 비디오 파일명을 여기에 넣으세요 -->
+                <source src="your-main-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+
+        <!-- 햄버거 메뉴 -->
+        <button class="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- 브랜드 로고 -->
+        <div class="brand-logo">XIAOMI</div>
+
+        <!-- 메인 타이틀 -->
+        <h1 class="main-title">JUST FOR FUN</h1>
+
+        <!-- 스크롤 인디케이터 -->
+        <div class="scroll-indicator"></div>
+    </section>
+
+    <script>
+        // 햄버거 메뉴 토글 (나중에 네비게이션 구현 시 사용)
+        function toggleMenu() {
+            console.log('메뉴 토글 - 네비게이션 구현 예정');
+            // 여기에 네비게이션 오버레이 토글 로직 추가
+        }
+
+        // 스크롤 인디케이터 클릭 시 다음 섹션으로 이동
+        document.querySelector('.scroll-indicator').addEventListener('click', function() {
+            window.scrollTo({
+                top: window.innerHeight,
+                behavior: 'smooth'
+            });
+        });
+
+        // 비디오 자동 재생 및 10초 루프 설정
+        window.addEventListener('load', function() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                // 10초마다 비디오 재시작
+                video.addEventListener('timeupdate', function() {
+                    if (video.currentTime >= 10) {
+                        video.currentTime = 0; // 10초 후 처음부터 재시작
+                    }
+                });
+
+                // 비디오 로드 실패시 그라데이션 폴백
+                video.addEventListener('error', function() {
+                    console.log('비디오 로드 실패 - 그라데이션 폴백 사용');
+                    // 비디오가 없을 때는 기존 그라데이션 효과 사용
+                });
+
+                // 비디오 재생 시작
+                video.play().catch(function(error) {
+                    console.log('비디오 자동재생 실패:', error);
+                });
+            });
+
+            document.body.style.opacity = '1';
+        });
+    </script>
+</body>
+</html>
