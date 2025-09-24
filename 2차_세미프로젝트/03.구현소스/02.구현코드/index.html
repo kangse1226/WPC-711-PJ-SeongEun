@@ -4,20 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mySHADEmaker</title>
-    <link rel="stylesheet" href="style.css">
+    
+    <!-- css -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- js -->
+    <script src="main.js" defer></script>
+    
 </head>
+
 <body>
-    <div class="hero-container">
-        <header class="header">
-            <h1 class="logo">mySHADEmaker</h1>
+       <div class="page-container">
+        <!-- 상단 영역 -->
+        <header class="top-area">
+            <div class="logo">mySHADEmaker</div>
         </header>
-        <main class="main-content">
-            <h2 class="title">지금,<br>덥지 않으세요?</h2>
-            <p class="subtitle">양산으로 만드는 나만의 그늘,<br>myshademaker</p>
+
+        <!-- 메인 영역 -->
+        <main class="main-area">
+            <!-- 첫 번째 페이지 - 히어로 섹션 -->
+            <section class="hero-section">
+                <div class="hero-content">
+                    <h1>지금,</h1>
+                    <div class="subtitle">답지 않으신가요?</div>
+                    <div class="description">당신의 몸이 보내는 신호를 놓치고 계신가요?</div>
+                    <div class="brand">myproteinkorea</div>
+                </div>
+                <div class="scroll-hint">스와이프하여 더 보기</div>
+            </section>
+
+            <!-- 두 번째 페이지 - 문제 제기 섹션 -->
+            <section class="problem-section">
+                <div class="problem-content">
+                    <h2>제감로도<br>40도의 목발!</h2>
+                    
+                    <div class="emoji-icon">🔥</div>
+                    
+                    <div class="problem-card">
+                        <h3>강력한 효과</h3>
+                        <p>지금까지 경험해보지 못한 강력하고 빠른 효과를 느껴보세요. 당신의 몸이 원하는 바로 그것입니다.</p>
+                    </div>
+
+                    <div class="emoji-icon">💪</div>
+                </div>
+            </section>
         </main>
-        <footer class="footer">
-            <p class="scroll-text">아래로 스크롤해서<br>그늘 지킴이를 만나보세요!</p>
-            <div class="scroll-arrow"></div>
+
+        <!-- 페이지 인디케이터 -->
+        <div class="page-indicator">
+            <div class="page-dot active"></div>
+            <div class="page-dot"></div>
+        </div>
+
+        <!-- 하단 영역 -->
+        <footer class="bottom-area">
+            mySHADEmaker.com /2025
         </footer>
     </div>
 </body>

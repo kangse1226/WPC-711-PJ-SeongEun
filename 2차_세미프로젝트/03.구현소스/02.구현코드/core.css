@@ -1,0 +1,28 @@
+@charset "utf-8";
+/* PJ : 공통 클래스 CSS - core.css */
+/* 공통 셋팅을 위한 클래스 + 웹폰트 */
+
+/* 웹폰트 CDN */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&family=Gugi&family=Nanum+Gothic&family=Single+Day&family=ZCOOL+KuaiLe&display=swap');
+/* 
+    0. 타이틀
+    font-family: '페이퍼로지', sans-serif; 
+    fz: 3.2rem
+
+    1. 메뉴, 본문 등 일반체
+    font-family: '페이퍼로지', sans-serif; 
+
+    2. 영문
+    font-family: '페이퍼로지', sans-serif; 
+*/
+
+/* 전체 글자크기 */
+html{
+    font-size: 10px;
+    /* rem단위 계산편의를 위함 */
+}
+
+
+        /* 공통 타이틀 */
+
+

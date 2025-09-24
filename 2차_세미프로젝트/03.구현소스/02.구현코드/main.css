@@ -1,0 +1,290 @@
+@charset "utf-8";
+/* pj 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Noto Sans KR', sans-serif;
+            width: 393px;
+            height: 852px;
+            position: relative;
+            margin: 0 auto;
+            background: #000;
+        }
+
+        /* 모바일에서만 overflow hidden */
+        @media (max-width: 768px) {
+            body {
+                overflow: hidden;
+            }
+        }
+
+        /* 데스크톱에서는 일반 스크롤 허용 */
+        @media (min-width: 769px) {
+            body {
+                overflow-y: auto;
+                height: auto;
+            }
+            
+            .page-container {
+                height: auto !important;
+            }
+            
+            .main-area {
+                height: auto !important;
+                position: static !important;
+                transform: none !important;
+                transition: none !important;
+            }
+            
+            section {
+                position: static !important;
+            }
+        }
+
+        /* 페이지 컨테이너 */
+        .page-container {
+            width: 393px;
+            height: 852px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 상단 영역 */
+        .top-area {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 393px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .top-area.hidden {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+
+        .logo {
+            color: white;
+            font-size: 18px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        /* 메인 영역 */
+        .main-area {
+            width: 393px; 
+            height: 1704px; /* 852px * 2 */
+            position: relative;
+            top: 0;
+            left: 0;
+            transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .main-area.page-2 {
+            transform: translateY(-852px);
+        }
+
+        /* 섹션 공통 스타일 */
+        section {
+            width: 393px;
+            height: 852px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* 첫 번째 페이지 - 검정색 */
+        .hero-section {
+            background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+            color: white;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            padding: 80px 30px 120px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .hero-section h1 {
+            font-size: 48px;
+            font-weight: 300;
+            margin-bottom: 15px;
+            letter-spacing: -1px;
+        }
+
+        .hero-section .subtitle {
+            font-size: 42px;
+            font-weight: 400;
+            margin-bottom: 40px;
+            letter-spacing: -1px;
+        }
+
+        .hero-section .description {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .hero-section .brand {
+            font-size: 12px;
+            opacity: 0.6;
+            font-weight: 300;
+        }
+
+        /* 스크롤 힌트 */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-hint::after {
+            content: '▼';
+            display: block;
+            font-size: 16px;
+            margin-top: 8px;
+        }
+
+        /* 두 번째 페이지 - 오렌지색 */
+        .problem-section {
+            background: linear-gradient(180deg, #FF6B35 0%, #FF8C42 100%);
+            color: white;
+            padding: 40px 30px 120px;
+            justify-content: flex-start;
+        }
+
+        .problem-content {
+            padding-top: 80px;
+        }
+
+        .problem-section h2 {
+            font-size: 40px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 40px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .problem-card {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 16px;
+            padding: 24px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .problem-card h3 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .problem-card p {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+
+        .emoji-icon {
+            font-size: 48px;
+            text-align: center;
+            margin: 30px 0;
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        /* 애니메이션 */
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .problem-content {
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        /* 하단 영역 */
+        .bottom-area {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 393px;
+            height: 80px;
+            z-index: 900;
+            /* 추후 내용 추가 예정 */
+        }
+
+        /* 페이지 인디케이터 */
+        .page-indicator {
+            position: absolute;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 1000;
+        }
+
+        .page-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .page-dot.active {
+            background: white;
+            transform: scale(1.2);
+        }
