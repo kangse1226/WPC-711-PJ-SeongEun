@@ -17,7 +17,44 @@
             height: 852px;
             position: relative;
             margin: 0 auto;
-            background: #000;
+           
+        }
+        /* 섹션 구조 
+            페이지1: 히어로섹션<section class="hero-section">…</section>
+            페이지2: 문제제기섹션<section class="problem-section">…</section>
+            페이지3: 해결책탐색섹션<section class="explore-section">…</section>
+            페이지4: 해결책제시섹션<section class="solution-section">…</section>
+            페이지5: 행동유도섹션<section class="cta-section">…</section>
+            페이지6: 설문섹션<section class="survey-section">…</section>
+            페이지7: 추천섹션<section class="recommend-section">…</section>  */
+            
+        /* 페이지별 배경 색상 설정 */
+        .hero-section {
+            background-color: #0B0C10;
+        }
+
+        .problem-section {
+            background-color: #FFD54F;
+        }
+
+        .explore-section {
+            background-color: #FF7043;
+        }
+
+        .solution-section {
+            background-color: #AEE6FF;
+        }
+
+    .cta-section {
+            background-color: #00BFFF;
+        }
+
+       .survey-section {
+            background-color: #C8A2C8;
+        }
+
+      .recommend-section {
+            background-color: #FFC0CB;
         }
 
         /* 모바일에서만 overflow hidden */
@@ -65,7 +102,7 @@
             left: 0;
             width: 393px;
             height: 60px;
-            background: rgba(0, 0, 0, 0.9);
+            /* background: rgba(0, 0, 0, 0.9); */
             backdrop-filter: blur(10px);
             z-index: 1000;
             display: flex;
@@ -112,7 +149,7 @@
 
         /* 첫 번째 페이지 - 검정색 */
         .hero-section {
-            background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+            /* background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%); */
             color: white;
             text-align: center;
             justify-content: center;
@@ -176,7 +213,7 @@
 
         /* 두 번째 페이지 - 오렌지색 */
         .problem-section {
-            background: linear-gradient(180deg, #FF6B35 0%, #FF8C42 100%);
+            /* background: linear-gradient(180deg, #FF6B35 0%, #FF8C42 100%); */
             color: white;
             padding: 40px 30px 120px;
             justify-content: flex-start;

@@ -6,14 +6,18 @@
     <title>mySHADEmaker</title>
     
     <!-- css -->
-    <!-- <link rel="stylesheet" href="main.css"> -->
+    <link rel="stylesheet" href="main.css">
 
-    
+    <style>
+        /* 임시선 */
+        *{outline: 1px solid rgb(25, 102, 255)};
+    </style>
+
 </head>
 
 <body>
     <!-- js -->
-    <script src="main.js" defer></script>
+    <!-- <script src="main.js" defer></script> -->
 
        <div class="page-container">
         <!-- 상단 영역 -->
@@ -113,7 +117,7 @@
                     <h2>당신에게 <br> 시원한 그늘을 <br> 선물하세요! </h2>
                     <div class="moving-um">
                         <img src="" alt="둥실둥실 양산 애니메이션">
-                        <div class="button">나와 어울리는 <br> 양산 알아보기</div>
+                        <div class="button">나만의 양산 <br> pick! </div>
                     </div>
                 </div>
             </section>
@@ -121,21 +125,93 @@
             <!-- 페이지6 - 설문 섹션 -->
             <section class="survey-section">
                 <div class="survey-content">
-                    <h2>나만의 그늘 찾기</h2>
-                    <p>우선 순서</p>
+                    <h2>내 취향 저격 양산 찾기, 출발!</h2>
+                    <div class="survey-question survey-question01">
+                         Q1. 쇼핑할 때 나의 최우선 순위는? 🛒 <br>
+A. 가성비가 생명이지! 합리적인 게 최고야<br>
+B. 비싸도 괜찮아, 품질이 진리야<br>
+C. 예쁘면 0원... 디자인이 곧 정의야<br> 
+D. 하나에 여러 개 기능? 이게 진짜 효율이지<br> 
+                    </div>
+                    <div class="survey-question survey-question02">
+                        Q2. 나의 패션 철학을 한마디로 하면? 😎
+<br>
+A. 무난한 게 진짜 어려운 거야 (심플 is 베스트) <br>
+B. 명품은 명품이야... 고급진 게 좋아 <br>
+C. 남들과 똑같은 건 사양할게 (개성 만렙) <br>
+D. 편한 게 최고야, 실용성 원탑!<br>
+                    </div>
+                    <div class="survey-question survey-question03">
+                        Q3. 양산을 쓰는 진짜 이유는? ☂ <br>
+
+A. 자외선만 막아주면 됨, 기본이 중요해 <br>
+B. 내 피부는 소중해... 완벽한 보호가 필요해 <br>
+C. 예쁜 양산 들고 다니는 내 모습 = 화보 <br>
+D. 햇빛도 비도 OK? 이거 완전 갓템이잖아 <br>
+                    </div>
+                    <div class="survey-question survey-question04">
+                         Q4. 돈 쓸 때 나는... 💸<br>
+
+A. 가성비 계산기 돌린다 (합리적 소비왕) <br>
+B. 좋은 건 비싼 게 당연하지 <br>
+C. 마음에 들면 일단 질러~<br>
+D. 적당한 가격에 쓸모 많은 게 답이야 <br>
+                    </div>
+                    <div class="survey-question survey-question05">
+                       Q5. 액세서리 고를 때 나의 기준은? 💍<br>
+
+A. 뭐든 잘 어울리는 올라운더템 <br>
+B. 소재와 마감이 고급져야 해 <br>
+C. 시선 강탈하는 특별한 아이템 <br>
+D. 여기저기 다 써먹을 수 있는 만능템 <br>
+                    </div>
+                    <div class="survey-question survey-question06">
+                       Q6. 양산의 이상적인 유통기한은? ⏰<br>
+
+A. 1-2년? 충분히 본전 뽑았지 <br>
+B. 10년은 써야 투자 가치 있음 <br>
+C. 트렌드 따라 2-3년마다 바꿔야지 <br>
+D. 5년 정도면 적당하지 않아? <br>
+                    </div>
+                    <div class="survey-question survey-question07">
+                       Q7. 쇼핑하는 내 모습을 관찰하면? 👀<br>
+A. 온갖 사이트 비교하며 최저가 찾기 <br>
+B. 브랜드 검증 완료된 것만 픽! <br>
+C. 독특한 아이템 찾아 삼만리 <br>
+D. 멀티 기능 제품에 꽂힘 <br>
+
+
+                    </div>
+                    <div class="survey-question survey-question08">
+                        Q8. 양산 들고 다닐 때 진짜 중요한 건? 💡<br>
+
+A. 무거우면 바로 포기각 (가벼워야 해) <br>
+B. 자외선 차단 성능이 생명이지 <br>
+C. 사람들이 "어디서 샀어?" 물어봐야 함 <br>
+D. 갑작스런 소나기도 문제없어야 해 <br>
+
+<span>결과 보기</span>
+                    </div>
+                   
+                    <div class="waiting-section">
+                        <p>나만의 양산을 찾는 중...</p>
+                        <div><img src="" alt="양산이미지"></div>
+                        <div><img src="" alt="로딩중 아이콘"></div>
+                    </div>
                 </div>
             </section>
 
             <!-- 페이지7 - 추천 섹션 -->
             <section class="recommend-section">
                 <div class="recommend-content">
-                    <h2>나만의 그늘 찾기</h2>
-                    <p>우선 순서</p>
-                </div>
+                    <h2>당신은 가성비 추구형!</h2>
+                    <p>
+당신에게 SUNBASIC을 추천할게요.  <br> 가격은 착하게, 효과는 확실하게!  <br> 이게 바로 진짜 가성비 아닌가요? 😎"</p>
+<img src="" alt="로고">               
+<img src="" alt="제품 대표 이미지">               
+</div>
             </section>
 
-
-            
         </main>
 
         <!-- 페이지 인디케이터 -->
