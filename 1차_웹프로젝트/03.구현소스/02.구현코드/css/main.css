@@ -10,46 +10,9 @@
 
 /* 공사중 표시 */
 body * {
-    outline: 2px dashed #ccc;
+    outline: 2px solid #42a7ff;
 }
 
  /************************ 메인 CSS  ************************/
  
  /************************ 1. 메인영역 ************************/
-
-/* 인트로페이지 서브타이틀 */
-.intro-sub-title {
-    font-size: 1.5rem;
-   
-    letter-spacing: 0.2rem;
-  
-    color: #151515;
-    text-align: center;
-}
-/* 인트로페이지 메인타이틀-svg */
-.intro-title {
-
-    /* 위치 */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-
-
-    /* 글자설정 */
-    font-size: 10vw;
-    
-    letter-spacing: 0.2rem;
- 
-    color: #151515;
-    text-align: center;
-}
-
- 
- 
- /* 메인페이지~~ */
- @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap');
-
-
- /************************ 3. 하단영역 ************************/

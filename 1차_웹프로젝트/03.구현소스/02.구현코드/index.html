@@ -8,21 +8,66 @@
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
      <!-- 일단 구조 먼저 잡고 css하기 -->
+
   </head>
   
   <body>
-    
+        <!-- js : html, css 먼저 잡고, 뷰 공부해서-->
+    <!-- <script src="main.js" defer></script> -->
+
+<!-- 사이트 구조화
+
+1. 상단영역: 햄버거 아이콘, 사이트 로고, gnb 메뉴
+
+@@ 네비게이션 바(위로 올라가기)는 어디에 넣어야함???
+
+2. 메인영역: 인트로페이지,메인페이지,제품소개페이지 (2,3모두 메인영역임!)
+
+  2-1. 인트로 페이지에서 gnb메뉴가 팝업으로 전체화면
+  2-2. 인트로페이지->gnb메뉴->메인페이지로 클릭으로 이동 (1.인트로페이지와2.메인페이지는 같은 박스안에 있어야한다!)
+  2-3. 메인페이지 스크롤하면 바로 제품소개페이지로 이동
+
+  3. 제품소개페이지 구조화: 메인홍보영상부터 운동건강기능 파트까지 스크롤 이동:sub-page로 쌈
+        3-1.메인홍보영상 영역
+         <section class="promo promo__main-video"></section>
+        3-2. 하이라이트기능 영역>
+         <section class="highlight highlight__overview"> </section>
+        3-3. 프리미엄 영역 
+         <section class="premium premium__intro"></section>
+        3-4. 프리미엄 기능1 영역 
+         <section class="premium premium__feature1"></section>
+        3-5. 프리미엄 기능2 영역>
+         <section class="premium premium__feature2"></section>
+        3-6. 디자인 영역>
+         <section class="design design__intro"></section>
+        3-7. 디자인 기능1 영역 
+         <section class="design design__feature1"></section> 
+        3-8. 디자인 기능2 영역 
+         <section class="design design__feature2"></section> 
+        3-9. 운동건강 영역 
+        <section class="health health__intro"></section>
+        3-10. 운동건강 기능1 영역 
+        <section class="health health__feature1"></section>
+        3-11. 운동건강 기능2 영역 
+        <section class="health health__feature2"></section>
+        3-12. 운동건강 기능3 영역>
+        <section class="health health__feature3"></section>
+
+4. 하단영역: gnb메뉴 한번더, 사이트 로고, 고객센터, 언어 설정 -->
+
+
 <div id="main-area">
 <header class="main-area inbox">
-        <!-- 플렉스 부모박스 -->
+
+        <!--  플렉스 부모박스 -->
 <div class="cont-box">
 <!-- 1.인트로페이지와2.메인페이지는 같은 박스안에 있어야한다!
  그래야 내가 원하는대로 팝업메뉴리스트 눌렀을때바로 이동 -->
  <div class="xiaomi-korea">
   <!-- 1. 인트로페이지 -->
         <section class="intro-page-part">
-          <h2 class="intro-sub-title">Xiaomi</h2>
-          <h1 class="intro-title">JUST FOR FUN</h1>
+          <p class="intro-sub-title">Xiaomi</p>
+          <p class="intro-title">JUST FOR FUN</p>
 
       <!-- 햄버거버튼 -->
         <div class="ham">
@@ -50,6 +95,22 @@
             </ul>
         </nav>
 <!-- 1-2. 팝업-서브메뉴 리스트 -->
+        <nav class="sub-gnb">
+            <ul>
+                <li>
+                    <a href="#">Mobile</a>
+                </li>
+                <li>
+                    <a href="#">WEARABLE</a>
+                </li>
+                <li>
+                    <a href="#">SMART HOME</a>
+                </li>
+                <li>
+                    <a href="#">LIFE STYLE</a>
+                </li>
+            </ul>
+        </nav>
 
 <!-- 2. 메인페이지: 웨어러블-->
    <section class="main-page-part">
@@ -60,68 +121,11 @@
   <section class="line-up-part"></section>
      </div>
 
-<div class="sub-page">
- <!-- 3. 제품소개페이지:메인홍보영상부터 운동건강기능 파트까지 스크롤 이동:sub-page로 쌈 -->
-
-        <!-- 3-1. 메인홍보영상 영역 -->
-         <section class="video-part"></section>
-
-        <!-- 3-2. 하이라이트기능 영역 -->
-         <section class="highlight-part">
-            <h2 class="hl-title">GET THE HIGHLIGHT.</h2>
-            <!-- 하이라이트기능 영역 플렉스부모박스 : .cont-box -->
-         </section>
-
-        <!-- 3-3. 프리미엄 영역 -->
-         <section class="premium-intro-part"></section>
-        <!-- 3-4. 프리미엄 기능1 영역 -->
-         <section class="premium-part1"></section>
-        <!-- 3-5. 프리미엄 기능2 영역 -->
-         <section class="premium-part2"></section>
-        <!-- 3-6. 디자인 영역 -->
-         <section class="design-intro-part"></section>
-        <!-- 3-7. 디자인 기능1 영역 -->
-         <section class="design-part1"></section> 
-        <!-- 3-8. 디자인 기능2 영역 -->
-         <section class="design-part2"></section> 
-         <!-- 3-9. 운동건강 영역 -->
-         <section class="health-intro-part"></section>
-         <!-- 3-10. 운동건강 기능1 영역 -->
-         <section class="health-part1"></section>
-         <!-- 3-11. 운동건강 기능2 영역 -->
-         <section class="health-part2"></section>
-         <!-- 3-12. 운동건강 기능3 영역 -->
-         <section class="health-part3"></section>
-
-</div>
-
- 
 </div>
 </header>
 </div>
       
    
-                        <!-- 쇼핑하기의 서브리스트 -->
-                         <!-- <div class="shop-sub-list">
-                          <h3>최신제품 쇼핑하기</h3>
-                         </div>
-                        <div class="new-sub-list">
-                          <ul>
-                            <li><a href="#">Xiaomi 휴대용 포토 프린터 Pro</a></li>
-                            <li><a href="#">REDMI Pad 2</a></li>
-                            <li><a href="#">Xiaomi 스마트 카메라 C100</a></li>
-                            <li><a href="#">Xiaomi 블렌더</a></li>
-                            <li><a href="#">Xiaomi 165W 보조 배터리 10000mAh(통합 케이블)</a></li>
-                            <li><a href="#">Xiaomi Buds 5 Pro</a></li>
-                            <li><a href="#">Xiaomi 다기능 밥솥 1.5L</a></li>
-                            <li><a href="#">Xiaomi 휴대용 블렌더</a></li>
-                            <li><a href="#">Xiaomi Smart Band 10</a></li>
-                            <li><a href="#">Xiaomi 15</a></li>
-                          </ul>
-                        </div> -->
-              
-
-
     <!-- 3. 하단영역 -->
     <div id="bottom-area">
       <footer class="bottom-area inbox"></footer>
