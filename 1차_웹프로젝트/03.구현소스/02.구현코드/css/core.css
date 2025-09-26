@@ -4,10 +4,10 @@
 
 /* 공사중 표시 */
 * {
-  outline: 3px solid #42a7ff;
+  outline: 1px solid #42a7ff;
 }
 .inbox {
-  outline: 1px solid #1d46ff;
+  outline: 1px solid #59067a;
 }
 
 .section__content-box > div {
