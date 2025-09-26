@@ -10,7 +10,7 @@
 
 /* 공사중 표시 */
 body * {
-    outline: 2px solid #42a7ff;
+    outline: 1px solid #42a7ff;
 }
 
  /************************ 메인 CSS  ************************/

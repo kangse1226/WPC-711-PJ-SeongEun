@@ -12,7 +12,7 @@
   </head>
   
   <body>
-        <!-- js : html, css 먼저 잡고, 뷰 공부해서-->
+        <!-- js : html, css 먼저 잡고-->
     <!-- <script src="main.js" defer></script> -->
 
 <!-- 사이트 구조화
@@ -55,30 +55,25 @@
 
 4. 하단영역: gnb메뉴 한번더, 사이트 로고, 고객센터, 언어 설정 -->
 
+<!-- 구조잡기 -->
+ <!-- 보이는 화면은 body로 전체 id -->
+<div id="body-area">
+    <!--1. 상단영역 -->
+    <header class="site-header top-area">
+        <!-- 1-1. 사이트로고 -->
+        <a href="#" class="site-header__logo" aria-label="홈으로">
+            <img src="" alt="Xiaomi 로고">
+        </a>
 
-<div id="main-area">
-<header class="main-area inbox">
-
-        <!--  플렉스 부모박스 -->
-<div class="cont-box">
-<!-- 1.인트로페이지와2.메인페이지는 같은 박스안에 있어야한다!
- 그래야 내가 원하는대로 팝업메뉴리스트 눌렀을때바로 이동 -->
- <div class="xiaomi-korea">
-  <!-- 1. 인트로페이지 -->
-        <section class="intro-page-part">
-          <p class="intro-sub-title">Xiaomi</p>
-          <p class="intro-title">JUST FOR FUN</p>
-
-      <!-- 햄버거버튼 -->
-        <div class="ham">
+        <!-- --2. 메뉴 버튼(햄버거) -->
+        <button class="nav-toggle">
             <span></span>
             <span></span>
             <span></span>
-        </div>
-        </section>
+        </button>
 
-<!-- 1-1. 팝업-전체메뉴 리스트-->
-          <nav class="gnb">
+        <!-- 1-3. 전체메뉴-->
+          <nav class="menu-list">
             <ul>
                 <li>
                     <a href="#">Store</a>
@@ -94,8 +89,8 @@
                 </li>
             </ul>
         </nav>
-<!-- 1-2. 팝업-서브메뉴 리스트 -->
-        <nav class="sub-gnb">
+        <!--  1-4. 서브메뉴 리스트 -->
+        <nav class="sub-menu-list">
             <ul>
                 <li>
                     <a href="#">Mobile</a>
@@ -111,15 +106,67 @@
                 </li>
             </ul>
         </nav>
+    </header>
 
-<!-- 2. 메인페이지: 웨어러블-->
-   <section class="main-page-part">
+    <!-- 2. 메인영역 -->
+    <main class="main-area">
+        <!-- 2-1. 인트로 페이지 -->
+         <section class="intro-page">
+            <p>Xiaomi</p>
+            <p>JUST FOR FUN</p>
+         </section>
 
-   </section>
+        <!-- 2-2. 메인페이지 -->
+         <section class="main-page">
+            <p>일상을 편리하게</p>
+            <p>WEARABLE</p>
+            <div class="logo"><img src="" alt="샤오미로고"></div>
+         </section>
 
-<!-- 2-1. 서브페이지: 웨어러블페이지에서 라인업 페이지로 클릭 이동 -->
-  <section class="line-up-part"></section>
-     </div>
+        <!-- 2-3. 제품 소개 페이지 -->
+        <!-- 3-1.메인홍보영상 영역 -->
+         <section class="promo promo__main-video"></section>
+        <!-- 3-2. 하이라이트기능 영역> -->
+         <section class="highlight highlight__overview"> </section>
+        <!-- 3-3. 프리미엄 영역  -->
+         <section class="premium premium__intro"></section>
+        <!-- 3-4. 프리미엄 기능1 영역  -->
+         <section class="premium premium__feature1"></section>
+        <!-- 3-5. 프리미엄 기능2 영역> -->
+         <section class="premium premium__feature2"></section>
+        <!-- 3-6. 디자인 영역> -->
+         <section class="design design__intro"></section>
+        <!-- 3-7. 디자인 기능1 영역  -->
+         <section class="design design__feature1"></section> 
+        <!-- 3-8. 디자인 기능2 영역  -->
+         <section class="design design__feature2"></section> 
+        <!-- 3-9. 운동건강 영역  -->
+        <section class="health health__intro"></section>
+        <!-- 3-10. 운동건강 기능1 영역  -->
+        <section class="health health__feature1"></section>
+        <!-- 3-11. 운동건강 기능2 영역  -->
+        <section class="health health__feature2"></section>
+        <!-- 3-12. 운동건강 기능3 영역> -->
+        <section class="health health__feature3"></section>
+    </main>
+
+    <!-- 하단영역 -->
+    <div class="bottom-area">
+        <footer class="bottom-area">
+            <p>Xiaomi Korea <br> 고객센터 <br> 언어지원 <br> </p>
+        </footer>
+    </div>
+    
+    
+
+     
+
+
+
+
+
+
+
 
 </div>
 </header>
