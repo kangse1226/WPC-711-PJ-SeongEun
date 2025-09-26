@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-/* 도깨비 PJ : 리셋 CSS - reset.css */
+
 /* 기본 초기화 셋팅 */
 
 /* 기본 초기화 */
@@ -39,7 +39,7 @@ a{
 h1,h2,h3,h4,h5,h6{
     font-size: 100%;
     /* 박스 디자인시 글자크기로 인한
-    영향을 없애기 위한 초기화! */
+    영향을 없애기 위한 초기화 */
 }
 
 /* 이미지 초기화 */
@@ -50,4 +50,13 @@ img {
     /* 박스에 이미지만 넣을때
     엔터간극 4px 하단공백 없애기  */
     vertical-align: middle;
+}
+
+/* 기본 리셋 */
+* { 
+    box-sizing: border-box; 
+}
+html, body {
+  height: 100%;
+  margin: 0;
 }

@@ -1,0 +1,82 @@
+@charset "utf-8";
+/* 공통 클래스 CSS - core.css */
+/* 공통 셋팅을 위한 클래스 + 웹폰트 */
+
+
+/* 공사중 표시 */
+ * {
+    outline: 3px solid #42a7ff;
+}
+.inbox{
+    outline: 1px solid #1d46ff;
+} 
+
+.section__content-box > div{
+    outline: 1px solid #ff6a6a;
+}
+/* 여기까지 공사중 표시 */
+
+/* 공통 */
+html{
+    font-size: 10px;
+    /* rem단위 계산편의를 위함 */
+}
+
+/* 공통 글자 설정 */
+
+h1, h2, h3, h4, h5 {
+    font-weight: normal; 
+}
+
+h1{
+    font-size: 2.4rem;
+    line-height: 1.4;}
+
+h2{
+    font-size: 2rem;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+}
+
+
+#body-area {
+    
+    /* 전체 흰색 배경색 */
+    background-color: #ffffff;
+    /* 글자 설정 */
+
+    /* 폰트 적용 */
+    font-family: 'pretendard', sans-serif;
+
+}
+
+/* 공통 클래스 */
+.inbox{
+    height: 100vh;
+}
+
+/* 내용 파티션 박스 */
+.section__content-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* 파티션 박스 개수 */
+.part-col-1 > div{
+    width: 100%;
+}
+.part-col-2 > div{
+    width: 50%;
+}
+.part-col-3 > div{
+    width: 33.33%;
+}
+.part-col-4 > div{
+    width: 25%;
+}
+.par-col-5 > div{
+    width: 20%;
+}
+.part-col-6 > div{
+    width: 16.66%;
+}
