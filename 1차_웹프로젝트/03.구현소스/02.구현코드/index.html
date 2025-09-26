@@ -3,16 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Xiaomi Korea</title>
+    <title>Xiaomi Korea</title>
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
   </head>
-  
+
   <body>
-        <!-- js : html, css 먼저 잡고-->
+    <!-- js : html, css 먼저 잡고-->
     <!-- <script src="main.js" defer></script> -->
 
-<!-- 사이트 구조화
+    <!-- 사이트 구조화
  !이중 박스 이중단열구조!!! 
 
 1. 상단영역: 햄버거 아이콘, 사이트 로고, gnb 메뉴
@@ -53,161 +53,239 @@
 
 4. 하단영역: gnb메뉴 한번더, 사이트 로고, 고객센터, 언어 설정 -->
 
- <!-- 보이는 화면은 body로 전체 id -->
-<div id="body-area">
-    <!--1. 상단영역 -->
-    <div id="site-header">
+    <!-- 보이는 화면은 body로 전체 id -->
+    <div id="body-area">
+      <!--1. 상단영역 -->
+      <div id="site-header">
         <header class="site-header inbox">
-            <!-- 1-1. 사이트로고 -->
-            <a href="#" class="site-header__logo" aria-label="홈으로">
-                <img src="" alt="Xiaomi 로고">
-            </a>
-            <!-- --2. 메뉴 버튼(햄버거) -->
-            <button class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
-            <!-- 1-3. 전체메뉴-->
-              <div id ="menu-list">
-                  <nav>
-                <ul>
-                    <li>
-                        <a href="#">Store</a>
-                    </li>
-                    <li>
-                        <a href="#">Our Devices</a>
-                    </li>
-                    <li>
-                        <a href="#">Events</a>
-                    </li>
-                    <li>
-                        <a href="#">Story</a>
-                    </li>
-                </ul>
+          <!-- 1-1. 사이트로고 -->
+          <a href="#" class="site-header__logo" aria-label="홈으로">
+            <img src="" alt="Xiaomi 로고" />
+          </a>
+          <!-- --2. 메뉴 버튼(햄버거) -->
+          <button class="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <!-- 1-3. 전체메뉴-->
+          <div id="menu-list">
+            <nav>
+              <ul>
+                <li>
+                  <a href="#">Store</a>
+                </li>
+                <li>
+                  <a href="#">Our Devices</a>
+                </li>
+                <li>
+                  <a href="#">Events</a>
+                </li>
+                <li>
+                  <a href="#">Story</a>
+                </li>
+              </ul>
             </nav>
-              </div>
-        
-            <!--  1-4. 서브메뉴 리스트 -->
-              <div id="sub-menu-list">
-                 <nav>
-                <ul>
-                    <li>
-                        <a href="#">Mobile</a>
-                    </li>
-                    <li>
-                        <a href="#">WEARABLE</a>
-                    </li>
-                    <li>
-                        <a href="#">SMART HOME</a>
-                    </li>
-                    <li>
-                        <a href="#">LIFE STYLE</a>
-                    </li>
-                </ul>
-            </nav>
-              </div>
-        
-        </header>
-    </div>
+          </div>
 
-    <!-- 2. 메인영역 -->
-    <main class="main-area">
+          <!--  1-4. 서브메뉴 리스트 -->
+          <div id="sub-menu-list">
+            <nav>
+              <ul>
+                <li>
+                  <a href="#">Mobile</a>
+                </li>
+                <li>
+                  <a href="#">WEARABLE</a>
+                </li>
+                <li>
+                  <a href="#">SMART HOME</a>
+                </li>
+                <li>
+                  <a href="#">LIFE STYLE</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </header>
+      </div>
+
+      <!-- 2. 메인영역 -->
+      <main class="main-area">
         <!-- 2-1. 인트로 페이지 -->
-         <div id="intro-page">
-            <section class="intro-page inbox">
-                <div>
-                    <!-- 타이틀 박스 -->
-                    <hgroup>
-                        <h2>Xiaomi</h2>
-                        <h1>JUST FOR FUN</h1>
-                    </hgroup>
-                </div>
-         </section>
-         </div>
-         
+        <div id="intro-page">
+          <section class="intro-page inbox">
+            <div>
+              <!-- 타이틀 박스 -->
+              <hgroup>
+                <h2>Xiaomi</h2>
+                <h1>JUST FOR FUN</h1>
+              </hgroup>
+            </div>
+          </section>
+        </div>
 
         <!-- 2-2. 메인페이지 -->
-         <div id="main-page">
-             <section class="main-page inbox">
-                <!-- 타이틀 박스 -->
-                 <hgroup>
-                     <h3>일상을 편리하게</h3>
-                     <h2>WEARABLE</h2>
-                 </hgroup>
-                <div class="section__content-box col-3">
-                    <div></div>
-                    <div></div>
-                    <div></div>
-                </div>
-             </section>
-         </div>
+        <div id="main-page">
+          <section class="main-page inbox">
+            <!-- 타이틀 박스 -->
+            <hgroup class="part-col-2">
+              <h3>일상을 편리하게</h3>
+              <h2>WEARABLE</h2>
+            </hgroup>
+            <div class="section__content-box part-col-2">
+              <div>제품이미지</div>
+              <div>제품이미지</div>
+              <div>제품이미지</div>
+              <div>제품이미지</div>
+            </div>
+          </section>
+        </div>
 
         <!-- 2-3. 제품 소개 페이지 -->
         <!-- 2-3-1.메인홍보영상 영역 -->
-         <div id="promo">
-             <section class="promo inbox">
-             <hgroup>
-                 <h3>Xiaomi</h3>
-                 <h2>프리미엄 성능, 당신을 위한 디자인.</h2>
-                 <h3>WATCH S4</h3>
-             </hgroup>
-             <button> 구매하기 </button>
-             <div class="section__content-box part-col-1">
-                <div></div>
-             </div>
-            </section>
-         </div>
+        <div id="promo">
+          <section class="promo inbox video-box">
+            <hgroup>
+              <h3>Xiaomi</h3>
+              <h2>프리미엄 성능, 당신을 위한 디자인.</h2>
+              <h3>WATCH S4</h3>
+            </hgroup>
+            <button>구매하기</button>
+            <div class="section__content-box part-col-1">
+              <div>영상</div>
+            </div>
+          </section>
+        </div>
         <!-- 2-3-2. 하이라이트기능 영역> -->
-         <div id="highlight">
-             <section class="highlight inbox">
-                 </section>
-         </div>
-        <!-- 2-3-3. 프리미엄 영역  -->
-         <section class="premium premium__intro inbox"></section>
-        <!-- 2-3-4. 프리미엄 기능1 영역  -->
-         <section class="premium premium__feature1 inbox"></section>
-        <!-- 2-3-5. 프리미엄 기능2 영역> -->
-         <section class="premium premium__feature2 inbox"></section>
-        <!-- 2-3-6. 디자인 영역> -->
-         <section class="design design__intro inbox"></section>
-        <!-- 2-3-7. 디자인 기능1 영역  -->
-         <section class="design design__feature1 inbox"></section> 
-        <!-- 2-3-8. 디자인 기능2 영역  -->
-         <section class="design design__feature2 inbox"></section> 
+        <div id="highlight">
+          <section class="highlight inbox">
+            <h2>Get The Highlights</h2>
+            <div>
+              <div>뛰어난 밝기의 36.322mm AMOLED 디스플레이</div>
+              <div><img src="./images/highlight1.png" alt="디스플레이_이미지"></div>
+            </div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+          </section>
+        </div>
+
+        <div id="premium">
+          <!-- 2-3-3. 프리미엄 영역  -->
+          <section class="premium premium__intro inbox">
+            <div>PREMIUM</div>
+            <div><img src="./images/hand.png" alt="손 모델" /></div>
+          </section>
+          <!-- 2-3-4. 프리미엄 기능1 영역  -->
+          <section class="premium premium__feature1 inbox video-box">
+            <div>
+              <h2>
+                눈부신 디스플레이 <br />
+                뛰어난 선명도
+              </h2>
+              <div>
+                36.322mm AMOLED 대형 디스플레이를 적용해 <br />
+                선명하고 부드러운 비주얼과 함께 최대 1500nit의 압도적인 HBM
+                밝기를 선사합니다.
+              </div>
+              <div>
+                *디스플레이 주사율은 인터페이스에 따라 다를 수 있습니다.
+                <br />실제 사용 상황을 참조하세요. <br />
+                *HBM 밝기는 전체 화면이 켜졌을 때의 최대 밝기입니다. <br />최고
+                밝기는 화면의 일부만 켜졌을 때 도달한 최고 밝기입니다.
+              </div>
+            </div>
+          </section>
+          <!-- 2-3-5. 프리미엄 기능2 영역> -->
+          <section class="premium premium__feature2 inbox video-box"></section>
+        </div>
+
+        <div id="design">
+          <!-- 2-3-6. 디자인 영역> -->
+          <section class="design design__intro inbox">
+            <div>DESIGN</div>
+            <div><img src="" alt="다양한시계들" /></div>
+            <div>
+              중앙에 한줄씩 등장 그냥 넣지 말까..? 교체 가능한 액세서리 완전히
+              맞춤 가능한 트렌디한 스타일 전통적인 시계에서 영감을 얻은 Xiaomi
+              워치 S4는 아이코닉하면서도 트렌디한 베젤을 다양하게 선보입니다.
+              고급 소재로 제작되는 이 교체 가능한 베젤은 독특하고 창의적인
+              디자인으로 시선을 사로잡습니다.
+              <br />
+              우측에 등장, 회색 *이미지의 일부 워치 페이스는 활성화하는데 특정
+              베젤 및 스트랩 키트가 필요하며 Mi Fitness 앱에서는 제공하지
+              않습니다. *실버, 블랙 또는 레인보우 베젤 및 스트랩 키트가
+              기본적으로 제공됩니다. 다른 베젤 및 스트랩 키트는 별도로 구매해야
+              합니다.
+            </div>
+          </section>
+          <!-- 2-3-7. 디자인 기능1 영역  -->
+          <section class="design design__feature1 inbox">
+            <div>손목을 빛내는 트렌디한 스타일</div>
+            <div>xiomi Watch S4 Bezel and Strap Kit</div>
+            <figure>
+              <div>듀얼 톤 세라믹(블루 그레이)정보.txt에 나머지정보잇음</div>
+              <div>
+                투톤 블루 그레이 세라믹 베젤은 우아하면서도 세련된 스타일로
+                <br />
+                듀얼 GMT 시간대 디자인을 선보입니다.
+              </div>
+              <img src="" alt="시계모델" />
+            </figure>
+            <figure>
+              <img src="" alt="사람모델" />
+            </figure>
+            <div>이동버튼</div>
+            <div>색상버튼</div>
+          </section>
+          <!-- 2-3-8. 디자인 기능2 영역  -->
+          <section class="design design__feature2 inbox video-box"></section>
+        </div>
+
         <!-- 2-3-9. 운동건강 영역  -->
-        <section class="health health__intro inbox"></section>
-        <!-- 2-3-10. 운동건강 기능1 영역  -->
-        <section class="health health__feature1 inbox"></section>
-        <!-- 2-3-11. 운동건강 기능2 영역  -->
-        <section class="health health__feature2 inbox"></section>
-        <!-- 2-3-12. 운동건강 기능3 영역> -->
-        <section class="health health__feature3 inbox"></section>
-    </main>
+        <div id="health">
+          <section class="health health__intro inbox">
+            <div>HEALTH & FITNESS</div>
+            <img src="" alt="스키" />
+          </section>
+          <!-- 2-3-10. 운동건강 기능1 영역  -->
+          <section class="health health__feature1 inbox">
+            <h2>한눈에 확인하는 건강</h2>
+            <div class="description">
+              <h3>고정밀 감지 모듈 24시간 연중무휴 건강 보호</h3>
+              <p>
+                고정밀 심박수 모니터링 모듈과 자체 개발한 심박수 알고리즘의
+                조합을 통해 워치의 심박수 모니터링 정확도를 98%*까지 높였습니다.
+                *Xiaomi 내부 연구소에서 제공한 데이터입니다. 평균 정확도는 앉기,
+                실내 독서, 트레드밀 달리기, 야외 달리기, 걷기, 사이클 타기 등의
+                시나리오에서 최대 98%입니다. 실제 사용 시 정확도는 개인차, 사용
+                습관 및 환경 요인에 따라 달라질 수 있습니다.
+              </p>
+            </div>
+            <div><img src="" alt="" /></div>
+          </section>
+          <!-- 2-3-11. 운동건강 기능2 영역  -->
+          <section class="health health__feature2 inbox"></section>
+          <!-- 2-3-12. 운동건강 기능3 영역> -->
+          <section class="health health__feature3 inbox"></section>
+        </div>
+      </main>
 
-    <!-- 하단영역 -->
-    <div class="bottom-area">
+      <!-- 하단영역 -->
+      <div class="bottom-area">
         <footer class="bottom-area">
-            <p>Xiaomi Korea <br> 고객센터 <br> 언어지원 <br> </p>
+          <p>
+            Xiaomi Korea <br />
+            고객센터 <br />
+            언어지원 <br />
+          </p>
         </footer>
+      </div>
     </div>
-    
-    
 
-     
-
-
-
-
-
-
-
-
-</div>
-</header>
-</div>
-      
-   
     <!-- 3. 하단영역 -->
     <div id="bottom-area">
       <footer class="bottom-area inbox"></footer>
