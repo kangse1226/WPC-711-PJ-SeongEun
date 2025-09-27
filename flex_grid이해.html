@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex vs Grid 카드 레이아웃</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: #f2f4f8;
+      margin: 0;
+      padding: 0;
+    }
+
+    h2 {
+      text-align: center;
+      margin-top: 40px;
+      margin-bottom: 10px;
+    }
+
+    /* 공통 카드 스타일 */
+    .card {
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+      text-align: center;
+      font-weight: bold;
+    }
+
+    /* Flex 버전 */
+    .cards-flex {
+      display: flex;
+      flex-wrap: wrap;               /* 줄바꿈 허용 */
+      gap: 16px;                     /* 카드 간격 */
+      justify-content: center;       /* 가로 정렬 */
+      padding: 24px;
+    }
+    .cards-flex .card {
+      flex: 1 1 220px;               /* 기본 220px, 여유있으면 늘어남 */
+      min-width: 180px;              /* 최소 너비 */
+      background: #e9f5ff;
+    }
+
+    /* Grid 버전 */
+    .cards-grid {
+      display: grid;
+      gap: 16px;
+      padding: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+    .cards-grid .card {
+      background: #f0ffee;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Flex 레이아웃</h2>
+  <div class="cards-flex">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+    <div class="card">Card 5</div>
+    <div class="card">Card 6</div>
+  </div>
+
+  <h2>Grid 레이아웃</h2>
+  <div class="cards-grid">
+    <div class="card">Card 1</div>
+    <div class="card">Card 2</div>
+    <div class="card">Card 3</div>
+    <div class="card">Card 4</div>
+    <div class="card">Card 5</div>
+    <div class="card">Card 6</div>
+  </div>
+
+</body>
+</html>
