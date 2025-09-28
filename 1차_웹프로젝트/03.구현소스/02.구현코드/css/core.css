@@ -4,7 +4,7 @@
 
 /* 공사중 표시 */
 * {
-  outline: 1px solid #42a7ff;
+  /* outline: 1px solid #42a7ff; */
 }
 .inbox {
   outline: 1px solid #59067a;
@@ -19,6 +19,9 @@
 html {
   font-size: 10px;
   /* rem단위 계산편의를 위함 */
+
+  /* x축 스크롤 방지 */
+  overflow-x: hidden;
 }
 
 /* 공통 글자 설정 */
@@ -36,13 +39,14 @@ h1 {
   line-height: 1;
 }
 
+
 h2 {
   font-size: 1.6rem;
   line-height: 1;
 }
 
 #body-area {
-  /* 전체 흰색 배경색 */
+  /* 전체 배경색 */
   background-color: #ffffff;
   /* 글자 설정 */
 

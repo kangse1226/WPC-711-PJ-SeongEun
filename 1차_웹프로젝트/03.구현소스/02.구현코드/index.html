@@ -118,8 +118,35 @@
             <div>
               <!-- 타이틀 박스 -->
               <div class="grid-title">
-                <h1 class="title-img">JUST FOR FUN이미지로넣기</h1>
-                <div class="sub-title">Xiaomi</div>
+                <div class="sub-title">Where smart meets seamless</div>
+                <div class="title-container">
+                   <svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+
+                    <defs>
+                                    <!-- 텍스트를 마스크로 사용 -->
+                                    <mask id="textMask">
+                                        <rect width="100%" height="100%" fill="black"/>
+                                        <text x="300" y="100" text-anchor="middle" 
+                                              font-size="140" font-weight="900" 
+                                              font-family="Arial Black, Arial, sans-serif" 
+                                              fill="white">
+                                            XIAOMI
+                                        </text>
+                                    </mask>
+                                </defs>
+                                <!-- YouTube 비디오를 foreignObject로 삽입 -->
+                                <foreignObject width="100%" height="100%" mask="url(#textMask)">
+                                    <div class="video-mask" xmlns="http://www.w3.org/1999/xhtml">
+                                        <iframe 
+                                            src="https://www.youtube.com/embed/dSPOGtBxMds?autoplay=1&mute=1&loop=1&playlist=dSPOGtBxMds&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1"
+                                            allow="autoplay; encrypted-media"
+                                            allowfullscreen>
+                                        </iframe>
+                                    </div>
+                                </foreignObject>
+                   </svg>
+                  
+                 
               </div>
             </div>
           </section>
