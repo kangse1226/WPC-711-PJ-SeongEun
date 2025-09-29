@@ -30,32 +30,69 @@
       height: 100%;
       border: none;
     }
+  /* ===== 반응형 타이포그래피와 배치 ===== */
 
+    /* 화면 전체를 덮는 h1(큰 제목) */
     h1 {
       position: absolute;
-      top: 0;
-      left: 0;
-        width: 100%;
-        height: 100%;
-        text-align: center;
-        line-height: 100vh;
-      font-size: 20vw;
-      font-weight: 900;
-      /* 글자부분에만 영상이 보이도록 */
+       inset: 0;                   /* top:0; right:0; bottom:0; left:0; 과 같음 */
+      display: flex;              /* 가로 중앙 정렬을 위해 flex 사용 */
+      align-items: center;        /* 세로 중앙 정렬 - line-height 대신 안정적임 */
+      justify-content: center;    /* 가로 중앙 정렬 */
+       
+     z-index: 2;
+
       color: #000;
       background-color: #fff;
-      mix-blend-mode: screen; 
-      /* 글자 부분만 비디오랑 섞임 */
-      z-index: 2;
+      mix-blend-mode: screen;     /* 글자와 비디오가 섞이는 효과 */
+      pointer-events: none;       /* 클릭 가능한 요소가 뒤의 영상과 충돌하지 않도록 */
       
     }
-    h1 span{
-        display: inline-block;
-        scale: 1 1.5;
+    /* 전체 타이틀 박스 (XIOAMI 통째로) */
+    .xiaomi {
+      display: inline-block;
+      position: relative;         /* 내부 .xio와 .tagline 위치 기준 */
+      text-align: center;
+      line-height: 0.7;
+      /* 큰 글자의 크기: 화면에 따라 유동적으로 변화 */
+      font-weight: 900;
+      
+      font-size: clamp(48px, 30vw, 380px); /* 최소 48px, 최대 380px, 중간은 vw 기준 */
+     
+      /* 글자 자간 조절 */
+      letter-spacing: -0.08em;
+      /* 글자 세로 늘림 */
+      transform: scale(1 1.7);
+       white-space: nowrap;        /* 줄바꿈 방지 */
+
     }
 
+ /* XIO 부분만 따로 묶음 (tagline을 바로 위에 놓기 위해 relative) */
+    .xio {
+      display: inline-block;
+      position: relative;         /* tagline의 기준점 */
+      /* 필요 시 텍스트 변형: 예) 세로로 좀 늘리고 싶으면 scaleY 사용 */
+    }
 
-
+ /* 슬로건: XIO 바로 위에 위치 (반응형 gap 사용) */
+    .tagline {
+      position: absolute;
+      bottom: 100%;               /* XIO의 바로 위에 붙음 */
+      left: 44%;
+      /* 가운데 정렬 */
+      transform: translate(-50%, calc(-1 * var(--tag-gap)));
+      /* 반응형 간격: 화면에 따라 gap이 변함 */
+      --tag-gap: clamp(0.25em, 1.2vw, 1.0em);
+      /* 폰트 크기도 반응형으로 */
+      font-size: clamp(12px, 2.4vw, 40px);
+      font-weight: 600;
+      line-height: 1;
+      white-space: nowrap;        /* 슬로건 줄바꿈 방지 */
+      pointer-events: none;
+      /* 글자 자간 조절 */
+      letter-spacing: -0.02em; */
+      
+    }
 
 /* 2-2. 메인페이지  */
 
