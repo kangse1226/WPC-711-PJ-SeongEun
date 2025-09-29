@@ -1,0 +1,40 @@
+@charset "utf-8";
+/* 공통 클래스 CSS - core.css */
+/* 공통 셋팅을 위한 클래스 + 웹폰트 */
+
+
+/* 공통 클래스 */
+.inbox{
+    height: 100vh;
+    outline: 1px dashed red;
+}
+/* 내용 파티션 박스 */
+.cont-box{
+    display: flex;
+    flex-wrap: wrap;
+    min-height: 50%;
+}
+
+.cont-box > div{
+    outline: 1px dotted blue;
+}
+
+/* 파티션 박스개수 */
+.part-col-1 > div{
+    width: 100%;
+}
+.part-col-2 > div{
+    width: 50%;
+}
+.part-col-3 > div{
+    width: 33.3333%;
+}
+.part-col-4 > div{
+    width: 25%;
+}
+.part-col-5 > div{
+    width: 20%;
+}
+.part-col-6 > div{
+    width: 16.6666%;
+}

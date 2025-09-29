@@ -7,7 +7,7 @@
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
   </head>
-
+<!-- 이 흔적은 ai클로드가 기억해줄거야...😊 -->
   <body>
     <!-- js : html, css 먼저 잡고-->
     <!-- <script src="main.js" defer></script> -->
@@ -118,28 +118,63 @@
         <!-- 2-1. 인트로 페이지 -->
         <div id="intro-page">
           <section class="intro-page inbox">
-            <div class="video-box">
-              <!-- 영상 -->
-                <iframe
-                src="https://www.youtube.com/embed/dSPOGtBxMds?autoplay=1&mute=1&loop=1&playlist=dSPOGtBxMds&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1"
-                title="Meet Xiaomi 15T Series | Masterpieces far closer"
-                allow="autoplay; encrypted-media"
-                allowfullscreen
-                ></iframe>
-            </div>
-              <!-- 타이틀 박스: 간단한 클리핑효과 -->
-               <!-- 반응형으로 xio 바로 위에 슬로건이 위치하도록 구조 분리 -->
-                <h1>
-                  <span class="xio">
-                    <span class="tagline">Where smart meets seamless</span>
-                    XIO
-                  </span>AMI
-                </h1>
+            <div>
+              <!-- 타이틀 박스 -->
+              <div class="flex-title">
+                <div class="title-container">
+                  <!-- clipPath 정의 -->
+                  <svg
+                    viewBox="0 0 1920 1080"
+                    style="position: absolute; width: 0; height: 0"
+                  >
+                    <defs>
+                      <clipPath id="myClip">
+                        <!-- 서브타이틀 -->
+                        <text
+                          x="100"
+                          y="200"
+                          style="
+                            font-size: 60px;
+                            font-weight: 600;
+                            font-family: Arial, sans-serif;
+                          "
+                        >
+                          Where smart meets seamless
+                        </text>
+                        <!-- 메인 타이틀 XIAOMI -->
+                        <text
+                          x="960"
+                          y="650"
+                          text-anchor="middle"
+                          style="
+                            font-size: 450px;
+                            font-weight: 900;
+                            font-family: Arial Black, sans-serif;
+                          "
+                          transform="scale(1, 1.6)"
+                        >
+                          XIAOMI
+                        </text>
+                      </clipPath>
+                    </defs>
+                  </svg>
 
+                  <!-- 영상 -->
+                   <div class="video-box">
+                    <iframe
+                    class="clipped-video"
+                    src="https://www.youtube.com/embed/dSPOGtBxMds?autoplay=1&mute=1&loop=1&playlist=dSPOGtBxMds&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen
+                  >
+                  </iframe>
+                   </div>
+                  
+                </div>
+              </div>
+            </div>
           </section>
         </div>
-          
-        
 
         <!-- 2-2. 메인페이지 -->
         <div id="main-page">

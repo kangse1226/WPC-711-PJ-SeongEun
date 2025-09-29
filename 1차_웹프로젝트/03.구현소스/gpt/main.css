@@ -1,0 +1,151 @@
+@charset "utf-8";
+/* 샤오미 pj 메인 페이지 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+/*  클래스를 css에 만들고,
+그 클래스를 html에 넣기 */
+
+/************************ 메인 CSS  ************************/
+
+/************************ 1. 상단영역 ************************/
+
+/************************ 2. 메인영역 ************************/
+/* 2-1.인트로 페이지 */
+
+.flex-title {
+  display: flex;
+  /* flex-direction: column; */
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  padding: 2rem;
+}
+.title-container {
+  position: relative;
+            width: 100%;
+            max-width: 1920px;  /* viewBox 너비와 동일 */
+    aspect-ratio: 16 / 9;  /* 1920:1080 비율 유지 */
+            
+}
+.video-box{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+   
+/* iframe에 clip-path 적용 */
+ .clipped-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* iframe을 크게 만들어서 빈 공간 제거 */
+            width: 200%;
+            height: 200%;
+            border: none;
+            clip-path: url(#myClip);
+            -webkit-clip-path: url(#myClip);
+            pointer-events: none;
+          
+        }
+
+
+/* youtube iframe 삽입 */
+/* .video-mask {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.video-mask iframe {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 300%;
+  height: 300%;
+  border: none;
+  pointer-events: none;
+}
+
+.video-box {
+  width: 100%;
+  height: 100%;
+  clip-path: url(#mask-text);
+}
+.video-box iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+} */
+
+/* 반응형?@!>!>!>!>!>!> */
+
+/* @media (max-width: 1024px) {
+            .sub-title {
+                font-size: 3rem;
+            }
+            .grid-title {
+                gap: 2rem;
+                padding: 1rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .sub-title {
+                font-size: 2.5rem;
+            }
+            .title-container {
+                margin-top: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .sub-title {
+                font-size: 2rem;
+            }
+            .grid-title {
+                gap: 1rem;
+            }
+        } */
+
+/* 2-2. 메인페이지  */
+
+.main-page h2 {
+  /* 글자 */
+  font-size: 8rem;
+  font-weight: 700;
+  color: #000000;
+
+  font-size: 12rem;
+  display: inline-block; /* transform이 텍스트에만 적용되도록 */
+  transform: scaleY(1.7); /* y축(세로) 2배 늘리기 */
+  transform-origin: center;
+
+  /* 이렇게 하는게 아니라 화면 줄의 몇퍼센트 차지하게 해야할 것 같은데
+    그리드??  */
+}
+.main-page h3 {
+  font-size: 4rem;
+}
+
+/* 2-3-4. 프리미엄 기능1 영역  */
+#premium {
+  position: relative;
+}
+.premium > h2 {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  font-size: 20rem;
+  font-weight: 700;
+}
+
+/************************ 3. 하단영역 ************************/

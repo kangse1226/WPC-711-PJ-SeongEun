@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Video Text Effect</title>
+  <style>
+    html, body   {
+        margin: 0;
+        padding: 0;
+    }
+
+    .video {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+    }
+
+    .video-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .video-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 100vh;
+      font-size: 20vw;
+      font-weight: 900;
+      color: #000;
+      background-color: #fff;
+      mix-blend-mode: screen; 
+      /* 글자 부분만 비디오랑 섞임 */
+      z-index: 2;
+      margin: 0;
+      padding: 0;
+    }
+    h1 span{
+        display: inline-block;
+        scale: 1 1.7;
+    }
+  </style>
+</head>
+<body>
+    <div class="video-box">
+        <iframe src="https://www.youtube.com/embed/dSPOGtBxMds?autoplay=1&mute=1&loop=1&playlist=dSPOGtBxMds&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1"></iframe>
+    </div>
+  <!-- <video class="video" autoplay muted loop playsinline>
+    <source src="./cgv.mp4" type="video/mp4">
+  </video> -->
+  <h1><span>XIOAMI</span></h1>
+</body>
+</html>

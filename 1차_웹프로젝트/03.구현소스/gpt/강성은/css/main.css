@@ -1,0 +1,11 @@
+@charset "UTF-8";
+/* 메인 페이지용 CSS - main.css */
+
+
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+html {
+    font-size: 16px;
+}

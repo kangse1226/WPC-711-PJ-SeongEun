@@ -6,173 +6,87 @@
 @import url(./core.css);
 @import url(./common.css);
 
-
 /*  클래스를 css에 만들고,
 그 클래스를 html에 넣기 */
 
+/************************ 메인 CSS  ************************/
 
- /************************ 메인 CSS  ************************/
- 
- /************************ 1. 상단영역 ************************/
+/************************ 1. 상단영역 ************************/
 
- /************************ 2. 메인영역 ************************/
+/************************ 2. 메인영역 ************************/
 /* 2-1.인트로 페이지 */
 
-.grid-title {
-    display: grid;
-    grid-template-rows: auto 1fr; /* 2개 행: 서브타이틀용, 메인타이틀용 */
-    grid-template-columns: 1fr;
-    height: 100vh;
-    align-items: start; /* 전체적으로 위에서 시작 */
-    justify-items: center; /* 가로는 중앙정렬 */
-    gap: 1rem; /* 서브타이틀과 메인타이틀 사이 간격 */
-}
+.video-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
+    }
+    .video-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
 
-/* 서브타이틀: 타이틀의 상단 위로 배치 */
-.sub-title {
-    /* 첫 번째 행에 배치 */
-    grid-row: 1;
-    /* 글자 설정 */
-    font-size: 4rem;
-    font-weight: 600;
-    justify-self: start; /* 서브타이틀은 왼쪽 정렬 유지 */
-    align-self: start;
-    margin-top: 30rem;
-    margin-left: 18rem;
-    
-}
-
-
-
-  .title-container { 
-    /* 두 번째 행에 배치 */
-    grid-row: 2;
-    justify-self: center; /* 중앙정렬 */
-    align-self: center; /* 서브타이틀 바로 아래 위치 */
-    padding: 0;
-         /* 위치 조정@@@@@@@도와주세요탐쌤~~!! */
-    margin-bottom: 30rem;
-    position: relative;
-    width: 100%;
-            max-width: 80vw;
-           
-            /* margin-top: 3rem; */
-       /* 글자 설정 */
-    /* font-size: 12rem; */
-    /* font-weight: 900; */
-    /* color: #000000; */
-  
-        }
-
- .title-container svg{
-            width: 100%;
-            height: auto;
-            
-         
-        }
-
-/* svg 클리핑 마스크 컨테이너 */
-.svg-mask-container{
-    position: relative;
-    width: 100%;
-    height: 100%;
-}
-
-.svg-mask-container svg{
-    width: 100%;
-    height: 100%;
-    display: block;
-}
-
-/* youtube iframe을 foreignObject로 삽입 */
-.vedeo-mask{
-    width: 100%;
-    height: 100%;
-   
-}
-
-.vedeo-mask iframe{
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-
-
-
-/* 반응형?@!>!>!>!>!>!> */
-
-/* @media (max-width: 1024px) {
-            .sub-title {
-                font-size: 3rem;
-            }
-            .grid-title {
-                gap: 2rem;
-                padding: 1rem;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .sub-title {
-                font-size: 2.5rem;
-            }
-            .title-container {
-                margin-top: 1rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .sub-title {
-                font-size: 2rem;
-            }
-            .grid-title {
-                gap: 1rem;
-            }
-        } */
+    h1 {
+      position: absolute;
+      top: 0;
+      left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        line-height: 100vh;
+      font-size: 20vw;
+      font-weight: 900;
+      /* 글자부분에만 영상이 보이도록 */
+      color: #000;
+      background-color: #fff;
+      mix-blend-mode: screen; 
+      /* 글자 부분만 비디오랑 섞임 */
+      z-index: 2;
+      
+    }
+    h1 span{
+        display: inline-block;
+        scale: 1 1.5;
+    }
 
 
 
 
+/* 2-2. 메인페이지  */
 
+.main-page h2 {
+  /* 글자 */
+  font-size: 8rem;
+  font-weight: 700;
+  color: #000000;
 
+  font-size: 12rem;
+  display: inline-block; /* transform이 텍스트에만 적용되도록 */
+  transform: scaleY(1.7); /* y축(세로) 2배 늘리기 */
+  transform-origin: center;
 
- /* 2-2. 메인페이지  */
-
-
-.main-page h2{
-     /* 글자 */
-    font-size: 8rem;
-    font-weight: 700;
-    color: #000000;
-    
-    font-size: 12rem;
-      display: inline-block;           /* transform이 텍스트에만 적용되도록 */
-  transform: scaleY(1.7);            /* y축(세로) 2배 늘리기 */
-  transform-origin: center; 
-
-   /* 이렇게 하는게 아니라 화면 줄의 몇퍼센트 차지하게 해야할 것 같은데
+  /* 이렇게 하는게 아니라 화면 줄의 몇퍼센트 차지하게 해야할 것 같은데
     그리드??  */
-  
 }
-.main-page h3{
-   
-    font-size: 4rem;
+.main-page h3 {
+  font-size: 4rem;
 }
 
-
- /* 2-3-4. 프리미엄 기능1 영역  */
-#premium{
-    position: relative;
+/* 2-3-4. 프리미엄 기능1 영역  */
+#premium {
+  position: relative;
 }
-   .premium > h2{
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    font-size: 20rem;
-    font-weight: 700;
+.premium > h2 {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  font-size: 20rem;
+  font-weight: 700;
+}
 
-   }
-  
-
-
- /************************ 3. 하단영역 ************************/
-
+/************************ 3. 하단영역 ************************/
