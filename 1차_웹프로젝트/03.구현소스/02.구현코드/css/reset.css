@@ -24,6 +24,10 @@ figcaption {
     padding: 0;
 }
 
+b{
+    /* font-weight: normal; */
+}
+
 /* ul,ol 순번,블릿없앰 */
 ul,ol{
     list-style: none;

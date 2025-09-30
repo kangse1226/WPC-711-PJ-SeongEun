@@ -23,6 +23,8 @@ html {
 
   /* x축 스크롤 방지 */
   overflow-x: hidden;
+/* 디자인넣을 제목용 폰트 */
+
 
   /* 페이지 전체 폰트 적용: pretendard */
 font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
