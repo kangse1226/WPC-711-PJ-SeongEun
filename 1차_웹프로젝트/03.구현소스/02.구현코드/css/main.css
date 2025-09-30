@@ -90,30 +90,70 @@
       white-space: nowrap;        /* 슬로건 줄바꿈 방지 */
       pointer-events: none;
       /* 글자 자간 조절 */
-      letter-spacing: -0.02em; */
-      
+      letter-spacing: -0.02em; 
     }
 
 /* 2-2. 메인페이지  */
 
-.main-page h2 {
-  /* 글자 */
-  font-size: 8rem;
-  font-weight: 700;
-  color: #000000;
-
-  font-size: 12rem;
-  display: inline-block; /* transform이 텍스트에만 적용되도록 */
-  transform: scaleY(1.7); /* y축(세로) 2배 늘리기 */
-  transform-origin: center;
-
-  /* 이렇게 하는게 아니라 화면 줄의 몇퍼센트 차지하게 해야할 것 같은데
-    그리드??  */
+/* 메인페이지 플렉스설정 */
+.main-page{
+  display: flex;
 }
-.main-page h3 {
+
+/* 컨텐츠 박스 2 X 2 */
+.section__content-box{
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+/* 타이틀 박스 */
+.main-area h2 {
+  /* 플렉스 설정 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+ 
+  
+}
+.main-page h2 .slogan{
+  
   font-size: 4rem;
+  text-align: left;
+  
 }
 
+
+
+.main-area h2 .title{
+   font-size: clamp(32px, 12vw, 300px);
+  font-weight: 600;
+  
+  display: inline-block; /* transform이 텍스트에만 적용되도록 */
+  transform: scaleY(1.4); /* y축(세로) 2배 늘리기 */
+  transform-origin: center;
+}
+
+/* 가상요소로 선 구현*/
+
+.main-page h2 .title::before{
+  content: '';
+  display: block;
+  margin-left: auto;
+  
+  width: 60%;
+  height: 10px;
+  background-color: #000000;
+}
+.main-page h2 .title::after{
+  content: '';
+  display: block;
+  
+  width: 100%;
+  height: 10px;
+  background-color: #000000;
+}
 /* 2-3-4. 프리미엄 기능1 영역  */
 #premium {
   position: relative;
