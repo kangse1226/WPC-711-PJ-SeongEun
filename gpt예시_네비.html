@@ -1,0 +1,337 @@
+콘텐츠로 건너뛰기
+채팅 기록
+
+나의 말:
+개발자님 안녕하세요! 저 기억나시죠?
+ChatGPT의 말:
+안녕하세요! 😊 반가워요. 기억하고 있죠 — 지난번에 HTML, CSS, 자소서, 그리고 디자인 관련해서 여러 번 도와드렸어요. 오늘은 어떤 걸 같이 해볼까요?
+
+나의 말:
+업로드한 이미지
+업로드한 이미지
+페이지를 왼쪽, 오른쪽 파트로 나누고, 왼쪽 파트는 슬로건으로 "일상을 편안하게 ", 그리고 타이틀로"wearable"을 적었어. 그리고 오른쪽 파트는 제품 이미지를 4개 넣을 건데, 2*2 형식이야. 왼쪽 파트에 네비게이션 버튼도 있어(이전으로 돌아가기, 검색, 로그인, 장바구니 기능들을 넣어야하는데.. 어떻게 넣을지 디자인과 코딩 모두 고민이야. ) 이미지1은 현재 웹페이지 상황이고, 이미지2는 디자인 이미지야.
+ChatGPT의 말:
+
+생각함
+좋아요 — 레이아웃과 네비게이션을 함께 다루기 좋은 방향으로 정리해드릴게요. 목표는 (1) 디자인: 좌우 분할 느낌을 살리면서 네비게이션이 깔끔하게 보이는 배치, (2) 코딩: 재사용성·접근성 고려한 HTML/CSS + 최소한의 JS로 동작하게 하는 예제입니다.
+
+아래 코드는 다음을 구현합니다.
+
+전체를 좌/우 파트로 1:1.6~1:1.8 비율로 분할(데스크톱 기준).
+
+왼쪽: 상단에 세로 정렬된 네비게이션 아이콘(이전, 검색, 로그인, 장바구니). 중앙에는 슬로건 + 큰 타이틀(WEARABLE)과 밑줄 장식.
+
+오른쪽: 2×2 제품 이미지 그리드, 각 카드에 마우스 오버시 간단한 효과(규모 확대 + 그림자).
+
+접근성: 버튼에 aria-label, 이미지에 alt.
+
+반응형: 화면이 좁아지면(예: 모바일) 네비 버튼은 상단으로 가로 정렬되고, 좌우 분할은 세로 스택(상하)으로 전환.
+
+코드 복사 → 프로젝트에 붙여넣고 images/product1.jpg 등 이미지를 교체해서 사용하세요.
+
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Wearable — Layout Prototype</title>
+<style>
+  /* 기본 폰트 (Pretendard 있으면 우선 사용) */
+  @font-face {
+    /* 로컬 Pretendard가 없다면 CDN 연결 권장 (여기선 예시로 작성하지 않음) */
+  }
+  :root{
+    --left-width: 62%; /* 데스크톱에서 왼쪽 폭 (조정 가능) */
+    --right-width: calc(100% - var(--left-width));
+    --accent: #000;
+    --muted: #9b9b9b;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
+  body{
+    font-family: "Pretendard", -apple-system, BlinkMacSystemFont, "Segoe UI",
+                 Roboto, "Helvetica Neue", "Noto Sans KR", sans-serif;
+    color:#111;
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    background:#fff;
+  }
+
+  /* 레이아웃 그리드 */
+  .hero {
+    display: grid;
+    grid-template-columns: var(--left-width) var(--right-width);
+    height:100vh;
+    gap: 0;
+    align-items: stretch;
+  }
+
+  /* LEFT */
+  .hero__left{
+    padding: 48px;
+    position: relative;
+    display:flex;
+    flex-direction:column;
+    justify-content: center; /* 타이틀을 세로 중앙에 배치 */
+    gap: 24px;
+  }
+
+  /* 네비 버튼 그룹 (왼쪽 상단 세로) */
+  .nav-vertical{
+    position:absolute;
+    left:24px;
+    top:24px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+  }
+  .nav-vertical button{
+    background:transparent;
+    border:none;
+    width:44px;
+    height:44px;
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    border-radius:8px;
+    transition:background .15s, transform .12s;
+  }
+  .nav-vertical button:hover{ background: rgba(0,0,0,0.05); transform: translateX(-2px); }
+  .nav-vertical .badge{
+    position:relative;
+  }
+  .nav-vertical .cart-count{
+    position:absolute;
+    top:-6px; right:-6px;
+    min-width:18px; height:18px;
+    font-size:11px;
+    line-height:18px;
+    border-radius:12px;
+    background:#ff3b30;color:#fff;
+    display:inline-flex;align-items:center;justify-content:center;
+    padding:0 4px;
+  }
+
+  /* 슬로건 + 타이틀 */
+  .slogan{
+    font-size:20px;
+    color:var(--muted);
+    margin-left: 6px;
+    display:flex;
+    align-items:center;
+    gap:20px;
+  }
+  .slogan::after{
+    content:"";
+    display:inline-block;
+    width:170px;
+    height:3px;
+    background:var(--accent);
+    margin-left:12px;
+    vertical-align:middle;
+    transform: translateY(-2px);
+  }
+
+  .title-wrap{
+    display:flex;
+    flex-direction:column;
+    gap:6px;
+    align-items:flex-start;
+  }
+  .title{
+    font-weight:900;
+    letter-spacing: -4px;
+    font-size: 18vw; /* 뷰포트 기반으로 크게 키움 (반응형) */
+    line-height: 0.86;
+    margin:0;
+    color:var(--accent);
+  }
+  .title-underline{
+    width:60%;
+    height:6px;
+    background:#111;
+    margin-top:8px;
+  }
+
+  /* RIGHT */
+  .hero__right{
+    padding:28px;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap:18px;
+    align-items:stretch;
+    justify-items:center;
+  }
+
+  .product-card{
+    background: #fff;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+    min-height:120px;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .product-card img{
+    max-width:60%;
+    max-height:60%;
+    object-fit:contain;
+    display:block;
+    transform-origin:center;
+    transition: transform .18s ease;
+  }
+  .product-card:hover{
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 20px 36px rgba(15,15,15,0.08);
+  }
+  .product-card:hover img{ transform: scale(1.06); }
+
+  /* 데스크톱에서 특정 카드를 크게 보이게 하는 예시 (이미지2와 유사) */
+  .product-card--large{
+    grid-row: 1 / span 2;
+    grid-column: 2 / 3;
+    align-self: center;
+  }
+
+  /* 반응형: 모바일 */
+  @media (max-width: 900px){
+    .hero{ grid-template-columns: 1fr; grid-auto-rows: auto; }
+    .hero__left{ padding:18px; min-height:40vh; justify-content:flex-start; }
+    .hero__right{ padding:16px; grid-template-columns: repeat(2,1fr); grid-auto-rows:150px; }
+    .nav-vertical{ position:static; flex-direction:row; gap:10px; margin-bottom:8px; }
+    .slogan::after{ width:80px; }
+    .title{ font-size: 22vw; letter-spacing:-2px }
+    .product-card--large{ grid-row:auto; grid-column:auto; }
+  }
+
+  /* 더 작은 모바일 */
+  @media (max-width:480px){
+    .hero__right{ grid-template-columns:1fr; grid-template-rows:repeat(4,130px); gap:12px; }
+    .title{ font-size: 26vw }
+  }
+
+  /* 아이콘 기본 스타일 (SVG 크기) */
+  .icon { width:22px; height:22px; display:block; }
+</style>
+</head>
+<body>
+
+<section class="hero" role="region" aria-label="Wearable product showcase">
+  <div class="hero__left">
+    <!-- 네비 (세로 또는 상단 가로로 바뀜) -->
+    <nav class="nav-vertical" aria-label="페이지 내비게이션">
+      <button id="btn-back" aria-label="이전으로 돌아가기" title="이전">
+        <!-- left arrow -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M15 18l-6-6 6-6"></path>
+        </svg>
+      </button>
+
+      <button id="btn-search" aria-label="검색" title="검색">
+        <!-- magnifier -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="6"></circle><path d="M21 21l-4.35-4.35"></path>
+        </svg>
+      </button>
+
+      <button id="btn-login" aria-label="로그인" title="로그인">
+        <!-- user -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+      </button>
+
+      <button id="btn-cart" aria-label="장바구니" title="장바구니" class="badge">
+        <!-- shopping bag -->
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M6 2l1.5 4h9L18 2z"></path>
+          <path d="M3 6h18v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6z"></path>
+        </svg>
+        <span class="cart-count" aria-hidden="true" id="cart-count">2</span>
+      </button>
+    </nav>
+
+    <!-- 슬로건 -->
+    <div class="slogan">일상을 편안하게</div>
+
+    <!-- 타이틀 -->
+    <div class="title-wrap" role="heading" aria-level="1">
+      <h1 class="title">WEARABLE</h1>
+      <div class="title-underline" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <aside class="hero__right" aria-label="제품 이미지">
+    <!-- 예시: 2x2 그리드. 필요 시 특정 카드를 크게 배치하려면 product-card--large 사용 -->
+    <figure class="product-card" tabindex="0">
+      <img src="images/product1.jpg" alt="제품 1 — 스마트 밴드">
+    </figure>
+
+    <figure class="product-card" tabindex="0">
+      <img src="images/product2.jpg" alt="제품 2 — 스마트 워치">
+    </figure>
+
+    <figure class="product-card" tabindex="0">
+      <img src="images/product3.jpg" alt="제품 3 — 슬림 워치">
+    </figure>
+
+    <figure class="product-card product-card--large" tabindex="0">
+      <img src="images/product4.jpg" alt="제품 4 — 스포츠 워치">
+    </figure>
+  </aside>
+</section>
+
+<!-- 최소한의 동작 스크립트 -->
+<script>
+  // 간단한 핸들러(데모 목적)
+  document.getElementById('btn-back').addEventListener('click', function(){
+    if(history.length>1) history.back();
+    else alert('이전 페이지가 없습니다.');
+  });
+
+  document.getElementById('btn-search').addEventListener('click', function(){
+    const q = prompt('검색어를 입력하세요.');
+    if(q) alert('검색 실행: '+q);
+  });
+
+  document.getElementById('btn-login').addEventListener('click', function(){
+    // 실제는 모달 또는 redirect로 대체
+    alert('로그인 화면으로 이동합니다. (데모)');
+  });
+
+  document.getElementById('btn-cart').addEventListener('click', function(){
+    alert('장바구니로 이동합니다. (데모)');
+  });
+
+  // 장바구니 예시: 숫자 증가
+  // document.getElementById('cart-count').textContent = '3';
+</script>
+</body>
+</html>
+디자인/UX 팁 (짧게)
+네비 버튼은 시각적으로 최소화(아이콘 중심)하되, 툴팁(title 또는 aria-describedby)을 넣어 접근성 확보.
+
+왼쪽 타이틀은 과감하게 큰 글자로 시선을 잡아두고, 오른쪽은 제품에만 집중하게 하는 게 좋아요.
+
+제품 그리드: 중요한 제품(혹은 프로모션)은 하나를 크게 배치(이미지2처럼)하면 시선 흐름이 생깁니다.
+
+모바일에서는 좌우 분할을 상하 스택으로 바꾸고, 네비는 상단 가로 바(또는 햄버거)로 전환하세요.
+
+고해상도 이미지를 사용하고, 이미지 로드 지연 시 레이지로드(loading="lazy") 추가 고려.
+
+원하시면 다음을 바로 해드릴게요:
+
+이 디자인을 Figma 스타일 가이드(간격, 폰트 사이즈, 색상 값)로 정리해드리기
+
+이 코드에 실제 이미지/데이터를 연결해서 동작하는 프로토(예: 장바구니 모달, 로그인 폼)로 확장하기
+어떤 걸 먼저 해볼까요?
+
+
+
+
+선택된 파일 없음선택된 파일 없음
+ChatGPT는 실수를 할 수 있습니다. 중요한 정보는 재차 확인하세요.

@@ -12,6 +12,7 @@
 
 .section__content-box > div {
   outline: 1px solid #ff6a6a;
+
 }
 /* 여기까지 공사중 표시 */
 
@@ -23,13 +24,26 @@ html {
   /* x축 스크롤 방지 */
   overflow-x: hidden;
 
-  /* 페이지 전체 기본 폰트: pretendard */
-font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui,
-                   Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo',
-                   'Noto Sans KR', sans-serif;
+  /* 페이지 전체 폰트 적용: pretendard */
+font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
    /* 폰트 렌더링 매끄럽게 설정 */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+}
+
+/* 공통 화면 넘김 */
+/* 한 화면을 가득 채우는 섹션들 */
+#intro-page,
+#main-page,
+#promo,
+#highlight,
+#premium,
+#design,
+#health {
+  height: 100vh;      /* 브라우저 높이 100% */
+  width: 100%;        /* 가로 전체 */
+  position: relative; /* 내부 요소 기준 */
+  overflow: hidden;   /* 넘치면 숨기기 */
 }
 
 /* 공통 글자 설정 */
@@ -57,9 +71,7 @@ h2 {
   /* 전체 배경색 */
   background-color: #ffffff;
   /* 글자 설정 */
-
-  /* 폰트 적용 */
-  font-family: "pretendard", sans-serif;
+  color: #000;
   text-align: center;
 }
 
