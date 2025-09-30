@@ -198,80 +198,30 @@ h1 {
 }
 
 /****************************** 오른쪽 파트 */
+
 .main-page__right-part {
-  /* 박스크기 */
-  width: 100%;
-  height: 100%;
-  padding: 20px 50px 20px 0;
-
-  /* 그리드 설정 */
-  /* display: grid; */
-  /* grid-template-columns: 1fr 1fr; */
-  /* gap: 0.5vw; 그리드 아이템 사이 간격 */
-  /* align-items: center; 그리드 아이템 세로 중앙 정렬 */
-  /* justify-items: center; 그리드 아이템 가로 중앙 정렬 */
-}
-
-/* 제품명 */
-.product-card h3 {
-  position: absolute;
-  bottom: 10%;
-  right: 10%;
-  font-size: 2rem;
-}
-
-/* 제품명과 이미지 선명도 줄였다가 마우스 오버시 선명해지기 */
-.product-card {
-  cursor: pointer;
-  opacity: 0.5;
-}
-.product-card:hover {
-  transition: opacity 0.3s ease;
-  opacity: 1;
-}
-
-/* (디자인을 위해 추가) */
-/* .product-card {
-    background-color: lightgray;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.2em;
-    color: #333;
-} */
-.product-card {
-  width: 100%;
-  height: 100%;
-  background: #c9c7c700;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-
-  /* display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-
-  position: relative; */
-}
-
-/* 부모에게 그리드 설정 */
-.main-page__right-part{
-  display: grid;
-  /* 그리드 컬럼 4개를 동일한 너비로 나누기 */
+    /* 부모에게 Grid 컨테이너 설정 */
+    display: grid; 
+    /* 4x4 격자 정의 (4개의 동일한 너비 열, 4개의 동일한 높이 행) */
     grid-template-columns: repeat(4, 1fr);
-    /* 그리드 행 4개를 동일한 높이로 나누기 */
-    grid-template-rows: repeat(4, 1fr);
-    /* 아이템 간의 간격을 설정*/
+    grid-template-rows: repeat(3, 1fr);
     gap: 20px; 
-/* 아이템 위치에 이름 부여 */
-  grid-template-areas:
-        "a a b b" /* 첫 번째 행: product-card1, product-card1, product-card2, product-card2 */
-        "a a b b" /* 두 번째 행: product-card1, product-card1, product-card2, product-card2 */
-        "c c d b" /* 세 번째 행: product-card3, product-card3, product-card4, product-card2 */
-        "e e e e"; /* 네 번째 행: product-card5가 전체 너비를 차지 */
+    
+    /* 그리드 영역 이름 정의 */
+    grid-template-areas:
+        "a a a b"
+        "c d d b"
+        "c e e e"
+        ;
+    
+    /* 그리드가 영역을 채우도록 높이 지정. */
+ height: 80%;
 
-        /* 그리드가 영역을 채우기 위한 높이지정 */
-        height: 600px;
+    /* 기타 설정 */
+    width: 100%;
+   
 }
+
 
 /* 각 아이템에 그리드 영역 이름 지정 */
 
@@ -302,32 +252,50 @@ h1 {
 
 
 
-/* 제품 컨테이너 크기 고정 */
-/* .product-card{
-  width: 300px;
-  height: 100px;
-   overflow: hidden;
-} */
-/* 제품이미지 비율 */
-/* .product-card img {
-  width: 100%;
-  height: 100%;
+/* 제품명과 이미지 선명도 줄였다가 마우스 오버시 선명해지기 */
+.product-card {
+  /* 모든 카드의 기본스타일  */
+cursor: pointer;
+    overflow: hidden; /* 이미지가 블록을 넘어가면 숨김 */
+    opacity: 0.5;
+    transition: opacity 0.3s ease; /* 호버 애니메이션 */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-  object-fit: cover;
-} */
+     /* 캡션 위치 설정을 위한 상대 위치 */
+    position: relative; 
+     display: flex; /* 내부 컨텐츠를 Flexbox로 관리 */
+    justify-content: center;
+    align-items: center;
+}
+.product-card:hover {
+  opacity: 1;
+}
+
+/* 제품명 스타일  */
+.product-card h3 {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    font-size: 2rem;
+    z-index: 10;
+}
+.product-card img {
+    /* 이미지가 그리드 영역을 꽉 채우도록 설정 */
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    
+    /* 이미지 비율을 유지하며 컨테이너를 채움 */
+    object-fit: cover; 
+}
 
 
 
-/* 3, 4번째 이미지만 */
-/* .product-card:nth-child(1) img, 
-.product-card:nth-child(4) img {
-  height: 100%;
-  object-fit: cover;
-} */
 
 
 
-/* 2-3-4. 프리미엄 기능1 영역  */
+
+/******************** 2-3-4. 프리미엄 기능1 영역  ********************/
 #premium {
   position: relative;
 }
