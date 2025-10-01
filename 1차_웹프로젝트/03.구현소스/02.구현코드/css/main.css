@@ -54,7 +54,9 @@ h1 {
   text-align: center;
   line-height: 0.7;
   /* 큰 글자의 크기: 화면에 따라 유동적으로 변화 */
-  font-weight: 900;
+  font-family: "avenir-next-world-heavy", sans-serif;
+font-weight: 900;
+font-style: normal;
 
   font-size: clamp(
     48px,
@@ -80,19 +82,23 @@ h1 {
 .tagline {
   position: absolute;
   bottom: 100%; /* XIO의 바로 위에 붙음 */
-  left: 44%;
+  left: 29%;
   /* 가운데 정렬 */
   transform: translate(-50%, calc(-1 * var(--tag-gap)));
   /* 반응형 간격: 화면에 따라 gap이 변함 */
   --tag-gap: clamp(0.25em, 1.2vw, 1em);
   /* 폰트 크기도 반응형으로 */
-  font-size: clamp(12px, 2.4vw, 40px);
-  font-weight: 600;
+  font-size: clamp(12px, 1.8vw, 40px);
+  /* 폰트 */
+ font-family: "avenir-next-world", sans-serif;
+font-weight: 500;
+font-style: normal;
+
   line-height: 1;
   white-space: nowrap; /* 슬로건 줄바꿈 방지 */
   pointer-events: none;
   /* 글자 자간 조절 */
-  letter-spacing: -0.02em;
+  letter-spacing: -0.05em;
 }
 
 /****************************** 2-2. 메인페이지  ******************************/
@@ -103,7 +109,7 @@ h1 {
   display: flex;
   flex-wrap: wrap;
   align-items: center; /* 세로 중앙 정렬 */
-  gap: 8vw;
+  gap: 5vw;
 }
 
 /* 왼쪽 파트 ***********************************/
@@ -128,7 +134,10 @@ h1 {
   display: inline-block;
   width: 30%;
   font-size: 3rem;
-  font-weight: 500;
+   /* avenir-next-world 폰트*/
+  font-family: "avenir-next-world", sans-serif;
+font-weight: 400;
+font-style: normal;
 
   line-height: 2;
   /* 줄바뀜 방지 */
@@ -138,12 +147,15 @@ h1 {
 }
 
 .main-page__left-part h2 .category-title {
+  /* avenir-next-world 폰트*/
+  font-family: "avenir-next-world", sans-serif;
+  font-weight: 700;
+  font-style: italic;
   font-size: 14rem;
-  font-weight: 500;
-  /* 여기는 세로로 길어도 이쁜 폰트를 어도비에서 넣어서 수정하기!!! */
+
   /* line-height: 0.9; */
   display: inline-block; /* transform이 텍스트에만 적용되도록 */
-  transform: scaleY(1.4); /* y축(세로) 2배 늘리기 */
+  transform: scaleY(1.2); /* y축(세로) 늘리기 */
   transform-origin: center;
   /* 줄바뀜 방지 */
   white-space: nowrap;
@@ -156,6 +168,11 @@ h1 {
 }
 
 .category-list {
+/* avenir-next-world 폰트*/
+  font-family: "avenir-next-world", sans-serif;
+font-weight: 400;
+font-style: normal;
+
   padding: 50px 10px;
   font-size: 3rem;
   text-align: right;
@@ -200,6 +217,7 @@ h1 {
 /****************************** 오른쪽 파트 */
 
 .main-page__right-part {
+  
     /* 부모에게 Grid 컨테이너 설정 */
     display: grid; 
     /* 4x4 격자 정의 (4개의 동일한 너비 열, 4개의 동일한 높이 행) */
@@ -215,7 +233,7 @@ h1 {
         ;
     
     /* 그리드가 영역을 채우도록 높이 지정. */
- height: 80%;
+ height: 70%;
 
     /* 기타 설정 */
     width: 100%;
@@ -258,6 +276,7 @@ h1 {
 cursor: pointer;
     overflow: hidden; /* 이미지가 블록을 넘어가면 숨김 */
     opacity: 0.5;
+    border-radius: 20px;
     transition: opacity 0.3s ease; /* 호버 애니메이션 */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
