@@ -15,8 +15,8 @@
 
 /************************ 2. 메인영역 ************************/
 /***************************** 2-1.인트로 페이지 *****************************/
-
-.video-box {
+/* 비디오  */
+.intro-page > .video-box {
   position: absolute;
   top: 0;
   left: 0;
@@ -25,85 +25,81 @@
   overflow: hidden;
   z-index: 1;
 }
-.video-box iframe {
+.intro-page > .video-box iframe {
   width: 100%;
   height: 100%;
   border: none;
 }
-/* ===== 반응형 타이포그래피와 배치 ===== */
 
-/* 화면 전체를 덮는 h1(큰 제목) */
-h1 {
-  position: absolute;
+/* 타이틀 박스: 간단한 클리핑효과   */
+
+.intro-page > .title-box {
+  position: relative; /* 부모에게 위치 기준 설정 */
+  height: 100vh; /* 화면 전체 높이 */
   inset: 0; /* top:0; right:0; bottom:0; left:0; 과 같음 */
-  display: flex; /* 가로 중앙 정렬을 위해 flex 사용 */
-  align-items: center; /* 세로 중앙 정렬 - line-height 대신 안정적임 */
-  justify-content: center; /* 가로 중앙 정렬 */
 
+  /* 비디오보다 위로 */
   z-index: 2;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* 태그라인과 타이틀 사이 간격 */
+  gap: 1vw;
 
   color: #000;
   background-color: #fff;
   mix-blend-mode: screen; /* 글자와 비디오가 섞이는 효과 */
   pointer-events: none; /* 클릭 가능한 요소가 뒤의 영상과 충돌하지 않도록 */
 }
-/* 전체 타이틀 박스 (XIOAMI 통째로) */
-.xiaomi {
-  display: inline-block;
-  position: relative; /* 내부 .xio와 .tagline 위치 기준 */
-  text-align: center;
-  line-height: 0.7;
-  /* 큰 글자의 크기: 화면에 따라 유동적으로 변화 */
-  font-family: "avenir-next-world-heavy", sans-serif;
-font-weight: 900;
-font-style: normal;
 
-  font-size: clamp(
-    48px,
-    30vw,
-    380px
-  ); /* 최소 48px, 최대 380px, 중간은 vw 기준 */
+.intro-page > .title-box > h1 {
+  position: relative; /* .tagline 위치 기준 */
+  display: inline-block;
+  font-family: "avenir-next-world-heavy", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+
+  /* 폰트 크기 */
+  font-size: 24vw;
 
   /* 글자 자간 조절 */
   letter-spacing: -0.08em;
   /* 글자 세로 늘림 */
-  transform: scale(1 1.7);
   white-space: nowrap; /* 줄바꿈 방지 */
+
+  /* 타이틀 세로로 길게 설정 */
+  scale: 0.8 1.2;
+  /* 글자 박스 여백 제거 */
+  margin-bottom: -3.5vw;
 }
 
-/* XIO 부분만 따로 묶음 (tagline을 바로 위에 놓기 위해 relative) */
-.xio {
-  display: inline-block;
-  position: relative; /* tagline의 기준점 */
-  /* 필요 시 텍스트 변형: 예) 세로로 좀 늘리고 싶으면 scaleY 사용 */
-}
-
-/* 슬로건: XIO 바로 위에 위치 (반응형 gap 사용) */
+/* 태그라인: XI 바로 위에 위치 */
 .tagline {
-  position: absolute;
-  bottom: 100%; /* XIO의 바로 위에 붙음 */
-  left: 29%;
-  /* 가운데 정렬 */
-  transform: translate(-50%, calc(-1 * var(--tag-gap)));
-  /* 반응형 간격: 화면에 따라 gap이 변함 */
-  --tag-gap: clamp(0.25em, 1.2vw, 1em);
-  /* 폰트 크기도 반응형으로 */
-  font-size: clamp(12px, 1.8vw, 40px);
+  text-align-last: left;
+  display: block;
+  /* 들여쓰기 */
+  text-indent: 25.5vw;
+  font-size: 3vw;
   /* 폰트 */
- font-family: "avenir-next-world", sans-serif;
-font-weight: 500;
-font-style: normal;
+  font-family: "avenir-next-world", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  transform-origin: left;
+  /* 간격 좁힘 */
+  scale: 0.55 0.7;
 
-  line-height: 1;
   white-space: nowrap; /* 슬로건 줄바꿈 방지 */
   pointer-events: none;
   /* 글자 자간 조절 */
   letter-spacing: -0.05em;
+  /* 글자 박스 여백 제거 */
+  margin: -1.7vw 0 -2.2vw;
 }
 
 /****************************** 2-2. 메인페이지  ******************************/
 
-/* 메인페이지 플렉스설정 */
+/*******메인페이지 플렉스설정 ********/
 
 .main-page {
   display: flex;
@@ -134,10 +130,10 @@ font-style: normal;
   display: inline-block;
   width: 30%;
   font-size: 3rem;
-   /* avenir-next-world 폰트*/
+  /* avenir-next-world 폰트*/
   font-family: "avenir-next-world", sans-serif;
-font-weight: 400;
-font-style: normal;
+  font-weight: 400;
+  font-style: normal;
 
   line-height: 2;
   /* 줄바뀜 방지 */
@@ -168,10 +164,10 @@ font-style: normal;
 }
 
 .category-list {
-/* avenir-next-world 폰트*/
-font-family: "avenir-next-world", sans-serif;
-font-weight: 400;
-font-style: normal;
+  /* avenir-next-world 폰트*/
+  font-family: "avenir-next-world", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 
   padding: 50px 10px;
   font-size: 3rem;
@@ -219,74 +215,68 @@ font-style: normal;
 /****************************** 오른쪽 파트 */
 
 .main-page__right-part {
-  
-    /* 부모에게 Grid 컨테이너 설정 */
-    display: grid; 
-    /* 4x4 격자 정의 (4개의 동일한 너비 열, 4개의 동일한 높이 행) */
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 20px; 
-    
-    /* 그리드 영역 이름 정의 */
-    grid-template-areas:
-        "a a a b"
-        "c d d b"
-        "c e e e"
-        ;
-    
-    /* 그리드가 영역을 채우도록 높이 지정. */
- height: 70%;
+  /* 부모에게 Grid 컨테이너 설정 */
+  display: grid;
+  /* 4x4 격자 정의 (4개의 동일한 너비 열, 4개의 동일한 높이 행) */
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 20px;
 
-    /* 기타 설정 */
-    width: 100%;
-   
+  /* 그리드 영역 이름 정의 */
+  grid-template-areas:
+    "a a a b"
+    "c d d b"
+    "c e e e";
+
+  /* 그리드가 영역을 채우도록 높이 지정. */
+  height: 70%;
+
+  /* 기타 설정 */
+  width: 100%;
 }
-
 
 /* 각 아이템에 그리드 영역 이름 지정 */
 
 /* product-card1: 상단 왼쪽 (2x2) */
 .product-card1 {
-    grid-area: a;
+  grid-area: a;
 }
 
 /* product-card2: 오른쪽 수직 블록 (3x1) */
 .product-card2 {
-    grid-area: b;
+  grid-area: b;
 }
 
 /* product-card3: 중앙 왼쪽 블록 (1x2) */
 .product-card3 {
-    grid-area: c;
+  grid-area: c;
 }
 
 /* product-card4: 중앙 오른쪽 작은 블록 (1x1) */
 .product-card4 {
-    grid-area: d;
+  grid-area: d;
 }
 
 /* product-card5 : 하단 가로 블록 (1x4) */
 .product-card5 {
-    grid-area: e;
+  grid-area: e;
 }
-
-
 
 /* 제품명과 이미지 선명도 줄였다가 마우스 오버시 선명해지기 */
 .product-card {
   /* 모든 카드의 기본스타일  */
-cursor: pointer;
-    overflow: hidden; /* 이미지가 블록을 넘어가면 숨김 */
-    opacity: 0.5;
-    border-radius: 20px;
-    transition: opacity 0.3s ease; /* 호버 애니메이션 */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  overflow: hidden; /* 이미지가 블록을 넘어가면 숨김 */
+  opacity: 0.5;
+  border-radius: 20px;
+  transition: opacity 0.3s ease; /* 호버 애니메이션 */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 
-     /* 캡션 위치 설정을 위한 상대 위치 */
-    position: relative; 
-     display: flex; /* 내부 컨텐츠를 Flexbox로 관리 */
-    justify-content: center;
-    align-items: center;
+  /* 캡션 위치 설정을 위한 상대 위치 */
+  position: relative;
+  display: flex; /* 내부 컨텐츠를 Flexbox로 관리 */
+  justify-content: center;
+  align-items: center;
 }
 .product-card:hover {
   opacity: 1;
@@ -294,27 +284,97 @@ cursor: pointer;
 
 /* 제품명 스타일  */
 .product-card h3 {
-    position: absolute;
-    bottom: 10%;
-    right: 10%;
-    font-size: 2rem;
-    z-index: 10;
+  position: absolute;
+  bottom: 10%;
+  right: 10%;
+  font-size: 2rem;
+  z-index: 10;
 }
 .product-card img {
-    /* 이미지가 그리드 영역을 꽉 채우도록 설정 */
-    width: 100%;
-    height: 100%;
-    z-index: 1;
-    
-    /* 이미지 비율을 유지하며 컨테이너를 채움 */
-    object-fit: cover; 
+  /* 이미지가 그리드 영역을 꽉 채우도록 설정 */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+
+  /* 이미지 비율을 유지하며 컨테이너를 채움 */
+  object-fit: cover;
 }
 
+/****************************** 2-3. 제품소개페이지  ******************************/
+/******************** 2-3-1. 메인홍보영상 영역  ********************/
+.promo {
+  /* 플렉스 설정: hgroup과 .video-box이 중앙정렬 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5vh;
+}
 
+.promo hgroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2vh;
+}
 
+.promo hgroup img {
+  height: 3vh;
+}
 
+.promo hgroup h2 {
+  font-size: 6rem;
+  font-weight: 700;
+  background-image: linear-gradient(to right, #ff6700 55%, rgb(255, 0, 0));
+  color: #000000;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.promo hgroup h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1vw;
+  font-size: 3rem;
+  font-weight: 900;
+  color: #000000c0;
+}
+.promo hgroup h3 img {
+  height: 4vh;
+}
 
+.promo button {
+  padding: 10px 30px;
+  font-size: 2rem;
+  border: none;
+  border-radius: 30px;
+  background-color: #474747;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+}
+.promo button:hover {
+  background-image: linear-gradient(145deg, #ff6700 40%, rgb(255, 0, 0));
+  color: #fff;
+}
 
+.promo > .video-box {
+  width: 70%;
+  height: 66vh;
+  border-radius: 30px;
+  background-color: #000000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.promo > .video-box iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* aspectratio= 16:9안해도됨??? */
+  border: none;
+}
+/* 스크롤시 영상 영역 커짐- 자스??????????ㅇ?? */
 
 /******************** 2-3-4. 프리미엄 기능1 영역  ********************/
 #premium {

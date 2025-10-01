@@ -4,21 +4,20 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- 탭메뉴 아이콘 넣기 -->
-    <link
-      rel="shortcut icon"
-      href="./images/logo.png"
-      type="image/ico"
-    />
+    <link rel="shortcut icon" href="./images/logo.png" type="image/ico" />
     <title>Xiaomi Korea</title>
     <!-- 폰트 불러오기: Avenir Next World, Pretendard -->
-     <link rel="stylesheet" href="https://use.typekit.net/hlh7seu.css">
+    <link rel="stylesheet" href="https://use.typekit.net/hlh7seu.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
+    <!-- 스와이프 css 불러오기 -->
 
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
+    <!-- 미디어쿼리 css -->
+    <link rel="stylesheet" href="./css/mediaquery.css" />
   </head>
 
   <body>
@@ -41,30 +40,30 @@
   2-2. 인트로페이지->gnb메뉴->메인페이지로 클릭으로 이동 (1.인트로페이지와2.메인페이지는 같은 박스안에 있어야한다!)
   2-3. 메인페이지 스크롤하면 바로 제품소개페이지로 이동
 
-  3. 제품소개페이지 구조화: 메인홍보영상부터 운동건강기능 파트까지 스크롤 이동:sub-page로 쌈
-        3-1.메인홍보영상 영역
-         <section class="promo promo__main-video"></section>
-        3-2. 하이라이트기능 영역>
-         <section class="highlight highlight__overview"> </section>
-        3-3. 프리미엄 영역 
+  2-3. 제품소개페이지 구조화: 메인홍보영상부터 운동건강기능 파트까지 스크롤 이동:sub-page로 쌈
+        2-3-1.메인홍보영상 영역
+         <section class="promo"></section>
+        2-3-2. 하이라이트기능 영역>
+         <section class="highlight "> </section>
+        2-3-3. 프리미엄 영역 
          <section class="premium premium__intro"></section>
-        3-4. 프리미엄 기능1 영역 
+        2-3-4. 프리미엄 기능1 영역 
          <section class="premium premium__feature1"></section>
-        3-5. 프리미엄 기능2 영역>
+        2-3-5. 프리미엄 기능2 영역>
          <section class="premium premium__feature2"></section>
-        3-6. 디자인 영역>
+        2-3-6. 디자인 영역>
          <section class="design design__intro"></section>
-        3-7. 디자인 기능1 영역 
+        2-3-7. 디자인 기능1 영역 
          <section class="design design__feature1"></section> 
-        3-8. 디자인 기능2 영역 
+        2-3-8. 디자인 기능2 영역 
          <section class="design design__feature2"></section> 
-        3-9. 운동건강 영역 
+        2-3-9. 운동건강 영역 
         <section class="health health__intro"></section>
-        3-10. 운동건강 기능1 영역 
+        2-3-10. 운동건강 기능1 영역 
         <section class="health health__feature1"></section>
-        3-11. 운동건강 기능2 영역 
+        2-3-11. 운동건강 기능2 영역 
         <section class="health health__feature2"></section>
-        3-12. 운동건강 기능3 영역>
+        2-3-12. 운동건강 기능3 영역>
         <section class="health health__feature3"></section>
 
 4. 하단영역: gnb메뉴 한번더, 사이트 로고, 고객센터, 언어 설정 -->
@@ -140,16 +139,11 @@
                 allowfullscreen
               ></iframe>
             </div>
-            <!-- 타이틀 박스: 간단한 클리핑효과 -->
-            <!-- 반응형으로 xio 바로 위에 슬로건이 위치하도록 구조 분리 -->
-            <h1>
-              <span class="xiaomi">
-                <span class="xio">
-                  <span class="tagline">Where smart meets seamless</span>
-                  XIO </span
-                >AMI
-              </span>
-            </h1>
+            <!-- 타이틀 박스 -->
+            <div class="title-box">
+              <span class="tagline">Where smart meets seamless</span>
+              <h1 class="main-title">XIAOMI</h1>
+            </div>
           </section>
         </div>
 
@@ -204,31 +198,59 @@
         <div id="promo">
           <section class="promo inbox video-box">
             <hgroup>
-              <h3>Xiaomi</h3>
+              <!-- <img src="./images/xiaomi_logo.png" alt="샤오미로고"> -->
               <h2>프리미엄 성능, 당신을 위한 디자인.</h2>
-              <h3>WATCH S4</h3>
+              <h3><img src="./images/logo.png" alt="샤오미로고" />Watch S4</h3>
+              <button>구입하기</button>
             </hgroup>
-            <button>구매하기</button>
-            <div class="section__content-box part-col-1">
-              <div>영상</div>
+            <div class="video-box">
+              <!-- 영상 -->
+              <iframe
+                src="https://www.youtube.com/embed/qjVDe7x0BGE?autoplay=1&mute=1&loop=1&playlist=qjVDe7x0BGE"
+                title="Dial Up Your Style | Xiaomi Watch S4"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              >
+              </iframe>
             </div>
           </section>
         </div>
         <!-- 2-3-2. 하이라이트기능 영역> -->
         <div id="highlight">
           <section class="highlight inbox">
-            <h2>Get The Highlights</h2>
-            <div>
-              <div>뛰어난 밝기의 36.322mm AMOLED 디스플레이</div>
-              <div>
-                <img src="./images/highlight1.png" alt="디스플레이_이미지" />
-              </div>
-            </div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
+            <h2>일단 핵심부터.</h2>
+            <figure>
+              <img src="./images/highlight1.png" alt="핵심이미지1" />
+              <figcaption>뛰어난 밝기의 36.322mm AMOLED 디스플레이</figcaption>
+            </figure>
+            <figure>
+              <img src="./images/highlight2.png" alt="핵심이미지2" />
+              <figcaption>업그레이드된 교체 가능한 베젤 디자인</figcaption>
+            </figure>
+            <figure>
+              <img src="./images/highlight3.png" alt="핵심이미지3" />
+              <figcaption>
+                직관적인 상호 작용을 위한 클래식한 회전식 크라운
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="./images/highlight4.png" alt="핵심이미지4" />
+              <figcaption>
+                Xiaomi Smart Hub*를 통한 원활한 기기 관리*
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="./images/highlight5.png" alt="핵심이미지5" />
+              <figcaption>
+                원터치 건강 인사이트, 150개 이상의 스포츠 모드*
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="./images/highlight6.png" alt="핵심이미지6" />
+              <figcaption>최대 15일의 배터리 사용 시간*</figcaption>
+            </figure>
           </section>
         </div>
 
