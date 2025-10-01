@@ -169,7 +169,7 @@ font-style: normal;
 
 .category-list {
 /* avenir-next-world 폰트*/
-  font-family: "avenir-next-world", sans-serif;
+font-family: "avenir-next-world", sans-serif;
 font-weight: 400;
 font-style: normal;
 
@@ -180,6 +180,8 @@ font-style: normal;
   white-space: nowrap;
   /* 글자 자간 조절 */
   letter-spacing: -0.04em;
+
+  cursor: pointer;
 }
 
 /* 기준점 오른쪽 하단으로 변경 */
@@ -189,9 +191,9 @@ font-style: normal;
 }
 /* 마우스 오버시 각 하위 카테고리별 상품군으로 오른쪽 이미지 변경: 
 자바스크립트로 한번에, 폴더에 smartwatch에 이미지 1,2,3,4.png 폴더및이미지명통일 */
-.category-list li:first-child:hover {
+.category-list li:hover {
   scale: 1.03;
-  color: #ff793b;
+  color: #ff6900;
 }
 
 /* 가상요소로 선 구현*/
