@@ -278,17 +278,31 @@
   justify-content: center;
   align-items: center;
 }
+
+/* 이걸 어떻게 수정하면 좋을까요.,...디자이너님도와주세요 */
 .product-card:hover {
   opacity: 1;
 }
 
-/* 제품명 스타일  */
+/* 제품 이름 스타일  */
 .product-card h3 {
   position: absolute;
   bottom: 10%;
   right: 10%;
   font-size: 2rem;
+  font-weight: 600;
+  color: #000000;
   z-index: 10;
+}
+
+.product-card h3:hover {
+  opacity: 1;
+  color: #ffffff;
+  background-color: #0fa1fc;
+  border-radius: 30px;
+  padding: 8px 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  
 }
 .product-card img {
   /* 이미지가 그리드 영역을 꽉 채우도록 설정 */
@@ -298,6 +312,32 @@
 
   /* 이미지 비율을 유지하며 컨테이너를 채움 */
   object-fit: cover;
+}
+
+/* 1번 카드 이미지 위치 조정 */
+.product-card1 img {
+  
+  object-position: center 65%;
+  
+}
+/* 2번 카드 이미지 위치 조정 */
+.product-card2 img {
+  height: 60%;
+  object-position: center 70%;
+}
+/* 3번 카드 이미지 위치 조정 */
+.product-card3 img {
+  height: 60%;
+object-fit: cover;
+}
+/* 4번 카드 이미지 위치 조정 */
+.product-card4 img {
+  object-position: 80% 70%;
+  height: 160%;
+}
+/* 5번 카드 이미지 위치 조정 */
+.product-card5 img {
+  object-position: center 77%;
 }
 
 /****************************** 2-3. 제품소개페이지  ******************************/
