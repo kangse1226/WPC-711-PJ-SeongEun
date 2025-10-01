@@ -13,11 +13,18 @@
       href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
     />
     <!-- 스와이프 css 불러오기 -->
+    <link
+      rel="stylesheet"
+      href="./css/swiper-bundle.min.css"
+    />
 
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
     <!-- 미디어쿼리 css -->
     <link rel="stylesheet" href="./css/mediaquery.css" />
+
+     <!-- 스와이퍼 JS -->
+     <script src="./js/swiper-bundle.min.js"></script>
   </head>
 
   <body>
@@ -193,6 +200,7 @@
           </section>
         </div>
 
+
         <!-- 2-3. 제품 소개 페이지 -->
         <!-- 2-3-1.메인홍보영상 영역 -->
         <div id="promo">
@@ -217,43 +225,47 @@
             </div>
           </section>
         </div>
+
         <!-- 2-3-2. 하이라이트기능 영역> -->
         <div id="highlight">
-          <section class="highlight inbox">
-            <h2>일단 핵심부터.</h2>
-            <figure>
-              <img src="./images/highlight/1.png" alt="핵심이미지1" />
-              <figcaption>뛰어난 밝기의 36.322mm AMOLED 디스플레이</figcaption>
-            </figure>
-            <figure>
-              <!-- 누끼따서 png로 변경하기 -->
-              <img src="./images/highlight/2.jpg" alt="핵심이미지2" />
-              <figcaption>업그레이드된 교체 가능한 베젤 디자인</figcaption>
-            </figure>
-            <figure>
-              <img src="./images/highlight/3.png" alt="핵심이미지3" />
-              <figcaption>
-                직관적인 상호 작용을 위한 클래식한 회전식 크라운
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="./images/highlight/4.png" alt="핵심이미지4" />
-              <figcaption>
-                Xiaomi Smart Hub*를 통한 원활한 기기 관리*
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="./images/highlight/5.png" alt="핵심이미지5" />
-              <figcaption>
-                원터치 건강 인사이트, 150개 이상의 스포츠 모드*
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="./images/highlight/6.png" alt="핵심이미지6" />
-              <figcaption>최대 15일의 배터리 사용 시간*</figcaption>
-            </figure>
-          </section>
+          <div class="swiper">
+            <section class="highlight inbox swiper-wrapper">
+              <h2>일단 핵심부터.</h2>
+              <figure class="swiper-slide">
+                <img src="./images/highlight/1.png" alt="핵심이미지1" />
+                <figcaption>뛰어난 밝기의 36.322mm AMOLED 디스플레이</figcaption>
+              </figure>
+              <figure class="swiper-slide">
+                <!-- 누끼따서 png로 변경하기 -->
+                <img src="./images/highlight/2.jpg" alt="핵심이미지2" />
+                <figcaption>업그레이드된 교체 가능한 베젤 디자인</figcaption>
+              </figure>
+              <figure class="swiper-slide">
+                <img src="./images/highlight/3.png" alt="핵심이미지3" />
+                <figcaption>
+                  직관적인 상호 작용을 위한 클래식한 회전식 크라운
+                </figcaption>
+              </figure>
+              <figure class="swiper-slide">
+                <img src="./images/highlight/4.png" alt="핵심이미지4" />
+                <figcaption>
+                  Xiaomi Smart Hub*를 통한 원활한 기기 관리*
+                </figcaption>
+              </figure>
+              <figure class="swiper-slide">
+                <img src="./images/highlight/5.png" alt="핵심이미지5" />
+                <figcaption>
+                  원터치 건강 인사이트, 150개 이상의 스포츠 모드*
+                </figcaption>
+              </figure>
+              <figure class="swiper-slide">
+                <img src="./images/highlight/6.png" alt="핵심이미지6" />
+                <figcaption>최대 15일의 배터리 사용 시간*</figcaption>
+              </figure>
+            </section>
+          </div>
         </div>
+
 
         <div id="premium">
           <!-- 2-3-3. 프리미엄 영역  -->
@@ -262,6 +274,8 @@
             <div><img src="./images/hand.png" alt="손 모델" /></div>
           </section>
         </div>
+
+      
         <!-- 2-3-4. 프리미엄 기능1 영역  -->
         <section class="premium premium__feature1 inbox video-box">
           <div>

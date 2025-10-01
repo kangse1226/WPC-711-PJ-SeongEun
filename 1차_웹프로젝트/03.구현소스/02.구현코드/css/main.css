@@ -416,6 +416,73 @@ object-fit: cover;
 }
 /* 스크롤시 영상 영역 커짐- 자스??????????ㅇ?? */
 
+
+/* 하이라이트 영역 */
+/* 스와이퍼 부모박스 */
+      .swiper {
+        position: relative;
+        top: 50%;
+        translate: 0 -50%;
+        width: 80vw;
+        /* aspect-ratio: 5/1; -> 부모에 비율주지말고 개별박스인.swiper-slide에 비율주기 */
+        margin: 0 auto;
+
+        /* 선택금지 */
+        user-select: none;
+        /* 드래그 금지 */
+        -webkit-user-drag: none;
+      }
+
+      .swiper-slide {
+        text-align: center;
+        font-size: 18px;
+        background: #444;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+           /* 개별박스에 비율주기! */
+        aspect-ratio: 5/4;
+      }
+
+      .swiper-slide img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      /* 버튼박스 */
+      .btns-box {
+        position: absolute;
+        bottom: 20%;
+        left: 50%;
+        transform: translate(-50%, 0);
+        display: flex;
+        gap: 5vw;
+        background-color: #ffffff00;
+      }
+
+      .btns-box button {
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        background-color: #00000000;
+        color: #ffffff;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .btns-box button:hover {
+        background-color: #ff3c3c;
+        color: #000000;
+        transform: scale(1.1);
+      }
+
+      /* 이전버튼 처음에 숨기기 */
+      .btn-prev {
+        display: none;
+      }
+
 /******************** 2-3-4. 프리미엄 기능1 영역  ********************/
 #premium {
   position: relative;
