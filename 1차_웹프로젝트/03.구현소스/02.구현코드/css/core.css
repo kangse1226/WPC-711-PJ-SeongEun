@@ -82,6 +82,7 @@ h2 {
 
 /* 공통 클래스 */
 .inbox {
+  margin: 15vw;
   height: 100vh;
 }
 
