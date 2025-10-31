@@ -1,0 +1,12 @@
+window.__LOCAL_CONFIG__ = {
+  env: "pro",
+  stat: {
+    cookiePolicyLevel: "high",
+    cookieDefaultOnCat: "0:"
+  },
+  trustArcSite: "kr",
+  trustArcLang: "ko",
+  wwwSite: {
+    pc: "//www.mi.com/kr"
+  }
+}

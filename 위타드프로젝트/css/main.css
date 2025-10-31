@@ -6,7 +6,9 @@
 @import url(./core.css);
 @import url(./common.css);
 
-    /* Reset & Base Styles */
+    /* ========================================
+       RESET & BASE STYLES
+       ======================================== */
     * {
       margin: 0;
       padding: 0;
@@ -14,9 +16,10 @@
     }
 
     body {
-      font-family: 'Georgia', serif;
-      color: #333;
-      line-height: 1.6;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #ffffff;
+      line-height: 1.7;
+      background: #fff;
     }
 
     img {
@@ -28,433 +31,827 @@
     a {
       text-decoration: none;
       color: inherit;
+      transition: all 0.3s ease;
     }
 
-    /* Header */
+    /* ========================================
+       HEADER - TRANSPARENT WITH DROPDOWN
+       ======================================== */
     .header {
       position: fixed;
       top: 0;
       left: 0;
       right: 0;
-      background: rgba(0, 0, 0, 0.7);
-      padding: 1rem 2rem;
+      background: transparent;
       z-index: 1000;
+      padding: 1rem 2rem;
+      transition: background 0.3s ease;
+    }
+   
+
+
+    .header--scrolled {
+      background: #3f5562;
+      border-bottom: 1px solid #e0e0e0;
+      backdrop-filter: blur(10px);
+    }
+
+    .header__container {
+      max-width: 1400px;
+      margin: 0 auto;
       display: flex;
       justify-content: space-between;
       align-items: center;
     }
 
-    .header__logo {
+    /* .header__logo {
       font-size: 1.5rem;
-      color: #fff;
       font-weight: bold;
       letter-spacing: 2px;
+      color: #fff;
+      transition: color 0.3s ease;
+    } */
+
+    /* 로고 이미지 크기 및 위치 조정 */
+.header__logo {
+    display: block; 
+    /* 링크 영역 전체를 클릭 가능하게 */
+    width: 150px;  
+     /* 로고의 가로 크기 설정 (브랜드에 맞게 조정) */
+    height: auto;
+    /* 로고가 흰색인데 안보여서 일단 색 반전했는데 브랜드컬러로 바꿔야함 투명하게 상단 있다가스크롤하면 
+    배경색 생기게 하고 싶은데 어카지 */
+    filter: invert(1);}
+
+.logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+    .header--scrolled .header__logo {
+      color: #3f5562;
     }
 
     .header__nav {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
+    }
+
+    .header__nav-item {
+      position: relative;
     }
 
     .header__nav-link {
-      color: #fff;
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      transition: opacity 0.3s;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 0.5rem 0;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .header--scrolled .header__nav-link {
+      color: #ffffff;
     }
 
     .header__nav-link:hover {
-      opacity: 0.7;
+      color: #881F2B;
+      opacity: 1;
     }
 
-    /* Hero Section */
-    .hero {
-      position: relative;
-      height: 100vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23d4a574" width="1200" height="800"/></svg>');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      color: #fff;
-    }
-
-    .hero__title {
-      font-size: 3.5rem;
-      font-weight: normal;
-      letter-spacing: 4px;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-    }
-
-    .hero__subtitle {
-      font-size: 1.2rem;
-      letter-spacing: 2px;
-      margin-bottom: 3rem;
-      font-weight: 300;
-    }
-
-    .hero__cta {
-      padding: 1rem 3rem;
-      border: 2px solid #fff;
-      background: transparent;
-      color: #fff;
-      font-size: 1rem;
-      letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.3s;
-      text-transform: uppercase;
-    }
-
-    .hero__cta:hover {
+    /* Dropdown Menu */
+    .header__dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
       background: #fff;
-      color: #333;
+      min-width: 280px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
     }
 
-    /* Section Common Styles */
-    .section {
-      padding: 5rem 2rem;
+    .header__nav-item:hover .header__dropdown {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 0;
     }
 
-    .section__header {
+    .header__dropdown-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .header__dropdown-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .header__dropdown-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3f5562;
+      margin-bottom: 0.8rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+    }
+
+    .header__dropdown-links {
+      list-style: none;
+    }
+
+    .header__dropdown-link {
+      margin-bottom: 0.5rem;
+    }
+
+    .header__dropdown-link a {
+      font-size: 0.9rem;
+      color: #666;
+      font-family: 'Georgia', serif;
+      transition: color 0.3s ease;
+    }
+
+    .header__dropdown-link a:hover {
+      color: #3f5562;
+    }
+
+    .header__actions {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .header__action-link {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .header--scrolled .header__action-link {
+      color: #2c2c2c;
+    }
+
+    .header__action-link:hover {
+      color: #3f5562;
+      opacity: 1;
+    }
+
+    /* ========================================
+       SECTION 1: HERO dual
+       ======================================== */
+   .hero-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 1:1 비율로 분할 */
+    width: 100%;
+    max-width: 1440px; /* 사이트 최대 폭 설정 (프리미엄 룩) */
+    margin: 100px auto;
+    gap: 40px;
+   
+}
+.hero-dual__link {
+    display: block;
+    position: relative; /* 텍스트 겹침을 위한 기준점 */
+    overflow: hidden;
+    height: 550px; /* 높이 고정 (시각적 안정감 부여) */
+}
+/* 화질 문제 해결을 위한 핵심: 이미지 크기 및 object-fit */
+.hero-dual__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 잘리더라도 영역을 꽉 채워 화질 유지 */
+    transition: transform 0.3s ease; /* 호버 효과로 프리미엄 인터랙션 추가 */
+}
+/* 텍스트 콘텐츠 스타일 (이미지 위에 겹치기) */
+.hero-dual__content {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 10;
+    color: #fff; /* 밝은 텍스트 */
+    /* ... 폰트 스타일링: Mariage Frères처럼 고급스럽고 간결하게 ... */
+}
+/* 마우스 호버 시 이미지 확대 효과 (프리미엄 UX) */
+.hero-dual__link:hover .hero-dual__img {
+    transform: scale(1.03); 
+}
+
+/* 반응형 디자인 (모바일에서는 세로로 쌓기) */
+@media (max-width: 768px) {
+    .hero-dual {
+        grid-template-columns: 1fr; /* 세로로 100%씩 쌓기 */
+    }
+}
+
+    /* ========================================
+       SECTION 2: INTERACTIVE TEA FINDER
+       ======================================== */
+    .tea-finder {
+      padding: 6rem 2rem;
+      background: #f4ede8;
+    }
+
+    .tea-finder__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tea-finder__header {
+      margin-bottom: 4rem;
+    }
+
+    .tea-finder__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    .tea-finder__subtitle {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .tea-finder__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .tea-time-card {
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .tea-time-card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .tea-time-card__icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tea-time-card__period {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: #3f5562;
+    }
+
+    .tea-time-card__recommendation {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .tea-time-card__description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       SECTION 3: SIGNATURE COLLECTIONS
+       ======================================== */
+    .signature-collections {
+      padding: 6rem 2rem;
+      background: #f9f9f9;
+    }
+
+    .signature-collections__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .signature-collections__header {
       text-align: center;
       margin-bottom: 4rem;
     }
 
-    .section__title {
-      font-size: 2rem;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-      margin-bottom: 1rem;
+    .signature-collections__title {
+      font-size: 2.5rem;
       font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
     }
 
-    .section__title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 2px;
-      background: #333;
-      margin: 1rem auto;
-    }
-
-    .section__description {
+    .signature-collections__subtitle {
       font-size: 1rem;
       color: #666;
       max-width: 600px;
       margin: 0 auto;
     }
 
-    /* Collections Section */
-    .collections {
-      background: #f8f8f8;
-    }
-
-    .collections__grid {
+    .signature-collections__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(3, 1fr);
       gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
-    .collection-card {
+    .signature-card {
       background: #fff;
-      text-align: center;
       overflow: hidden;
+      transition: transform 0.3s ease;
     }
 
-    .collection-card__image-wrapper {
-      height: 300px;
-      background: #e0d5c7;
+    .signature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .signature-card__image {
+      height: 400px;
+      background: #e8d5d0;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
-    }
-
-    .collection-card__image {
-      width: 80%;
-      height: 80%;
-      background: linear-gradient(135deg, #2c3e50 0%, #1a252f 100%);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #d4a574;
-      font-size: 4rem;
-    }
-
-    .collection-card__content {
-      padding: 2rem;
-    }
-
-    .collection-card__title {
-      font-size: 1.3rem;
-      margin-bottom: 1rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    .collection-card__text {
       font-size: 0.9rem;
+      color: #999;
+      letter-spacing: 1px;
+    }
+
+    .signature-card__content {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .signature-card__name {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .signature-card__description {
+      font-size: 0.95rem;
       color: #666;
       line-height: 1.8;
+      margin-bottom: 1.5rem;
     }
 
-    /* Feature Section */
-    .features {
+    .signature-card__link {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3f5562;
+      border-bottom: 1px solid #3f5562;
+      padding-bottom: 0.3rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* ========================================
+       SECTION 4-10: REMAINING SECTIONS
+       ======================================== */
+    .favorites {
+      padding: 6rem 2rem;
       background: #fff;
     }
 
-    .features__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 3rem;
-      max-width: 1200px;
+    .favorites__container {
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .feature-card {
+    .favorites__header {
       text-align: center;
+      margin-bottom: 4rem;
     }
 
-    .feature-card__image {
-      height: 250px;
-      background: #f0f0f0;
+    .favorites__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    .favorites__subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .favorites__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .favorite-product {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .favorite-product:hover {
+      transform: translateY(-5px);
+    }
+
+    .favorite-product__image {
+      height: 320px;
+      background: #f5f5f5;
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
+      font-size: 0.9rem;
+      color: #999;
+      letter-spacing: 1px;
     }
 
-    .feature-card__title {
-      font-size: 1.1rem;
+    .favorite-product__name {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+    }
+
+    .favorite-product__description {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .favorite-product__price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #3f5562;
       margin-bottom: 1rem;
     }
 
-    .feature-card__description {
-      font-size: 0.9rem;
-      color: #666;
+    .favorite-product__button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 2px solid #3f5562;
+      background: transparent;
+      color: #3f5562;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Arial', sans-serif;
     }
 
-    /* Chai Collection Banner */
-    .chai-banner {
-      position: relative;
-      height: 60vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%234a6b7c" width="1200" height="600"/></svg>');
-      background-size: cover;
-      background-position: center;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+    .favorite-product__button:hover {
+      background: #3f5562;
       color: #fff;
     }
 
-    .chai-banner__title {
-      font-size: 3rem;
-      letter-spacing: 4px;
+    .seasonal {
+      padding: 6rem 2rem;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .seasonal__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .seasonal__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .seasonal__badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: #3f5562;
+      font-size: 0.8rem;
       text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .seasonal__title {
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: 2px;
       margin-bottom: 1rem;
     }
 
-    .chai-banner__button {
-      margin-top: 2rem;
+    .seasonal__subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .seasonal__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .seasonal-product {
+      text-align: center;
+    }
+
+    .seasonal-product__image {
+      height: 280px;
+      background: #2a2a2a;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .seasonal-product__name {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .seasonal-product__price {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .seasonal__cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .seasonal__button {
+      display: inline-block;
       padding: 1rem 3rem;
       border: 2px solid #fff;
       background: transparent;
       color: #fff;
-      font-size: 1rem;
+      font-size: 0.9rem;
       letter-spacing: 2px;
-      cursor: pointer;
-      transition: all 0.3s;
       text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Arial', sans-serif;
     }
 
-    .chai-banner__button:hover {
+    .seasonal__button:hover {
       background: #fff;
-      color: #333;
+      color: #1a1a1a;
     }
 
-    /* Types of Tea Section */
-    .tea-types {
-      background: #f8f8f8;
+    .stories {
+      padding: 6rem 2rem;
+      background: #f9f9f9;
     }
 
-    .tea-types__carousel {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 2rem;
-      max-width: 1000px;
+    .stories__container {
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .tea-types__item {
+    .stories__header {
       text-align: center;
-      flex: 1;
+      margin-bottom: 4rem;
     }
 
-    .tea-types__image {
-      height: 200px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    .stories__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
       margin-bottom: 1rem;
     }
 
-    .tea-types__icon {
-      width: 120px;
-      height: 120px;
-      background: #fff;
-      border-radius: 50%;
+    .stories__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .story-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .story-card__image {
+      height: 350px;
+      background: #d4c5bd;
+      margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 3rem;
-      color: #d4a574;
-    }
-
-    .tea-types__name {
-      font-size: 1.2rem;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      margin-bottom: 0.5rem;
-    }
-
-    .tea-types__description {
       font-size: 0.9rem;
-      color: #666;
-      max-width: 250px;
-      margin: 0 auto;
+      color: #999;
+      letter-spacing: 1px;
     }
 
-    .tea-types__link {
+    .story-card__category {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #3f5562;
+      margin-bottom: 0.8rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .story-card__title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+
+    .story-card__text {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-card__link {
       display: inline-block;
-      margin-top: 2rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      border-bottom: 2px solid #333;
-      padding-bottom: 0.5rem;
+      color: #3f5562;
+      border-bottom: 1px solid #3f5562;
+      padding-bottom: 0.3rem;
+      font-family: 'Arial', sans-serif;
     }
 
-    /* History Section */
-    .history {
+    .heritage {
       position: relative;
-      height: 60vh;
-      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%236b8294" width="1200" height="600"/></svg>');
-      background-size: cover;
-      background-position: center;
+      height: 70vh;
       display: flex;
-      justify-content: center;
       align-items: center;
-    }
-
-    .history__content {
-      text-align: center;
+      justify-content: center;
+      overflow: hidden;
       color: #fff;
     }
 
-    .history__title {
-      font-size: 2.5rem;
+    .heritage__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(63, 85, 98, 0.6), rgba(0, 0, 0, 0.7)),
+                  #3f5562;
+      z-index: 1;
+    }
+
+    .heritage__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .heritage__title {
+      font-size: 3.5rem;
+      font-weight: normal;
       letter-spacing: 3px;
       text-transform: uppercase;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
     }
 
-    .history__subtitle {
-      font-size: 1.2rem;
+    .heritage__subtitle {
+      font-size: 1.3rem;
       letter-spacing: 1px;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
     }
 
-    /* Products Section */
-    .products {
+    .heritage__button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .heritage__button:hover {
+      background: #fff;
+      color: #3f5562;
+    }
+
+    .social {
+      padding: 6rem 2rem 4rem;
       background: #fff;
     }
 
-    .products__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
+    .social__container {
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .product-card {
+    .social__header {
       text-align: center;
-      padding: 1rem;
+      margin-bottom: 2rem;
     }
 
-    .product-card__image {
-      height: 200px;
-      background: #f0f0f0;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .product-card__name {
-      font-size: 1rem;
+    .social__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      color: #2c2c2c;
       margin-bottom: 0.5rem;
     }
 
-    .product-card__description {
-      font-size: 0.85rem;
-      color: #666;
-      margin-bottom: 0.5rem;
-    }
-
-    .product-card__price {
+    .social__subtitle {
       font-size: 1rem;
-      font-weight: bold;
-      color: #333;
+      color: #666;
+      margin-bottom: 1rem;
     }
 
-    /* Social Section */
-    .social {
-      background: #f8f8f8;
-      text-align: center;
+    .social__divider {
+      width: 80px;
+      height: 2px;
+      background: #3f5562;
+      margin: 1.5rem auto;
+      position: relative;
+    }
+
+    .social__divider::before,
+    .social__divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      background: #3f5562;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .social__divider::before {
+      left: -15px;
+    }
+
+    .social__divider::after {
+      right: -15px;
     }
 
     .social__grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
     }
 
-    .social__item {
-      height: 250px;
-      background: #ddd;
-      overflow: hidden;
+    .social-post {
+      aspect-ratio: 1;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #999;
+      letter-spacing: 1px;
     }
 
-    /* Values Section */
+    .social-post:hover {
+      transform: scale(1.05);
+    }
+
     .values {
-      background: #fff;
+      background: #f9f9f9;
+      padding: 4rem 2rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .values__container {
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
     .values__grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-template-columns: repeat(4, 1fr);
       gap: 3rem;
-      max-width: 1200px;
-      margin: 0 auto;
     }
 
     .value-card {
@@ -462,80 +859,196 @@
     }
 
     .value-card__icon {
-      width: 60px;
-      height: 60px;
-      margin: 0 auto 1rem;
-      background: #f0f0f0;
-      border-radius: 50%;
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.5rem;
+      font-size: 2.5rem;
+      border: 2px solid #3f5562;
+      border-radius: 50%;
+      color: #3f5562;
     }
 
     .value-card__title {
-      font-size: 0.9rem;
+      font-size: 1rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.8rem;
+      font-family: 'Arial', sans-serif;
     }
 
     .value-card__description {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       color: #666;
+      line-height: 1.6;
     }
 
-    /* Footer */
     .footer {
-      background: #2c3e50;
+      background: #1a1a1a;
       color: #fff;
-      padding: 3rem 2rem 1rem;
-      text-align: center;
+      padding: 4rem 2rem 2rem;
     }
 
-    .footer__content {
-      max-width: 1200px;
+    .footer__container {
+      max-width: 1400px;
       margin: 0 auto;
     }
 
-    .footer__text {
+    .footer__main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .footer__about {
+      max-width: 350px;
+    }
+
+    .footer__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #3f5562;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__description {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer__social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer__social-link:hover {
+      background: #3f5562;
+      border-color: #3f5562;
+    }
+
+    .footer__column-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer__links {
+      list-style: none;
+    }
+
+    .footer__link {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer__link a {
       font-size: 0.9rem;
-      margin-bottom: 1rem;
+      color: #ccc;
+    }
+
+    .footer__link a:hover {
+      color: #3f5562;
+    }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #999;
     }
 
     .footer__copyright {
-      font-size: 0.8rem;
-      opacity: 0.7;
-      margin-top: 2rem;
+      font-family: 'Arial', sans-serif;
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .hero__title {
-        font-size: 2rem;
-      }
+    .footer__policies {
+      display: flex;
+      gap: 2rem;
+    }
 
-      .section__title {
-        font-size: 1.5rem;
-      }
+    .footer__policy-link {
+      color: #999;
+      font-family: 'Arial', sans-serif;
+    }
 
-      .collections__grid,
-      .features__grid,
-      .products__grid {
-        grid-template-columns: 1fr;
-      }
+    .footer__policy-link:hover {
+      color: #fff;
+    }
 
-      .social__grid {
+    /* ========================================
+       RESPONSIVE DESIGN
+       ======================================== */
+    @media (max-width: 1024px) {
+      .signature-collections__grid,
+      .favorites__grid {
         grid-template-columns: repeat(2, 1fr);
       }
 
-      .tea-types__carousel {
-        flex-direction: column;
+      .seasonal__grid,
+      .values__grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      .header__nav {
-        gap: 1rem;
-        font-size: 0.8rem;
+      .footer__main {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
- 
+
+    @media (max-width: 768px) {
+      .header__nav {
+        display: none;
+      }
+
+      .hero__slide-title {
+        font-size: 2.5rem;
+      }
+
+      .heritage__title {
+        font-size: 2rem;
+      }
+
+      .hero__arrow {
+        display: none;
+      }
+
+      .signature-collections__grid,
+      .favorites__grid,
+      .stories__grid,
+      .seasonal__grid,
+      .tea-finder__grid,
+      .social__grid,
+      .values__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__main {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }

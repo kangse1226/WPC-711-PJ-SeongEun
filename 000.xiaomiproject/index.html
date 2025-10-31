@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 탭메뉴 아이콘 넣기 -->
+    <link rel="shortcut icon" href="./images/logo.png" type="image/ico">
+    <title>Xiaomi - Masterpieces far closer </title>
+
+    <!-- 폰트 불러오기: SUIT/ Pretendard -->
+     <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css"
+    />
+
+    <!-- 메인 CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- 미디어쿼리 CSS -->
+    <link rel="stylesheet" href="./css/mediaquery.css">
+
+    <!-- 메인 JS -->
+    <script defer src="./js/main.js"></script>
+    
+   
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <!-- 샤오미 로고 추가하기 -->
+        <div class="header__logo" >로고 어떻게 넣지?</div>
+        <nav>
+            <ul class="header__nav">
+                <!-- 아이콘 추가하기 -->
+                <li><a href="#" class="header__nav-link">스토어</a></li>
+                <li><a href="#" class="header__nav-link">로그인</a></li>
+                <li><a href="#" class="header__nav-link">장바구니</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        
+        <!-- 영상 -->
+         <video 
+         class="video-background"
+         autoplay 
+         muted 
+         loop
+         playsinline>
+        <!-- 비디오 파일 경로 -->
+        <source src="./video/xiaomi_video_hero.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+         </video>
+    
+              <!-- <iframe
+                src="https://www.youtube.com/embed/ULmpt4ozS1k?autoplay=1&mute=1&loop=1&playlist=ULmpt4ozS1k&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&fs=0&disablekb=1"
+                title="Meet Xiaomi 15T Series | Masterpieces far closer"
+                allow="autoplay; encrypted-media"
+                allowfullscreen
+              ></iframe> -->
+       
+             <!-- 텍스트 -->
+            <div class="hero__content">
+            <h1 class="hero__title">Xiaomi</h1>
+            <p class="hero__subtitle">혁신과 연결, 모든 순간을 Xiaomi와 함께.</p>
+            <a href="#products" class="hero__cta">자세히 보기</a>  
+        </div>
+    </section>
+    
+   <!-- Feature 1 -->
+    <section class="feature feature_1">
+        <div class="feature__content ">
+            <p class="feature__pretitle">NEW</p>
+            <h2 class="feature__title">Xiaomi 15T Pro</h2>
+            <p class="feature__description">
+                더 가까이, 더 선명하게.
+            </p>
+            <a href="#" class="feature__button">자세히 보기</a>
+        </div>
+        <div class="feature__image"></div>
+    </section>
+
+    <!-- Feature 2 -->
+    <section class="feature feature_2">
+        <div class="feature__content">
+            <p class="feature__pretitle">WEARBABLE</p>
+            <h2 class="feature__title">Watch S4</h2>
+            <p class="feature__description">
+                오직 당신만을 위한, 시간을 초월한 미학. 
+            </p>
+            <a href="#" class="feature__button">자세히 보기</a>
+        </div>
+        <div class="feature__image"></div>
+    </section>
+
+    <!-- Feature 3 -->
+    <section class="feature feature_3">
+        <div class="feature__content">
+            <p class="feature__pretitle">SMART HOME</p>
+            <h2 class="feature__title">로봇청소기 S20+</h2>
+            <p class="feature__description">
+                보이지 않는 곳까지, 완벽하게.
+            </p>
+            <a href="#" class="feature__button">자세히 보기</a>
+        </div>
+        <div class="feature__image"></div>
+    </section>
+
+    <!-- Feature 4 -->
+       <section class="feature feature_4">
+        <div class="feature__content ">
+            <p class="feature__pretitle">LIFE STYLE</p>
+            <h2 class="feature__title">고속 음이온 헤어드라이어</h2>
+            <p class="feature__description">
+                머릿결에 닿는 순간, 피어나는 부드러움.
+            </p>
+            <a href="#" class="feature__button">자세히 보기</a>
+        </div>
+        <div class="feature__image"></div>
+    </section>
+    <!-- Feature 5 -->
+       <section class="feature feature_5">
+        <div class="feature__content ">
+            <p class="feature__pretitle">??뭐넣지</p>
+            <h2 class="feature__title">Xiaomi HyperConnect</h2>
+            <p class="feature__description">
+                모든 순간을 연결하는 스마트한 경험.
+            </p>
+            <a href="#" class="feature__button">자세히 보기</a>
+        </div>
+        <div class="feature__image"></div>
+    </section>
+    <!-- Feature 6 -->
+       <section class="feature feature_6">
+        <div class="feature__content ">
+            <p class="feature__pretitle">OUR STORY</p>
+            <h2 class="feature__title">브랜드 스토리</h2>
+            <p class="feature__description">
+                도전과 감동, 기술로 기록하다, Xiaomi의 순간.
+            </p>
+            <a href="#" class="feature__button">자세히 보기</a>
+        </div>
+        <div class="feature__image"></div>
+    </section>
+
+    <!-- Product Grid -->
+    <!-- <section class="product-grid" id="products">
+        <h2 class="product-grid__title">'센테니얼 컬렉션' 알아보기</h2>
+        <div class="product-grid__container">
+            <article class="product-card">
+                <div class="product-card__image">
+                    <div class="product-card__image-placeholder"></div>
+                </div>
+                <h3 class="product-card__name">Beoplay H100</h3>
+                <p class="product-card__price">₩1,590,000</p>
+            </article>
+            <article class="product-card">
+                <div class="product-card__image">
+                    <div class="product-card__image-placeholder"></div>
+                </div>
+                <h3 class="product-card__name">Beosound A5</h3>
+                <p class="product-card__price">₩1,190,000</p>
+            </article>
+            <article class="product-card">
+                <div class="product-card__image">
+                    <div class="product-card__image-placeholder"></div>
+                </div>
+                <h3 class="product-card__name">Beo Circle</h3>
+                <p class="product-card__price">₩790,000</p>
+            </article>
+            <article class="product-card">
+                <div class="product-card__image">
+                    <div class="product-card__image-placeholder"></div>
+                </div>
+                <h3 class="product-card__name">Beosound A9</h3>
+                <p class="product-card__price">₩4,990,000</p>
+            </article>
+        </div>
+    </section> -->
+
+    <!-- Gift Section -->
+    <!-- <section class="gift-section">
+        <div class="gift-section__image"></div>
+        <div class="gift-section__content">
+            <h2 class="gift-section__title">
+                이 시즌 가장 특별한 선물<br>
+                뱅앤올룹슨과 함께 특별함을 선물하세요
+            </h2>
+            <ul class="gift-section__list">
+                <li class="gift-section__list-item">선물용 포장 서비스</li>
+                <li class="gift-section__list-item">각인 서비스</li>
+                <li class="gift-section__list-item">무료 배송</li>
+                <li class="gift-section__list-item">30일 반품 보장</li>
+            </ul>
+            <button class="gift-section__button">선물 찾기</button>
+        </div>
+    </section> -->
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__column">
+                <h3 class="footer__column-title">제품</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">스피커</a></li>
+                    <li><a href="#" class="footer__link">헤드폰</a></li>
+                    <li><a href="#" class="footer__link">이어폰</a></li>
+                    <li><a href="#" class="footer__link">텔레비전</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__column-title">지원</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">고객 지원</a></li>
+                    <li><a href="#" class="footer__link">제품 등록</a></li>
+                    <li><a href="#" class="footer__link">매뉴얼</a></li>
+                    <li><a href="#" class="footer__link">소프트웨어 업데이트</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__column-title">회사</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">브랜드 스토리</a></li>
+                    <li><a href="#" class="footer__link">채용</a></li>
+                    <li><a href="#" class="footer__link">뉴스</a></li>
+                    <li><a href="#" class="footer__link">스토어 찾기</a></li>
+                </ul>
+            </div>
+            <div class="footer__column">
+                <h3 class="footer__column-title">문의</h3>
+                <ul class="footer__list">
+                    <li><a href="#" class="footer__link">이메일 문의</a></li>
+                    <li><a href="#" class="footer__link">전화 문의</a></li>
+                    <li><a href="#" class="footer__link">채팅 상담</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer__bottom">
+            <div class="footer__legal">
+                <span>© 2025 Bang & Olufsen</span>
+                <span>개인정보처리방침</span>
+                <span>이용약관</span>
+            </div>
+            <div class="footer__social">
+                <span>Instagram</span>
+                <span>Facebook</span>
+                <span>YouTube</span>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

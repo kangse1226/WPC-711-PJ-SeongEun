@@ -1,0 +1,1826 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Whittard of Chelsea - British Tea Heritage Since 1886</title>
+  <style>
+    /* ========================================
+       RESET & BASE STYLES
+       ======================================== */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #2c2c2c;
+      line-height: 1.7;
+      background: #fff;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    /* ========================================
+       HEADER - TRANSPARENT WITH DROPDOWN
+       ======================================== */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: transparent;
+      z-index: 1000;
+      padding: 1rem 2rem;
+      transition: background 0.3s ease;
+    }
+
+    .header--scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid #e0e0e0;
+      backdrop-filter: blur(10px);
+    }
+
+    .header__container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .header--scrolled .header__logo {
+      color: #3f5562;
+    }
+
+    .header__nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .header__nav-item {
+      position: relative;
+    }
+
+    .header__nav-link {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #fff;
+      font-family: 'Arial', sans-serif;
+      padding: 0.5rem 0;
+      display: block;
+      transition: color 0.3s ease;
+    }
+
+    .header--scrolled .header__nav-link {
+      color: #2c2c2c;
+    }
+
+    .header__nav-link:hover {
+      color: #3f5562;
+      opacity: 1;
+    }
+
+    /* Dropdown Menu */
+    .header__dropdown {
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      min-width: 280px;
+      padding: 2rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      margin-top: 1rem;
+    }
+
+    .header__nav-item:hover .header__dropdown {
+      opacity: 1;
+      visibility: visible;
+      margin-top: 0;
+    }
+
+    .header__dropdown-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .header__dropdown-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .header__dropdown-title {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3f5562;
+      margin-bottom: 0.8rem;
+      font-family: 'Arial', sans-serif;
+      font-weight: bold;
+    }
+
+    .header__dropdown-links {
+      list-style: none;
+    }
+
+    .header__dropdown-link {
+      margin-bottom: 0.5rem;
+    }
+
+    .header__dropdown-link a {
+      font-size: 0.9rem;
+      color: #666;
+      font-family: 'Georgia', serif;
+      transition: color 0.3s ease;
+    }
+
+    .header__dropdown-link a:hover {
+      color: #3f5562;
+    }
+
+    .header__actions {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .header__action-link {
+      color: #fff;
+      transition: color 0.3s ease;
+    }
+
+    .header--scrolled .header__action-link {
+      color: #2c2c2c;
+    }
+
+    .header__action-link:hover {
+      color: #3f5562;
+      opacity: 1;
+    }
+
+    /* ========================================
+       SECTION 1: HERO CAROUSEL
+       ======================================== */
+    .hero {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero__carousel {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .hero__slide {
+      min-width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      position: relative;
+    }
+
+    /* IMAGE PLACEHOLDERS: hero_slide_1, hero_slide_2, hero_slide_3, hero_slide_4 */
+    .hero__slide-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      z-index: 1;
+    }
+
+    .hero__slide-background::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(63, 85, 98, 0.3), rgba(0, 0, 0, 0.5));
+    }
+
+    .hero__slide:nth-child(1) .hero__slide-background {
+      background: linear-gradient(rgba(63, 85, 98, 0.3), rgba(0, 0, 0, 0.5)),
+                  #3f5562; /* IMAGE: hero_slide_1 */
+    }
+
+    .hero__slide:nth-child(2) .hero__slide-background {
+      background: linear-gradient(rgba(136, 85, 98, 0.3), rgba(0, 0, 0, 0.5)),
+                  #8b5562; /* IMAGE: hero_slide_2 */
+    }
+
+    .hero__slide:nth-child(3) .hero__slide-background {
+      background: linear-gradient(rgba(63, 85, 98, 0.4), rgba(0, 0, 0, 0.6)),
+                  #2a3a42; /* IMAGE: hero_slide_3 */
+    }
+
+    .hero__slide:nth-child(4) .hero__slide-background {
+      background: linear-gradient(rgba(98, 63, 52, 0.3), rgba(0, 0, 0, 0.5)),
+                  #624034; /* IMAGE: hero_slide_4 */
+    }
+
+    .hero__slide-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hero__slide-subtitle {
+      font-size: 0.95rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+      font-family: 'Arial', sans-serif;
+      opacity: 0.95;
+    }
+
+    .hero__slide-title {
+      font-size: 4rem;
+      font-weight: normal;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .hero__slide-description {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+      opacity: 0.95;
+    }
+
+    .hero__slide-cta {
+      display: inline-block;
+      padding: 1rem 3rem;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .hero__slide-cta:hover {
+      background: #fff;
+      color: #3f5562;
+      opacity: 1;
+    }
+
+    /* Carousel Navigation */
+    .hero__nav {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 10;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .hero__nav-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      border: 2px solid #fff;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .hero__nav-dot--active {
+      background: #fff;
+      transform: scale(1.2);
+    }
+
+    .hero__nav-dot:hover {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Carousel Arrows */
+    .hero__arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid #fff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 1.5rem;
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+
+    .hero__arrow:hover {
+      background: rgba(255, 255, 255, 0.4);
+    }
+
+    .hero__arrow--prev {
+      left: 2rem;
+    }
+
+    .hero__arrow--next {
+      right: 2rem;
+    }
+
+    /* ========================================
+       SECTION 2: INTERACTIVE TEA FINDER
+       ======================================== */
+    .tea-finder {
+      padding: 6rem 2rem;
+      background: #f4ede8;
+    }
+
+    .tea-finder__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .tea-finder__header {
+      margin-bottom: 4rem;
+    }
+
+    .tea-finder__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    .tea-finder__subtitle {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
+    .tea-finder__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .tea-time-card {
+      background: #fff;
+      padding: 2.5rem 2rem;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+    }
+
+    .tea-time-card:hover {
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+    }
+
+    .tea-time-card__icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .tea-time-card__period {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+      color: #3f5562;
+    }
+
+    .tea-time-card__recommendation {
+      font-size: 1.1rem;
+      font-weight: bold;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+    }
+
+    .tea-time-card__description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ========================================
+       SECTION 3: SIGNATURE COLLECTIONS
+       ======================================== */
+    .signature-collections {
+      padding: 6rem 2rem;
+      background: #f9f9f9;
+    }
+
+    .signature-collections__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .signature-collections__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .signature-collections__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    .signature-collections__subtitle {
+      font-size: 1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .signature-collections__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .signature-card {
+      background: #fff;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+    }
+
+    .signature-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .signature-card__image {
+      height: 400px;
+      background: #e8d5d0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #999;
+      letter-spacing: 1px;
+    }
+
+    .signature-card__content {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .signature-card__name {
+      font-size: 1.3rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .signature-card__description {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .signature-card__link {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3f5562;
+      border-bottom: 1px solid #3f5562;
+      padding-bottom: 0.3rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    /* ========================================
+       SECTION 4-10: REMAINING SECTIONS
+       ======================================== */
+    .favorites {
+      padding: 6rem 2rem;
+      background: #fff;
+    }
+
+    .favorites__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .favorites__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .favorites__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    .favorites__subtitle {
+      font-size: 1rem;
+      color: #666;
+    }
+
+    .favorites__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .favorite-product {
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .favorite-product:hover {
+      transform: translateY(-5px);
+    }
+
+    .favorite-product__image {
+      height: 320px;
+      background: #f5f5f5;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #999;
+      letter-spacing: 1px;
+    }
+
+    .favorite-product__name {
+      font-size: 1.2rem;
+      margin-bottom: 0.8rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .favorite-product__description {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+
+    .favorite-product__price {
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #3f5562;
+      margin-bottom: 1rem;
+    }
+
+    .favorite-product__button {
+      display: inline-block;
+      padding: 0.8rem 2rem;
+      border: 2px solid #3f5562;
+      background: transparent;
+      color: #3f5562;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .favorite-product__button:hover {
+      background: #3f5562;
+      color: #fff;
+    }
+
+    .seasonal {
+      padding: 6rem 2rem;
+      background: #1a1a1a;
+      color: #fff;
+    }
+
+    .seasonal__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .seasonal__header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .seasonal__badge {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      background: #3f5562;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .seasonal__title {
+      font-size: 3rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .seasonal__subtitle {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    .seasonal__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .seasonal-product {
+      text-align: center;
+    }
+
+    .seasonal-product__image {
+      height: 280px;
+      background: #2a2a2a;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #666;
+      letter-spacing: 1px;
+    }
+
+    .seasonal-product__name {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .seasonal-product__price {
+      font-size: 1rem;
+      color: #ccc;
+    }
+
+    .seasonal__cta {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .seasonal__button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .seasonal__button:hover {
+      background: #fff;
+      color: #1a1a1a;
+    }
+
+    .stories {
+      padding: 6rem 2rem;
+      background: #f9f9f9;
+    }
+
+    .stories__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .stories__header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .stories__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 1rem;
+    }
+
+    .stories__grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .story-card {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .story-card__image {
+      height: 350px;
+      background: #d4c5bd;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #999;
+      letter-spacing: 1px;
+    }
+
+    .story-card__category {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: #3f5562;
+      margin-bottom: 0.8rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .story-card__title {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      letter-spacing: 1px;
+      line-height: 1.3;
+    }
+
+    .story-card__text {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .story-card__link {
+      display: inline-block;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #3f5562;
+      border-bottom: 1px solid #3f5562;
+      padding-bottom: 0.3rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .heritage {
+      position: relative;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #fff;
+    }
+
+    .heritage__background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(63, 85, 98, 0.6), rgba(0, 0, 0, 0.7)),
+                  #3f5562;
+      z-index: 1;
+    }
+
+    .heritage__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .heritage__title {
+      font-size: 3.5rem;
+      font-weight: normal;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .heritage__subtitle {
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+    }
+
+    .heritage__button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .heritage__button:hover {
+      background: #fff;
+      color: #3f5562;
+    }
+
+    .social {
+      padding: 6rem 2rem 4rem;
+      background: #fff;
+    }
+
+    .social__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .social__header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .social__title {
+      font-size: 2.5rem;
+      font-weight: normal;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #2c2c2c;
+      margin-bottom: 0.5rem;
+    }
+
+    .social__subtitle {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .social__divider {
+      width: 80px;
+      height: 2px;
+      background: #3f5562;
+      margin: 1.5rem auto;
+      position: relative;
+    }
+
+    .social__divider::before,
+    .social__divider::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      width: 8px;
+      height: 8px;
+      background: #3f5562;
+      border-radius: 50%;
+      transform: translateY(-50%);
+    }
+
+    .social__divider::before {
+      left: -15px;
+    }
+
+    .social__divider::after {
+      right: -15px;
+    }
+
+    .social__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+    }
+
+    .social-post {
+      aspect-ratio: 1;
+      background: #e0e0e0;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      color: #999;
+      letter-spacing: 1px;
+    }
+
+    .social-post:hover {
+      transform: scale(1.05);
+    }
+
+    .values {
+      background: #f9f9f9;
+      padding: 4rem 2rem;
+      border-top: 1px solid #e0e0e0;
+    }
+
+    .values__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .values__grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+    }
+
+    .value-card {
+      text-align: center;
+    }
+
+    .value-card__icon {
+      width: 80px;
+      height: 80px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      border: 2px solid #3f5562;
+      border-radius: 50%;
+      color: #3f5562;
+    }
+
+    .value-card__title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .value-card__description {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.6;
+    }
+
+    .footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 4rem 2rem 2rem;
+    }
+
+    .footer__container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .footer__main {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid #333;
+    }
+
+    .footer__about {
+      max-width: 350px;
+    }
+
+    .footer__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #3f5562;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__description {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #ccc;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer__social {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .footer__social-link {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #444;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+
+    .footer__social-link:hover {
+      background: #3f5562;
+      border-color: #3f5562;
+    }
+
+    .footer__column-title {
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1.5rem;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer__links {
+      list-style: none;
+    }
+
+    .footer__link {
+      margin-bottom: 0.8rem;
+    }
+
+    .footer__link a {
+      font-size: 0.9rem;
+      color: #ccc;
+    }
+
+    .footer__link a:hover {
+      color: #3f5562;
+    }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.85rem;
+      color: #999;
+    }
+
+    .footer__copyright {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer__policies {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .footer__policy-link {
+      color: #999;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer__policy-link:hover {
+      color: #fff;
+    }
+
+    /* ========================================
+       RESPONSIVE DESIGN
+       ======================================== */
+    @media (max-width: 1024px) {
+      .signature-collections__grid,
+      .favorites__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .seasonal__grid,
+      .values__grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .footer__main {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header__nav {
+        display: none;
+      }
+
+      .hero__slide-title {
+        font-size: 2.5rem;
+      }
+
+      .heritage__title {
+        font-size: 2rem;
+      }
+
+      .hero__arrow {
+        display: none;
+      }
+
+      .signature-collections__grid,
+      .favorites__grid,
+      .stories__grid,
+      .seasonal__grid,
+      .tea-finder__grid,
+      .social__grid,
+      .values__grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__main {
+        grid-template-columns: 1fr;
+      }
+
+      .footer__bottom {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER - TRANSPARENT WITH DROPDOWN -->
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#" class="header__logo">WHITTARD</a>
+      <nav class="header__nav">
+        <div class="header__nav-item">
+          <a href="#signature-collections" class="header__nav-link">Tea</a>
+          <div class="header__dropdown">
+            <div class="header__dropdown-section">
+              <h4 class="header__dropdown-title">Learn</h4>
+              <ul class="header__dropdown-links">
+                <li class="header__dropdown-link"><a href="#">Journey to the Heart of Tea</a></li>
+                <li class="header__dropdown-link"><a href="#">Fragrant Compositions</a></li>
+                <li class="header__dropdown-link"><a href="#">Terroirs of Excellence</a></li>
+                <li class="header__dropdown-link"><a href="#">The Art of British Tea</a></li>
+              </ul>
+            </div>
+            <div class="header__dropdown-section">
+              <h4 class="header__dropdown-title">Deepen</h4>
+              <ul class="header__dropdown-links">
+                <li class="header__dropdown-link"><a href="#">White Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Green Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Blue Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Darjeeling Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Black Teas</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="header__nav-item">
+          <a href="#seasonal" class="header__nav-link">Seasonal</a>
+        </div>
+        <div class="header__nav-item">
+          <a href="#favorites" class="header__nav-link">Favorites</a>
+        </div>
+        <div class="header__nav-item">
+          <a href="#stories" class="header__nav-link">Stories</a>
+        </div>
+        <div class="header__nav-item">
+          <a href="#heritage" class="header__nav-link">Heritage</a>
+        </div>
+      </nav>
+      <div class="header__actions">
+        <a href="#" class="header__action-link">Search</a>
+        <a href="#" class="header__action-link">Account</a>
+        <a href="#" class="header__action-link">Cart</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HERO & KEY EVENTS CAROUSEL -->
+  <section class="hero" id="hero">
+    <div class="hero__carousel" id="heroCarousel">
+      
+      <!-- Slide 1: Brand Philosophy -->
+      <div class="hero__slide">
+        <div class="hero__slide-background">
+          <!-- IMAGE: hero_slide_1 -->
+        </div>
+        <div class="hero__slide-content">
+          <p class="hero__slide-subtitle">Since 1886</p>
+          <h1 class="hero__slide-title">British Tea Heritage</h1>
+          <p class="hero__slide-description">
+            From Fleet Street to Chelsea, we've been bringing the world's finest teas to your table for over 140 years.
+          </p>
+          <a href="#heritage" class="hero__slide-cta">Discover Our Story</a>
+        </div>
+      </div>
+
+      <!-- Slide 2: Hamper Collection -->
+      <div class="hero__slide">
+        <div class="hero__slide-background">
+          <!-- IMAGE: hero_slide_2 -->
+        </div>
+        <div class="hero__slide-content">
+          <p class="hero__slide-subtitle">Gift Collection</p>
+          <h1 class="hero__slide-title">Hamper Collection</h1>
+          <p class="hero__slide-description">
+            Thoughtfully curated gift sets that bring joy to every special moment.
+          </p>
+          <a href="#" class="hero__slide-cta">Shop Hampers</a>
+        </div>
+      </div>
+
+      <!-- Slide 3: Seasonal New Launch -->
+      <div class="hero__slide">
+        <div class="hero__slide-background">
+          <!-- IMAGE: hero_slide_3 -->
+        </div>
+        <div class="hero__slide-content">
+          <p class="hero__slide-subtitle">New Launch</p>
+          <h1 class="hero__slide-title">Winter Collection 2025</h1>
+          <p class="hero__slide-description">
+            Warming blends and festive flavours crafted for the season.
+          </p>
+          <a href="#seasonal" class="hero__slide-cta">Explore Collection</a>
+        </div>
+      </div>
+
+      <!-- Slide 4: Luxury Hot Chocolate -->
+      <div class="hero__slide">
+        <div class="hero__slide-background">
+          <!-- IMAGE: hero_slide_4 -->
+        </div>
+        <div class="hero__slide-content">
+          <p class="hero__slide-subtitle">Indulgence</p>
+          <h1 class="hero__slide-title">Luxury Hot Chocolate</h1>
+          <p class="hero__slide-description">
+            Rich, velvety drinking chocolate made with the finest ingredients.
+          </p>
+          <a href="#" class="hero__slide-cta">Discover More</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Carousel Arrows -->
+    <div class="hero__arrow hero__arrow--prev" id="prevArrow">‹</div>
+    <div class="hero__arrow hero__arrow--next" id="nextArrow">›</div>
+
+    <!-- Carousel Navigation Dots -->
+    <div class="hero__nav" id="heroNav">
+      <span class="hero__nav-dot hero__nav-dot--active" data-slide="0"></span>
+      <span class="hero__nav-dot" data-slide="1"></span>
+      <span class="hero__nav-dot" data-slide="2"></span>
+      <span class="hero__nav-dot" data-slide="3"></span>
+    </div>
+  </section>
+
+  <!-- SECTION 2: INTERACTIVE TEA FINDER -->
+  <section class="tea-finder" id="tea-finder">
+    <div class="tea-finder__container">
+      <header class="tea-finder__header">
+        <h2 class="tea-finder__title">Find Your Perfect Tea Moment</h2>
+        <p class="tea-finder__subtitle">Let us guide you to the ideal blend for every time of day</p>
+      </header>
+
+      <div class="tea-finder__grid">
+        <article class="tea-time-card">
+          <div class="tea-time-card__icon">☀️</div>
+          <h3 class="tea-time-card__period">Morning</h3>
+          <p class="tea-time-card__recommendation">English Breakfast</p>
+          <p class="tea-time-card__description">
+            Bold and robust with malty notes. The perfect way to start your day with a full-bodied blend that awakens the senses.
+          </p>
+        </article>
+
+        <article class="tea-time-card">
+          <div class="tea-time-card__icon">☕</div>
+          <h3 class="tea-time-card__period">Afternoon</h3>
+          <p class="tea-time-card__recommendation">Elderflower Earl Grey</p>
+          <p class="tea-time-card__description">
+            Delicate bergamot meets floral elderflower. A sophisticated choice for your afternoon tea break.
+          </p>
+        </article>
+
+        <article class="tea-time-card">
+          <div class="tea-time-card__icon">🌙</div>
+          <h3 class="tea-time-card__period">Evening</h3>
+          <p class="tea-time-card__recommendation">Blueberry Rooibos</p>
+          <p class="tea-time-card__description">
+            Naturally caffeine-free with sweet berry notes. Wind down with this calming blend.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SIGNATURE COLLECTIONS -->
+  <section class="signature-collections" id="signature-collections">
+    <div class="signature-collections__container">
+      <header class="signature-collections__header">
+        <h2 class="signature-collections__title">Signature Collections</h2>
+        <p class="signature-collections__subtitle">
+          Explore our carefully curated range of premium teas, hot chocolates, and instant delights
+        </p>
+      </header>
+
+      <div class="signature-collections__grid">
+        <article class="signature-card">
+          <div class="signature-card__image">
+            <!-- IMAGE: signature_1 -->
+            [Classic Black Teas]
+          </div>
+          <div class="signature-card__content">
+            <h3 class="signature-card__name">Classic Black Teas</h3>
+            <p class="signature-card__description">
+              From our iconic English Breakfast to sophisticated Earl Grey varieties.
+            </p>
+            <a href="#" class="signature-card__link">Explore Black Teas</a>
+          </div>
+        </article>
+
+        <article class="signature-card">
+          <div class="signature-card__image">
+            <!-- IMAGE: signature_2 -->
+            [Fruit & Herbal]
+          </div>
+          <div class="signature-card__content">
+            <h3 class="signature-card__name">Fruit & Herbal</h3>
+            <p class="signature-card__description">
+              Vibrant blends bursting with natural flavours and caffeine-free options.
+            </p>
+            <a href="#" class="signature-card__link">Discover Blends</a>
+          </div>
+        </article>
+
+        <article class="signature-card">
+          <div class="signature-card__image">
+            <!-- IMAGE: signature_3 -->
+            [Hot Chocolate]
+          </div>
+          <div class="signature-card__content">
+            <h3 class="signature-card__name">Hot Chocolate & Instant</h3>
+            <p class="signature-card__description">
+              Legendary luxury hot chocolate and convenient instant teas.
+            </p>
+            <a href="#" class="signature-card__link">View Collection</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CUSTOMER FAVORITES -->
+  <section class="favorites" id="favorites">
+    <div class="favorites__container">
+      <header class="favorites__header">
+        <h2 class="favorites__title">The Favourites</h2>
+        <p class="favorites__subtitle">The most popular teas of the moment</p>
+      </header>
+
+      <div class="favorites__grid">
+        <article class="favorite-product">
+          <div class="favorite-product__image">
+            <!-- IMAGE: favorite_1 -->
+            [English Breakfast]
+          </div>
+          <h3 class="favorite-product__name">English Breakfast</h3>
+          <p class="favorite-product__description">
+            Our signature blend with bold, malty flavours
+          </p>
+          <p class="favorite-product__price">₩14,000 – ₩42,000</p>
+          <a href="#" class="favorite-product__button">Shop Now</a>
+        </article>
+
+        <article class="favorite-product">
+          <div class="favorite-product__image">
+            <!-- IMAGE: favorite_2 -->
+            [Earl Grey]
+          </div>
+          <h3 class="favorite-product__name">Earl Grey Collection</h3>
+          <p class="favorite-product__description">
+            Classic bergamot with modern twists
+          </p>
+          <p class="favorite-product__price">₩15,000 – ₩45,000</p>
+          <a href="#" class="favorite-product__button">Shop Now</a>
+        </article>
+
+        <article class="favorite-product">
+          <div class="favorite-product__image">
+            <!-- IMAGE: favorite_3 -->
+            [Hot Chocolate]
+          </div>
+          <h3 class="favorite-product__name">Luxury Hot Chocolate</h3>
+          <p class="favorite-product__description">
+            Rich, indulgent drinking chocolate
+          </p>
+          <p class="favorite-product__price">₩18,000 – ₩52,000</p>
+          <a href="#" class="favorite-product__button">Shop Now</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SEASONAL COLLECTION -->
+  <section class="seasonal" id="seasonal">
+    <div class="seasonal__container">
+      <header class="seasonal__header">
+        <span class="seasonal__badge">Limited Edition</span>
+        <h2 class="seasonal__title">Winter Collection 2025</h2>
+        <p class="seasonal__subtitle">Warming blends for the festive season</p>
+      </header>
+
+      <div class="seasonal__grid">
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_1 -->
+            [Mulled Wine Tea]
+          </div>
+          <h3 class="seasonal-product__name">Mulled Wine Tea</h3>
+          <p class="seasonal-product__price">₩18,000</p>
+        </article>
+
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_2 -->
+            [Christmas Tea]
+          </div>
+          <h3 class="seasonal-product__name">Christmas Spice</h3>
+          <p class="seasonal-product__price">₩16,000</p>
+        </article>
+
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_3 -->
+            [Cranberry Biscuits]
+          </div>
+          <h3 class="seasonal-product__name">Cranberry Biscuits</h3>
+          <p class="seasonal-product__price">₩22,000</p>
+        </article>
+
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_4 -->
+            [Hot Chocolate Tin]
+          </div>
+          <h3 class="seasonal-product__name">Festive Hot Chocolate</h3>
+          <p class="seasonal-product__price">₩25,000</p>
+        </article>
+      </div>
+
+      <div class="seasonal__cta">
+        <a href="#" class="seasonal__button">Shop Winter Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TEA MOMENTS & STORIES -->
+  <section class="stories" id="stories">
+    <div class="stories__container">
+      <header class="stories__header">
+        <h2 class="stories__title">Tea Moments & Pairings</h2>
+      </header>
+
+      <div class="stories__grid">
+        <article class="story-card">
+          <div class="story-card__image">
+            <!-- IMAGE: story_1 -->
+            [Tea Pairing]
+          </div>
+          <span class="story-card__category">Perfect Pairings</span>
+          <h3 class="story-card__title">Afternoon Tea, Elevated</h3>
+          <p class="story-card__text">
+            Discover the art of pairing our finest teas with traditional British treats.
+          </p>
+          <a href="#" class="story-card__link">Read More</a>
+        </article>
+
+        <article class="story-card">
+          <div class="story-card__image">
+            <!-- IMAGE: story_2 -->
+            [Brewing Guide]
+          </div>
+          <span class="story-card__category">Brewing Mastery</span>
+          <h3 class="story-card__title">The Art of Brewing</h3>
+          <p class="story-card__text">
+            Master the perfect cup with our expert brewing guides.
+          </p>
+          <a href="#" class="story-card__link">Learn More</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: HERITAGE & CRAFTSMANSHIP -->
+  <section class="heritage" id="heritage">
+    <div class="heritage__background">
+      <!-- IMAGE: heritage_background -->
+    </div>
+    <div class="heritage__content">
+      <h2 class="heritage__title">History & Savoir-Faire</h2>
+      <p class="heritage__subtitle">Discover the history of Whittard of Chelsea</p>
+      <a href="#" class="heritage__button">Explore</a>
+    </div>
+  </section>
+
+  <!-- SECTION 8: SOCIAL & COMMUNITY FEED -->
+  <section class="social" id="social">
+    <div class="social__container">
+      <header class="social__header">
+        <h2 class="social__title">Stay Connected</h2>
+        <p class="social__subtitle">All the news and inspiration on Instagram</p>
+        <div class="social__divider"></div>
+      </header>
+
+      <div class="social__grid">
+        <div class="social-post">
+          <!-- IMAGE: social_1 -->
+          [Instagram 1]
+        </div>
+        <div class="social-post">
+          <!-- IMAGE: social_2 -->
+          [Instagram 2]
+        </div>
+        <div class="social-post">
+          <!-- IMAGE: social_3 -->
+          [Instagram 3]
+        </div>
+        <div class="social-post">
+          <!-- IMAGE: social_4 -->
+          [Instagram 4]
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 9: BRAND VALUES & SERVICES -->
+  <section class="values">
+    <div class="values__container">
+      <div class="values__grid">
+        <article class="value-card">
+          <div class="value-card__icon">🚚</div>
+          <h3 class="value-card__title">Free Delivery</h3>
+          <p class="value-card__description">On orders over ₩20,000</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">🔒</div>
+          <h3 class="value-card__title">100% Secure Payment</h3>
+          <p class="value-card__description">Safe & protected checkout</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">📦</div>
+          <h3 class="value-card__title">48h Delivery</h3>
+          <p class="value-card__description">Except holidays and weekend</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">♻️</div>
+          <h3 class="value-card__title">Ecological Commitment</h3>
+          <p class="value-card__description">Sustainable sourcing</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 10: FOOTER -->
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__main">
+        <div class="footer__about">
+          <div class="footer__logo">WHITTARD</div>
+          <p class="footer__description">
+            Since 1886, we've been bringing you the world's finest teas. From London to Seoul, the tradition continues.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link">📘</a>
+            <a href="#" class="footer__social-link">📷</a>
+            <a href="#" class="footer__social-link">🐦</a>
+            <a href="#" class="footer__social-link">📌</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Shop</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">Black Teas</a></li>
+            <li class="footer__link"><a href="#">Green & White Teas</a></li>
+            <li class="footer__link"><a href="#">Fruit & Herbal</a></li>
+            <li class="footer__link"><a href="#">Hot Chocolate</a></li>
+            <li class="footer__link"><a href="#">Gift Sets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Discover</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">Our Story</a></li>
+            <li class="footer__link"><a href="#">Brewing Guides</a></li>
+            <li class="footer__link"><a href="#">Tea Pairings</a></li>
+            <li class="footer__link"><a href="#">Store Locator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Support</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">Contact Us</a></li>
+            <li class="footer__link"><a href="#">FAQs</a></li>
+            <li class="footer__link"><a href="#">Shipping</a></li>
+            <li class="footer__link"><a href="#">Returns</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Company</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">About</a></li>
+            <li class="footer__link"><a href="#">Sustainability</a></li>
+            <li class="footer__link"><a href="#">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          © 2025 Whittard of Chelsea. All rights reserved.
+        </p>
+        <div class="footer__policies">
+          <a href="#" class="footer__policy-link">Privacy Policy</a>
+          <a href="#" class="footer__policy-link">Terms & Conditions</a>
+          <a href="#" class="footer__policy-link">Cookie Settings</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Hero Carousel with Drag/Swipe + Scroll Header
+    (function() {
+      const carousel = document.getElementById('heroCarousel');
+      const slides = carousel.querySelectorAll('.hero__slide');
+      const dots = document.querySelectorAll('.hero__nav-dot');
+      const prevArrow = document.getElementById('prevArrow');
+      const nextArrow = document.getElementById('nextArrow');
+      const header = document.getElementById('header');
+      
+      let currentSlide = 0;
+      let autoPlayInterval;
+      let isHovered = false;
+      let isDragging = false;
+      let startX = 0;
+      let currentX = 0;
+      let startTime = 0;
+
+      function updateCarousel() {
+        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+        dots.forEach((dot, index) => {
+          dot.classList.toggle('hero__nav-dot--active', index === currentSlide);
+        });
+      }
+
+      function goToSlide(index) {
+        currentSlide = (index + slides.length) % slides.length;
+        updateCarousel();
+      }
+
+      function nextSlide() {
+        if (!isHovered && !isDragging) {
+          goToSlide(currentSlide + 1);
+        }
+      }
+
+      function prevSlide() {
+        goToSlide(currentSlide - 1);
+      }
+
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(nextSlide, 6000);
+      }
+
+      function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+      }
+
+      // Dot navigation
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          goToSlide(index);
+          stopAutoPlay();
+          startAutoPlay();
+        });
+      });
+
+      // Arrow navigation
+      prevArrow.addEventListener('click', () => {
+        prevSlide();
+        stopAutoPlay();
+        startAutoPlay();
+      });
+
+      nextArrow.addEventListener('click', () => {
+        nextSlide();
+        stopAutoPlay();
+        startAutoPlay();
+      });
+
+      // Hover pause
+      carousel.addEventListener('mouseenter', () => {
+        isHovered = true;
+        stopAutoPlay();
+      });
+
+      carousel.addEventListener('mouseleave', () => {
+        isHovered = false;
+        if (!isDragging) startAutoPlay();
+      });
+
+      // Drag/Swipe functionality
+      function handleStart(e) {
+        isDragging = true;
+        startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
+        currentX = startX;
+        startTime = Date.now();
+        stopAutoPlay();
+      }
+
+      function handleMove(e) {
+        if (!isDragging) return;
+        e.preventDefault();
+        currentX = e.type === 'mousemove' ? e.pageX : e.touches[0].pageX;
+      }
+
+      function handleEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        
+        const diff = currentX - startX;
+        const timeDiff = Date.now() - startTime;
+        const velocity = Math.abs(diff) / timeDiff;
+
+        // Threshold: 50px or fast swipe
+        if (Math.abs(diff) > 50 || velocity > 0.5) {
+          if (diff > 0) {
+            prevSlide();
+          } else {
+            nextSlide();
+          }
+        }
+
+        startAutoPlay();
+      }
+
+      // Mouse events
+      carousel.addEventListener('mousedown', handleStart);
+      document.addEventListener('mousemove', handleMove);
+      document.addEventListener('mouseup', handleEnd);
+
+      // Touch events
+      carousel.addEventListener('touchstart', handleStart, { passive: true });
+      carousel.addEventListener('touchmove', handleMove, { passive: false });
+      carousel.addEventListener('touchend', handleEnd);
+
+      // Scroll header background
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          header.classList.add('header--scrolled');
+        } else {
+          header.classList.remove('header--scrolled');
+        }
+      });
+
+      // Start carousel
+      startAutoPlay();
+    })();
+  </script>
+
+</body>
+</html>

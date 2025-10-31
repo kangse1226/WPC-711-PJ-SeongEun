@@ -6,7 +6,7 @@
   <title>Whittard of Chelsea - British Tea Since 1886</title>
   <!-- 메인 CSS -->
    <!-- 탭메뉴 아이콘 넣기 -->
-    <link rel="shortcut icon" href="./" type="image/ico" />
+    <link rel="shortcut icon" href="./images/logo.PNG" type="image/ico" />
     <!-- 폰트 불러오기: SUIT, Pretendard -->
     <link rel="stylesheet" href="" />
     <link
@@ -26,204 +26,480 @@
 
 </head>
 <body>
-  <!-- Header -->
-  <header class="header">
-    <div class="header__logo">WHITTARD</div>
-    <nav class="header__nav">
-      <a href="#home" class="header__nav-link">Home</a>
-      <a href="#tea" class="header__nav-link">Our Teas</a>
-      <a href="#collections" class="header__nav-link">Collections</a>
-      <a href="#about" class="header__nav-link">About Us</a>
-      <a href="#contact" class="header__nav-link">Contact</a>
-    </nav>
+
+  <!-- HEADER - TRANSPARENT WITH DROPDOWN -->
+  <header class="header" id="header">
+    <div class="header__container">
+    
+
+<a href="/" class="header__logo">
+    <img 
+        src="./images/main/logo.svg" 
+        alt="Whittard of Chelsea 로고 - 메인 페이지로 이동" 
+        class="logo-image"
+    >
+</a>
+
+      <nav class="header__nav">
+        <div class="header__nav-item">
+          <a href="#signature-collections" class="header__nav-link">Tea</a>
+          <div class="header__dropdown">
+            <div class="header__dropdown-section">
+              <h4 class="header__dropdown-title">Learn</h4>
+              <ul class="header__dropdown-links">
+                <li class="header__dropdown-link"><a href="#">Journey to the Heart of Tea</a></li>
+                <li class="header__dropdown-link"><a href="#">Fragrant Compositions</a></li>
+                <li class="header__dropdown-link"><a href="#">Terroirs of Excellence</a></li>
+                <li class="header__dropdown-link"><a href="#">The Art of British Tea</a></li>
+              </ul>
+            </div>
+            <div class="header__dropdown-section">
+              <h4 class="header__dropdown-title">Deepen</h4>
+              <ul class="header__dropdown-links">
+                <li class="header__dropdown-link"><a href="#">White Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Green Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Blue Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Darjeeling Teas</a></li>
+                <li class="header__dropdown-link"><a href="#">Black Teas</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="header__nav-item">
+          <a href="#seasonal" class="header__nav-link">Seasonal</a>
+        </div>
+        <div class="header__nav-item">
+          <a href="#favorites" class="header__nav-link">Favorites</a>
+        </div>
+        <div class="header__nav-item">
+          <a href="#stories" class="header__nav-link">Stories</a>
+        </div>
+        <div class="header__nav-item">
+          <a href="#heritage" class="header__nav-link">Heritage</a>
+        </div>
+      </nav>
+      <div class="header__actions">
+        <a href="#" class="header__action-link">Search</a>
+        <a href="#" class="header__action-link">Account</a>
+        <a href="#" class="header__action-link">Cart</a>
+      </div>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="hero" id="home">
-    <h1 class="hero__title">English Breakfast Tea</h1>
-    <p class="hero__subtitle">The Perfect Morning Blend Since 1886</p>
-    <button class="hero__cta">Discover Our Collection</button>
-  </section>
+  <!-- SECTION 1: HERO & KEY EVENTS  -->
+  <section class="hero-dual" id="hero">
+    <div class="hero-dual__left">
+        <a href="#signature-collections" class="hero-dual__link hero-dual__brand-focus">
+            <img 
+                src="./images/event/hero4.jpg" 
+                alt="Wittard 시그니처 틴 케이스와 홍차" 
+                class="hero-dual__img"
+            >
+            <div class="hero-dual__content">
+                <p class="subtitle">British Tea Heritage</p>
+                <h2 class="title">Signature Collection</h2>
+                <span class="cta">Discover More &rarr;</span>
+            </div>
+        </a>
+    </div>
 
-  <!-- Collections Section -->
-  <section class="section collections" id="collections">
-    <header class="section__header">
-      <h2 class="section__title">The Simply Exquisite</h2>
-      <p class="section__description">Discover our signature collection of premium teas</p>
-    </header>
-    <div class="collections__grid">
-      <article class="collection-card">
-        <div class="collection-card__image-wrapper">
-          <div class="collection-card__image">🍵</div>
-        </div>
-        <div class="collection-card__content">
-          <h3 class="collection-card__title">English Breakfast Tea</h3>
-          <p class="collection-card__text">A robust blend of Ceylon and Assam teas, perfect for starting your day with traditional British elegance.</p>
-        </div>
-      </article>
-      <article class="collection-card">
-        <div class="collection-card__image-wrapper">
-          <div class="collection-card__image">☕</div>
-        </div>
-        <div class="collection-card__content">
-          <h3 class="collection-card__title">The Cha De Nuit</h3>
-          <p class="collection-card__text">An enchanting evening blend with delicate floral notes and a smooth, calming finish.</p>
-        </div>
-      </article>
-      <article class="collection-card">
-        <div class="collection-card__image-wrapper">
-          <div class="collection-card__image">🫖</div>
-        </div>
-        <div class="collection-card__content">
-          <h3 class="collection-card__title">Empire Chai Royale</h3>
-          <p class="collection-card__text">A majestic blend of aromatic spices and premium black tea, inspired by imperial traditions.</p>
-        </div>
-      </article>
+    <div class="hero-dual__right">
+        <a href="#seasonal" class="hero-dual__link hero-dual__event-focus">
+            <img 
+                src="./images/event/hero5.jpg" 
+                alt="Wittard 크리스마스 핫초콜릿 선물 세트" 
+                class="hero-dual__img"
+            >
+            <div class="hero-dual__content">
+                <p class="subtitle">Limited Time Offer</p>
+                <h2 class="title">Winter Hamper 2025</h2>
+                <span class="cta">Shop Gifting &rarr;</span>
+            </div>
+        </a>
     </div>
   </section>
 
-  <!-- Feature Section -->
-  <section class="section features">
-    <div class="features__grid">
-      <article class="feature-card">
-        <div class="feature-card__image">
-          <span style="font-size: 4rem;">🎨</span>
+  <!-- SECTION 2: INTERACTIVE TEA FINDER -->
+  <section class="tea-finder" id="tea-finder">
+    <div class="tea-finder__container">
+      <header class="tea-finder__header">
+        <h2 class="tea-finder__title">Find Your Perfect Tea Moment</h2>
+        <p class="tea-finder__subtitle">Let us guide you to the ideal blend for every time of day</p>
+      </header>
+
+      <div class="tea-finder__grid">
+        <article class="tea-time-card">
+          <div class="tea-time-card__icon">☀️</div>
+          <h3 class="tea-time-card__period">Morning</h3>
+          <p class="tea-time-card__recommendation">English Breakfast</p>
+          <p class="tea-time-card__description">
+            Bold and robust with malty notes. The perfect way to start your day with a full-bodied blend that awakens the senses.
+          </p>
+        </article>
+
+        <article class="tea-time-card">
+          <div class="tea-time-card__icon">☕</div>
+          <h3 class="tea-time-card__period">Afternoon</h3>
+          <p class="tea-time-card__recommendation">Elderflower Earl Grey</p>
+          <p class="tea-time-card__description">
+            Delicate bergamot meets floral elderflower. A sophisticated choice for your afternoon tea break.
+          </p>
+        </article>
+
+        <article class="tea-time-card">
+          <div class="tea-time-card__icon">🌙</div>
+          <h3 class="tea-time-card__period">Evening</h3>
+          <p class="tea-time-card__recommendation">Blueberry Rooibos</p>
+          <p class="tea-time-card__description">
+            Naturally caffeine-free with sweet berry notes. Wind down with this calming blend.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3: SIGNATURE COLLECTIONS -->
+  <section class="signature-collections" id="signature-collections">
+    <div class="signature-collections__container">
+      <header class="signature-collections__header">
+        <h2 class="signature-collections__title">Signature Collections</h2>
+        <p class="signature-collections__subtitle">
+          Explore our carefully curated range of premium teas, hot chocolates, and instant delights
+        </p>
+      </header>
+
+      <div class="signature-collections__grid">
+        <article class="signature-card">
+          <div class="signature-card__image">
+            <!-- IMAGE: signature_1 -->
+            [Classic Black Teas]
+          </div>
+          <div class="signature-card__content">
+            <h3 class="signature-card__name">Classic Black Teas</h3>
+            <p class="signature-card__description">
+              From our iconic English Breakfast to sophisticated Earl Grey varieties.
+            </p>
+            <a href="#" class="signature-card__link">Explore Black Teas</a>
+          </div>
+        </article>
+
+        <article class="signature-card">
+          <div class="signature-card__image">
+            <!-- IMAGE: signature_2 -->
+            [Fruit & Herbal]
+          </div>
+          <div class="signature-card__content">
+            <h3 class="signature-card__name">Fruit & Herbal</h3>
+            <p class="signature-card__description">
+              Vibrant blends bursting with natural flavours and caffeine-free options.
+            </p>
+            <a href="#" class="signature-card__link">Discover Blends</a>
+          </div>
+        </article>
+
+        <article class="signature-card">
+          <div class="signature-card__image">
+            <!-- IMAGE: signature_3 -->
+            [Hot Chocolate]
+          </div>
+          <div class="signature-card__content">
+            <h3 class="signature-card__name">Hot Chocolate & Instant</h3>
+            <p class="signature-card__description">
+              Legendary luxury hot chocolate and convenient instant teas.
+            </p>
+            <a href="#" class="signature-card__link">View Collection</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 4: CUSTOMER FAVORITES -->
+  <section class="favorites" id="favorites">
+    <div class="favorites__container">
+      <header class="favorites__header">
+        <h2 class="favorites__title">The Favourites</h2>
+        <p class="favorites__subtitle">The most popular teas of the moment</p>
+      </header>
+
+      <div class="favorites__grid">
+        <article class="favorite-product">
+          <div class="favorite-product__image">
+            <!-- IMAGE: favorite_1 -->
+            [English Breakfast]
+          </div>
+          <h3 class="favorite-product__name">English Breakfast</h3>
+          <p class="favorite-product__description">
+            Our signature blend with bold, malty flavours
+          </p>
+          <p class="favorite-product__price">₩14,000 – ₩42,000</p>
+          <a href="#" class="favorite-product__button">Shop Now</a>
+        </article>
+
+        <article class="favorite-product">
+          <div class="favorite-product__image">
+            <!-- IMAGE: favorite_2 -->
+            [Earl Grey]
+          </div>
+          <h3 class="favorite-product__name">Earl Grey Collection</h3>
+          <p class="favorite-product__description">
+            Classic bergamot with modern twists
+          </p>
+          <p class="favorite-product__price">₩15,000 – ₩45,000</p>
+          <a href="#" class="favorite-product__button">Shop Now</a>
+        </article>
+
+        <article class="favorite-product">
+          <div class="favorite-product__image">
+            <!-- IMAGE: favorite_3 -->
+            [Hot Chocolate]
+          </div>
+          <h3 class="favorite-product__name">Luxury Hot Chocolate</h3>
+          <p class="favorite-product__description">
+            Rich, indulgent drinking chocolate
+          </p>
+          <p class="favorite-product__price">₩18,000 – ₩52,000</p>
+          <a href="#" class="favorite-product__button">Shop Now</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 5: SEASONAL COLLECTION -->
+  <section class="seasonal" id="seasonal">
+    <div class="seasonal__container">
+      <header class="seasonal__header">
+        <span class="seasonal__badge">Limited Edition</span>
+        <h2 class="seasonal__title">Winter Collection 2025</h2>
+        <p class="seasonal__subtitle">Warming blends for the festive season</p>
+      </header>
+
+      <div class="seasonal__grid">
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_1 -->
+            [Mulled Wine Tea]
+          </div>
+          <h3 class="seasonal-product__name">Mulled Wine Tea</h3>
+          <p class="seasonal-product__price">₩18,000</p>
+        </article>
+
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_2 -->
+            [Christmas Tea]
+          </div>
+          <h3 class="seasonal-product__name">Christmas Spice</h3>
+          <p class="seasonal-product__price">₩16,000</p>
+        </article>
+
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_3 -->
+            [Cranberry Biscuits]
+          </div>
+          <h3 class="seasonal-product__name">Cranberry Biscuits</h3>
+          <p class="seasonal-product__price">₩22,000</p>
+        </article>
+
+        <article class="seasonal-product">
+          <div class="seasonal-product__image">
+            <!-- IMAGE: seasonal_4 -->
+            [Hot Chocolate Tin]
+          </div>
+          <h3 class="seasonal-product__name">Festive Hot Chocolate</h3>
+          <p class="seasonal-product__price">₩25,000</p>
+        </article>
+      </div>
+
+      <div class="seasonal__cta">
+        <a href="#" class="seasonal__button">Shop Winter Collection</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 6: TEA MOMENTS & STORIES -->
+  <section class="stories" id="stories">
+    <div class="stories__container">
+      <header class="stories__header">
+        <h2 class="stories__title">Tea Moments & Pairings</h2>
+      </header>
+
+      <div class="stories__grid">
+        <article class="story-card">
+          <div class="story-card__image">
+            <!-- IMAGE: story_1 -->
+            [Tea Pairing]
+          </div>
+          <span class="story-card__category">Perfect Pairings</span>
+          <h3 class="story-card__title">Afternoon Tea, Elevated</h3>
+          <p class="story-card__text">
+            Discover the art of pairing our finest teas with traditional British treats.
+          </p>
+          <a href="#" class="story-card__link">Read More</a>
+        </article>
+
+        <article class="story-card">
+          <div class="story-card__image">
+            <!-- IMAGE: story_2 -->
+            [Brewing Guide]
+          </div>
+          <span class="story-card__category">Brewing Mastery</span>
+          <h3 class="story-card__title">The Art of Brewing</h3>
+          <p class="story-card__text">
+            Master the perfect cup with our expert brewing guides.
+          </p>
+          <a href="#" class="story-card__link">Learn More</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 7: HERITAGE & CRAFTSMANSHIP -->
+  <section class="heritage" id="heritage">
+    <div class="heritage__background">
+      <!-- IMAGE: heritage_background -->
+    </div>
+    <div class="heritage__content">
+      <h2 class="heritage__title">History & Savoir-Faire</h2>
+      <p class="heritage__subtitle">Discover the history of Whittard of Chelsea</p>
+      <a href="#" class="heritage__button">Explore</a>
+    </div>
+  </section>
+
+  <!-- SECTION 8: SOCIAL & COMMUNITY FEED -->
+  <section class="social" id="social">
+    <div class="social__container">
+      <header class="social__header">
+        <h2 class="social__title">Stay Connected</h2>
+        <p class="social__subtitle">All the news and inspiration on Instagram</p>
+        <div class="social__divider"></div>
+      </header>
+
+      <div class="social__grid">
+        <div class="social-post">
+          <!-- IMAGE: social_1 -->
+          [Instagram 1]
         </div>
-        <h3 class="feature-card__title">The Vibrant Trends Installation</h3>
-        <p class="feature-card__description">Experience the artistry of tea through our innovative brewing techniques and presentations.</p>
-      </article>
-      <article class="feature-card">
-        <div class="feature-card__image">
-          <span style="font-size: 4rem;">🌿</span>
+        <div class="social-post">
+          <!-- IMAGE: social_2 -->
+          [Instagram 2]
         </div>
-        <h3 class="feature-card__title">Tea & Cake Pairings</h3>
-        <p class="feature-card__description">Discover perfect combinations that elevate your afternoon tea experience.</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Chai Banner -->
-  <section class="chai-banner">
-    <h2 class="chai-banner__title">Chai Collection</h2>
-    <button class="chai-banner__button">Explore Now</button>
-  </section>
-
-  <!-- Types of Tea -->
-  <section class="section tea-types" id="tea">
-    <header class="section__header">
-      <h2 class="section__title">Types of Teas</h2>
-    </header>
-    <div class="tea-types__carousel">
-      <article class="tea-types__item">
-        <div class="tea-types__image">
-          <div class="tea-types__icon">🟤</div>
+        <div class="social-post">
+          <!-- IMAGE: social_3 -->
+          [Instagram 3]
         </div>
-        <h3 class="tea-types__name">Black Tea</h3>
-        <p class="tea-types__description">Full-bodied and robust with rich, malty flavors</p>
-      </article>
-      <article class="tea-types__item">
-        <div class="tea-types__image">
-          <div class="tea-types__icon">🟡</div>
+        <div class="social-post">
+          <!-- IMAGE: social_4 -->
+          [Instagram 4]
         </div>
-        <h3 class="tea-types__name">Green Tea</h3>
-        <p class="tea-types__description">Light and refreshing with delicate vegetal notes</p>
-      </article>
-      <article class="tea-types__item">
-        <div class="tea-types__image">
-          <div class="tea-types__icon">⚪</div>
-        </div>
-        <h3 class="tea-types__name">White Tea</h3>
-        <p class="tea-types__description">Subtle and sweet with gentle floral aromas</p>
-      </article>
-    </div>
-    <a href="#" class="tea-types__link">View All Teas</a>
-  </section>
-
-  <!-- History Section -->
-  <section class="history" id="about">
-    <div class="history__content">
-      <h2 class="history__title">History & Savoir-Faire</h2>
-      <p class="history__subtitle">Crafting Excellence Since 1886</p>
+      </div>
     </div>
   </section>
 
-  <!-- Products Section -->
-  <section class="section products">
-    <header class="section__header">
-      <h2 class="section__title">The Favourites</h2>
-    </header>
-    <div class="products__grid">
-      <article class="product-card">
-        <div class="product-card__image">📦</div>
-        <h3 class="product-card__name">Imperial Tea</h3>
-        <p class="product-card__description">Premium black tea blend</p>
-        <p class="product-card__price">£12 – £45</p>
-      </article>
-      <article class="product-card">
-        <div class="product-card__image">🎁</div>
-        <h3 class="product-card__name">Earl Grey French Blue</h3>
-        <p class="product-card__description">Classic bergamot blend</p>
-        <p class="product-card__price">£14 – £48</p>
-      </article>
-      <article class="product-card">
-        <div class="product-card__image">🌺</div>
-        <h3 class="product-card__name">Rose Petal</h3>
-        <p class="product-card__description">Delicate floral infusion</p>
-        <p class="product-card__price">£16 – £52</p>
-      </article>
+  <!-- SECTION 9: BRAND VALUES & SERVICES -->
+  <section class="values">
+    <div class="values__container">
+      <div class="values__grid">
+        <article class="value-card">
+          <div class="value-card__icon">🚚</div>
+          <h3 class="value-card__title">Free Delivery</h3>
+          <p class="value-card__description">On orders over ₩20,000</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">🔒</div>
+          <h3 class="value-card__title">100% Secure Payment</h3>
+          <p class="value-card__description">Safe & protected checkout</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">📦</div>
+          <h3 class="value-card__title">48h Delivery</h3>
+          <p class="value-card__description">Except holidays and weekend</p>
+        </article>
+
+        <article class="value-card">
+          <div class="value-card__icon">♻️</div>
+          <h3 class="value-card__title">Ecological Commitment</h3>
+          <p class="value-card__description">Sustainable sourcing</p>
+        </article>
+      </div>
     </div>
   </section>
 
-  <!-- Social Section -->
-  <section class="section social">
-    <header class="section__header">
-      <h2 class="section__title">Stay Connected</h2>
-      <p class="section__description">Follow our tea journey on social media</p>
-    </header>
-    <div class="social__grid">
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-      <div class="social__item"></div>
-    </div>
-  </section>
-
-  <!-- Values Section -->
-  <section class="section values">
-    <div class="values__grid">
-      <article class="value-card">
-        <div class="value-card__icon">🚚</div>
-        <h3 class="value-card__title">Free Delivery</h3>
-        <p class="value-card__description">On orders over £30</p>
-      </article>
-      <article class="value-card">
-        <div class="value-card__icon">♻️</div>
-        <h3 class="value-card__title">Sustainable</h3>
-        <p class="value-card__description">Ethically sourced teas</p>
-      </article>
-      <article class="value-card">
-        <div class="value-card__icon">🎁</div>
-        <h3 class="value-card__title">Gift Service</h3>
-        <p class="value-card__description">Elegant gift wrapping</p>
-      </article>
-      <article class="value-card">
-        <div class="value-card__icon">🏆</div>
-        <h3 class="value-card__title">Award Winning</h3>
-        <p class="value-card__description">Since 1886</p>
-      </article>
-    </div>
-  </section>
-
-  <!-- Footer -->
+  <!-- SECTION 10: FOOTER -->
   <footer class="footer">
-    <div class="footer__content">
-      <p class="footer__text">Experience the finest British tea tradition</p>
-      <p class="footer__copyright">© 2025 Whittard of Chelsea. All rights reserved.</p>
+    <div class="footer__container">
+      <div class="footer__main">
+        <div class="footer__about">
+          <div class="footer__logo">WHITTARD</div>
+          <p class="footer__description">
+            Since 1886, we've been bringing you the world's finest teas. From London to Seoul, the tradition continues.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="footer__social-link">📘</a>
+            <a href="#" class="footer__social-link">📷</a>
+            <a href="#" class="footer__social-link">🐦</a>
+            <a href="#" class="footer__social-link">📌</a>
+          </div>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Shop</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">Black Teas</a></li>
+            <li class="footer__link"><a href="#">Green & White Teas</a></li>
+            <li class="footer__link"><a href="#">Fruit & Herbal</a></li>
+            <li class="footer__link"><a href="#">Hot Chocolate</a></li>
+            <li class="footer__link"><a href="#">Gift Sets</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Discover</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">Our Story</a></li>
+            <li class="footer__link"><a href="#">Brewing Guides</a></li>
+            <li class="footer__link"><a href="#">Tea Pairings</a></li>
+            <li class="footer__link"><a href="#">Store Locator</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Support</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">Contact Us</a></li>
+            <li class="footer__link"><a href="#">FAQs</a></li>
+            <li class="footer__link"><a href="#">Shipping</a></li>
+            <li class="footer__link"><a href="#">Returns</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__column">
+          <h4 class="footer__column-title">Company</h4>
+          <ul class="footer__links">
+            <li class="footer__link"><a href="#">About</a></li>
+            <li class="footer__link"><a href="#">Sustainability</a></li>
+            <li class="footer__link"><a href="#">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          © 2025 Whittard of Chelsea. All rights reserved.
+        </p>
+        <div class="footer__policies">
+          <a href="#" class="footer__policy-link">Privacy Policy</a>
+          <a href="#" class="footer__policy-link">Terms & Conditions</a>
+          <a href="#" class="footer__policy-link">Cookie Settings</a>
+        </div>
+      </div>
     </div>
   </footer>
+
+
+
 </body>
 </html>
