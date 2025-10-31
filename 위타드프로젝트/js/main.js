@@ -1,5 +1,5 @@
 // main.js
-    // Hero Carousel with Drag/Swipe + Scroll Header
+   // Hero Carousel with Drag/Swipe + Scroll Header
     (function() {
       const carousel = document.getElementById('heroCarousel');
       const slides = carousel.querySelectorAll('.hero__slide');

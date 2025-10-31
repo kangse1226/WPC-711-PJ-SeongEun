@@ -79,19 +79,27 @@
     width: 150px;  
      /* 로고의 가로 크기 설정 (브랜드에 맞게 조정) */
     height: auto;
-    /* 로고가 흰색인데 안보여서 일단 색 반전했는데 브랜드컬러로 바꿔야함 투명하게 상단 있다가스크롤하면 
-    배경색 생기게 하고 싶은데 어카지 */
-    filter: invert(1);}
+     transition: filter 0.3s ease;
+    }
 
 .logo-image {
     display: block;
     width: 100%;
     height: 100%;
 }
-
-    .header--scrolled .header__logo {
-      color: #3f5562;
+ /* Initial state: No filter (original brand color) */
+    .header__logo {
+      filter: none;
     }
+
+      /* Scrolled state: Invert to white */
+    .header--scrolled .header__logo {
+      filter: brightness(0) invert(1);
+    }
+
+    /* .header--scrolled .header__logo {
+      color: #3f5562;
+    } */
 
     .header__nav {
       display: flex;
@@ -106,7 +114,7 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #fff;
+      color:  #3f5562;
       font-family: 'Arial', sans-serif;
       padding: 0.5rem 0;
       display: block;
@@ -188,16 +196,16 @@
     }
 
     .header__action-link {
-      color: #fff;
+      color: #3f5562;
       transition: color 0.3s ease;
     }
 
     .header--scrolled .header__action-link {
-      color: #2c2c2c;
+      color: #ffffff;
     }
 
     .header__action-link:hover {
-      color: #3f5562;
+      color: #881F2B;
       opacity: 1;
     }
 
