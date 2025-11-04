@@ -1,14 +1,14 @@
-  /* ========================================
+@charset "utf-8";
+/*  메인 CSS - main.css */
+
+/* 외부 CSS 불러오기 */
+@import url(./reset.css);
+@import url(./core.css);
+@import url(./common.css);
+
+    /* ========================================
        RESET & BASE STYLES
        ======================================== */
-       html {
-      scroll-behavior: smooth;
-      font-size: 10px;
-       }
-       h1,h2,h3,h4,h5,h6{
-        /* font-style: normal; */
-       }  
-
     * {
       margin: 0;
       padding: 0;
@@ -17,7 +17,7 @@
 
     body {
       font-family: 'Georgia', 'Times New Roman', serif;
-      color: #2c2c2c;
+      color: #ffffff;
       line-height: 1.7;
       background: #fff;
     }
@@ -34,8 +34,6 @@
       transition: all 0.3s ease;
     }
 
-  
-
     /* ========================================
        HEADER - TRANSPARENT WITH DROPDOWN
        ======================================== */
@@ -49,10 +47,12 @@
       padding: 1rem 2rem;
       transition: background 0.3s ease;
     }
+   
+
 
     .header--scrolled {
       background: #3f5562;
-      border-bottom: 1px solid #2a3a42;
+      border-bottom: 1px solid #e0e0e0;
       backdrop-filter: blur(10px);
     }
 
@@ -64,29 +64,42 @@
       align-items: center;
     }
 
-    /* Logo Image Styling */
-    .header__logo {
-      display: block;
-      width: 150px;
-      height: auto;
-      transition: filter 0.3s ease;
+    /* .header__logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+      color: #fff;
+      transition: color 0.3s ease;
+    } */
+
+    /* 로고 이미지 크기 및 위치 조정 */
+.header__logo {
+    display: block; 
+    /* 링크 영역 전체를 클릭 가능하게 */
+    width: 150px;  
+     /* 로고의 가로 크기 설정 (브랜드에 맞게 조정) */
+    height: auto;
+     transition: filter 0.3s ease;
     }
 
-    .logo-image {
-      display: block;
-      width: 100%;
-      height: 100%;
-    }
-
-    /* Initial state: No filter (original brand color) */
+.logo-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+ /* Initial state: No filter (original brand color) */
     .header__logo {
       filter: none;
     }
 
-    /* Scrolled state: Invert to white */
+      /* Scrolled state: Invert to white */
     .header--scrolled .header__logo {
       filter: brightness(0) invert(1);
     }
+
+    /* .header--scrolled .header__logo {
+      color: #3f5562;
+    } */
 
     .header__nav {
       display: flex;
@@ -101,7 +114,7 @@
       font-size: 0.9rem;
       text-transform: uppercase;
       letter-spacing: 1px;
-      color: #3f5562;
+      color:  #3f5562;
       font-family: 'Arial', sans-serif;
       padding: 0.5rem 0;
       display: block;
@@ -113,7 +126,7 @@
     }
 
     .header__nav-link:hover {
-      color: #fff;
+      color: #881F2B;
       opacity: 1;
     }
 
@@ -148,7 +161,7 @@
     }
 
     .header__dropdown-title {
-      font-size: 1rem;
+      font-size: 0.85rem;
       text-transform: uppercase;
       letter-spacing: 1px;
       color: #3f5562;
@@ -192,180 +205,61 @@
     }
 
     .header__action-link:hover {
-      color: #fff;
+      color: #881F2B;
       opacity: 1;
     }
 
     /* ========================================
-       SECTION 1: HERO CAROUSEL
+       SECTION 1: HERO dual
        ======================================== */
-    .hero {
-      position: relative;
-      height: 100vh;
-      overflow: hidden;
+   .hero-dual {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* 1:1 비율로 분할 */
+    width: 100%;
+    max-width: 1440px; /* 사이트 최대 폭 설정 (프리미엄 룩) */
+    margin: 100px auto;
+    gap: 40px;
+   
+}
+.hero-dual__link {
+    display: block;
+    position: relative; /* 텍스트 겹침을 위한 기준점 */
+    overflow: hidden;
+    height: 550px; /* 높이 고정 (시각적 안정감 부여) */
+}
+/* 화질 문제 해결을 위한 핵심: 이미지 크기 및 object-fit */
+.hero-dual__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* 이미지가 잘리더라도 영역을 꽉 채워 화질 유지 */
+    transition: transform 0.3s ease; /* 호버 효과로 프리미엄 인터랙션 추가 */
+}
+/* 텍스트 콘텐츠 스타일 (이미지 위에 겹치기) */
+.hero-dual__content {
+    position: absolute;
+    bottom: 50px;
+    left: 50px;
+    z-index: 10;
+    color: #fff; /* 밝은 텍스트 */
+    /* ... 폰트 스타일링: Mariage Frères처럼 고급스럽고 간결하게 ... */
+}
+/* 마우스 호버 시 이미지 확대 효과 (프리미엄 UX) */
+.hero-dual__link:hover .hero-dual__img {
+    transform: scale(1.03); 
+}
+
+/* 반응형 디자인 (모바일에서는 세로로 쌓기) */
+@media (max-width: 768px) {
+    .hero-dual {
+        grid-template-columns: 1fr; /* 세로로 100%씩 쌓기 */
     }
-
-    .hero__carousel {
-      position: relative;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .hero__slide {
-      min-width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      position: relative;
-    }
-
-    /* IMAGE PLACEHOLDERS: hero_slide_1, hero_slide_2, hero_slide_3, hero_slide_4 */
-    .hero__slide-background {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
-    }
-
-    .hero__slide-background::after {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      /* background: linear-gradient(rgba(63, 85, 98, 0.3), rgba(0, 0, 0, 0.5)); */
-    }
-
-
-
-    .hero__slide-content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      max-width: 900px;
-      padding: 2rem;
-    }
-
-    /* .hero__slide-subtitle {
-      font-size: 0.95rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 1rem;
-      font-family: 'Arial', sans-serif;
-      opacity: 0.95;
-    } */
-
-    .hero__slide-title {
-      font-size: 3.5rem;
-      font-weight: normal;
-      letter-spacing: 3px;
-      margin-bottom: 1.5rem;
-      line-height: 1.2;
-    }
-
-    .hero__slide-description {
-      font-size: 1.5rem;
-      margin-bottom: 2.5rem;
-      line-height: 1.8;
-      opacity: 0.95;
-    }
-
-    .hero__slide-cta {
-      display: inline-block;
-      padding: 1rem 3rem;
-      border: 2px solid #fff;
-      background: transparent;
-      color: #fff;
-      font-size: 0.9rem;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      cursor: pointer;
-      transition: all 0.4s ease;
-      font-family: 'Arial', sans-serif;
-    }
-
-    .hero__slide-cta:hover {
-      background: #fff;
-      color: #3f5562;
-      opacity: 1;
-    }
-
-    /* Carousel Navigation */
-    .hero__nav {
-      position: absolute;
-      bottom: 3rem;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 10;
-      display: flex;
-      gap: 1rem;
-    }
-
-    .hero__nav-dot {
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.5);
-      border: 2px solid #fff;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    .hero__nav-dot--active {
-      background: #fff;
-      transform: scale(1.2);
-    }
-
-    .hero__nav-dot:hover {
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    /* Carousel Arrows */
-    .hero__arrow {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 10;
-      background: rgba(255, 255, 255, 0.2);
-      border: 2px solid #fff;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      font-size: 1.5rem;
-      color: #fff;
-      transition: all 0.3s ease;
-    }
-
-    .hero__arrow:hover {
-      background: rgba(255, 255, 255, 0.4);
-    }
-
-    .hero__arrow--prev {
-      left: 2rem;
-    }
-
-    .hero__arrow--next {
-      right: 2rem;
-    }
+}
 
     /* ========================================
        SECTION 2: INTERACTIVE TEA FINDER
        ======================================== */
     .tea-finder {
-      padding: 12rem 2rem;
+      padding: 6rem 2rem;
       background: #f4ede8;
     }
 
@@ -406,18 +300,6 @@
       transition: all 0.3s ease;
     }
 
-    .tea-time-card-container{
-      height: 300px;
-      overflow: hidden;
-      width: 100%;
-    }
-
-    .tea-time-card-container img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     .tea-time-card:hover {
       box-shadow: 0 10px 30px rgba(0,0,0,0.1);
       transform: translateY(-5px);
@@ -453,8 +335,8 @@
        SECTION 3: SIGNATURE COLLECTIONS
        ======================================== */
     .signature-collections {
-      padding: 12rem 2rem;
-      background:#fff;
+      padding: 6rem 2rem;
+      background: #f9f9f9;
     }
 
     .signature-collections__container {
@@ -544,8 +426,8 @@
        SECTION 4-10: REMAINING SECTIONS
        ======================================== */
     .favorites {
-      padding: 12rem 2rem;
-      background: #f4ede8;
+      padding: 6rem 2rem;
+      background: #fff;
     }
 
     .favorites__container {
@@ -638,26 +520,18 @@
       background: #3f5562;
       color: #fff;
     }
-  /* ========================================
-       SECTION 5: seasonal SECTIONS
-       ======================================== */
+
     .seasonal {
-      padding: 12rem 2rem;
-      background: #280000;
+      padding: 6rem 2rem;
+      background: #1a1a1a;
       color: #fff;
     }
-    /* background 이미지만 흐리게 설정 */
-    
 
     .seasonal__container {
       max-width: 1400px;
       margin: 0 auto;
-      
     }
-.seasonal__banner__container{
-  height: 690px;
-  background:url('../images/seasonal_banner.jpg') no-repeat center center/cover;
-}
+
     .seasonal__header {
       text-align: center;
       margin-bottom: 3rem;
@@ -743,9 +617,9 @@
       background: #fff;
       color: #1a1a1a;
     }
-/* 티타임 이야기 */
+
     .stories {
-      padding: 12rem 2rem;
+      padding: 6rem 2rem;
       background: #f9f9f9;
     }
 
@@ -780,9 +654,7 @@
     }
 
     .story-card__image {
-      width: auto;
       height: 350px;
-      overflow: hidden;
       background: #d4c5bd;
       margin-bottom: 1.5rem;
       display: flex;
@@ -791,11 +663,6 @@
       font-size: 0.9rem;
       color: #999;
       letter-spacing: 1px;
-    }
-    .story-card__image img{
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
     }
 
     .story-card__category {
@@ -831,7 +698,7 @@
       padding-bottom: 0.3rem;
       font-family: 'Arial', sans-serif;
     }
-/* 역사 */
+
     .heritage {
       position: relative;
       height: 70vh;
@@ -848,7 +715,8 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: url('../images/heritage.PNG') no-repeat center center/cover;
+      background: linear-gradient(rgba(63, 85, 98, 0.6), rgba(0, 0, 0, 0.7)),
+                  #3f5562;
       z-index: 1;
     }
 
@@ -894,9 +762,9 @@
       background: #fff;
       color: #3f5562;
     }
-/* sns */
+
     .social {
-      padding: 12rem 2rem 4rem;
+      padding: 6rem 2rem 4rem;
       background: #fff;
     }
 

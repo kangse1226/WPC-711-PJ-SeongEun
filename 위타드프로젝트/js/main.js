@@ -1,13 +1,14 @@
 // main.js
-   // Hero Carousel with Drag/Swipe + Scroll Header
+    // Hero Carousel with Infinite Loop + Drag/Swipe + Scroll Header
     (function() {
       const carousel = document.getElementById('heroCarousel');
-      const slides = carousel.querySelectorAll('.hero__slide');
+      const slides = Array.from(carousel.querySelectorAll('.hero__slide:not(.hero__slide--clone)'));
       const dots = document.querySelectorAll('.hero__nav-dot');
       const prevArrow = document.getElementById('prevArrow');
       const nextArrow = document.getElementById('nextArrow');
       const header = document.getElementById('header');
       
+      const totalSlides = slides.length; // 3 slides
       let currentSlide = 0;
       let autoPlayInterval;
       let isHovered = false;
@@ -15,27 +16,58 @@
       let startX = 0;
       let currentX = 0;
       let startTime = 0;
+      let isTransitioning = false;
 
-      function updateCarousel() {
-        carousel.style.transform = `translateX(-${currentSlide * 100}%)`;
+      // Clone first slide for infinite loop
+      const firstClone = slides[0].cloneNode(true);
+      firstClone.classList.add('hero__slide--clone');
+      carousel.appendChild(firstClone);
+
+      function updateCarousel(immediate = false) {
+        const offset = -currentSlide * 100;
+        if (immediate) {
+          carousel.style.transition = 'none';
+        } else {
+          carousel.style.transition = 'transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+        }
+        carousel.style.transform = `translateX(${offset}%)`;
+        
+        // Update dots
         dots.forEach((dot, index) => {
-          dot.classList.toggle('hero__nav-dot--active', index === currentSlide);
+          dot.classList.toggle('hero__nav-dot--active', index === currentSlide % totalSlides);
         });
       }
 
-      function goToSlide(index) {
-        currentSlide = (index + slides.length) % slides.length;
-        updateCarousel();
+      function goToSlide(index, immediate = false) {
+        if (isTransitioning) return;
+        isTransitioning = true;
+        
+        currentSlide = index;
+        updateCarousel(immediate);
+        
+        // Handle infinite loop
+        setTimeout(() => {
+          if (currentSlide === totalSlides) {
+            currentSlide = 0;
+            updateCarousel(true);
+          } else if (currentSlide < 0) {
+            currentSlide = totalSlides - 1;
+            updateCarousel(true);
+          }
+          isTransitioning = false;
+        }, immediate ? 0 : 600);
       }
 
       function nextSlide() {
-        if (!isHovered && !isDragging) {
+        if (!isHovered && !isDragging && !isTransitioning) {
           goToSlide(currentSlide + 1);
         }
       }
 
       function prevSlide() {
-        goToSlide(currentSlide - 1);
+        if (!isTransitioning) {
+          goToSlide(currentSlide - 1);
+        }
       }
 
       function startAutoPlay() {
@@ -49,9 +81,11 @@
       // Dot navigation
       dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-          goToSlide(index);
-          stopAutoPlay();
-          startAutoPlay();
+          if (!isTransitioning) {
+            goToSlide(index);
+            stopAutoPlay();
+            startAutoPlay();
+          }
         });
       });
 
@@ -81,6 +115,7 @@
 
       // Drag/Swipe functionality
       function handleStart(e) {
+        if (isTransitioning) return;
         isDragging = true;
         startX = e.type === 'mousedown' ? e.pageX : e.touches[0].pageX;
         currentX = startX;
@@ -133,6 +168,7 @@
         }
       });
 
-      // Start carousel
+      // Initialize
+      goToSlide(0, true);
       startAutoPlay();
     })();
