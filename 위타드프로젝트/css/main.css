@@ -1,3 +1,7 @@
+  @charset "UTF-8";
+
+   
+  
   /* ========================================
        RESET & BASE STYLES
        ======================================== */
@@ -6,7 +10,7 @@
       font-size: 10px;
        }
        h1,h2,h3,h4,h5,h6{
-        /* font-style: normal; */
+        font-style: normal;
        }  
 
     * {
@@ -16,7 +20,7 @@
     }
 
     body {
-      font-family: 'Georgia', 'Times New Roman', serif;
+      font-family: 'Noto Serif KR', 'noto sans kr', serif;
       color: #2c2c2c;
       line-height: 1.7;
       background: #fff;
@@ -35,9 +39,8 @@
     }
 
   
-
-    /* ========================================
-       HEADER - TRANSPARENT WITH DROPDOWN
+/* ========================================
+       HEADER - MEGA MENU STYLE 
        ======================================== */
     .header {
       position: fixed;
@@ -46,29 +49,62 @@
       right: 0;
       background: transparent;
       z-index: 1000;
-      padding: 1rem 2rem;
       transition: background 0.3s ease;
     }
 
-    .header--scrolled {
-      background: #3f5562;
-      border-bottom: 1px solid #2a3a42;
-      backdrop-filter: blur(10px);
+   .header--scrolled {
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* Header Container */
     .header__container {
       max-width: 1400px;
       margin: 0 auto;
+      padding: 1.5rem 2rem 0;
       display: flex;
-      justify-content: space-between;
+      flex-direction: column;
       align-items: center;
     }
 
-    /* Logo Image Styling */
+    /* Top Bar - Right Actions */
+    .header__top-bar {
+      width: 100%;
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: 1rem;
+    }
+
+    .header__actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .header__action-link {
+      color: #fff;
+      transition: color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 1.6rem;
+      cursor: pointer;
+    }
+
+    .header--scrolled .header__action-link {
+      color: #3f5562;
+    }
+
+    .header__action-link:hover {
+      color: #881F2B;
+      opacity: 1;
+    }
+
+    /* Logo - Center */
     .header__logo {
       display: block;
-      width: 150px;
+      width: 180px;
       height: auto;
+      margin-bottom: 1.5rem;
       transition: filter 0.3s ease;
     }
 
@@ -76,21 +112,20 @@
       display: block;
       width: 100%;
       height: 100%;
+     
     }
 
-    /* Initial state: No filter (original brand color) */
-    .header__logo {
+    .header--scrolled .logo-image {
+      /* 스크롤 시 원본 색상으로 */
       filter: none;
     }
 
-    /* Scrolled state: Invert to white */
-    .header--scrolled .header__logo {
-      filter: brightness(0) invert(1);
-    }
-
+    /* Navigation - Below Logo */
     .header__nav {
       display: flex;
-      gap: 2.5rem;
+      justify-content: center;
+      gap: 3rem;
+      padding-bottom: 1rem;
     }
 
     .header__nav-item {
@@ -98,108 +133,135 @@
     }
 
     .header__nav-link {
-      font-size: 0.9rem;
+      font-size: 1.6rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       color: #3f5562;
-      font-family: 'Arial', sans-serif;
+
       padding: 0.5rem 0;
       display: block;
       transition: color 0.3s ease;
+      cursor: pointer;
+      font-weight: 500;
     }
 
     .header--scrolled .header__nav-link {
-      color: #ffffff;
+      color: #3f5562;
     }
 
     .header__nav-link:hover {
-      color: #fff;
+      color: #881F2B;
       opacity: 1;
     }
 
-    /* Dropdown Menu */
-    .header__dropdown {
-      position: absolute;
+    /* Mega Menu - Full Width with White Background */
+    .header__mega-menu {
+      position: fixed;
+      left: 0;
+      right: 0;
       top: 100%;
-      left: 50%;
-      transform: translateX(-50%);
       background: #fff;
-      min-width: 280px;
-      padding: 2rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       opacity: 0;
       visibility: hidden;
-      transition: all 0.3s ease;
-      margin-top: 1rem;
+      transition: all 0.4s ease;
+      transform: translateY(-20px);
+      border-top: 1px solid #e0e0e0;
+      max-height: 0;
+      overflow: hidden;
     }
 
-    .header__nav-item:hover .header__dropdown {
+    .header__nav-item:hover .header__mega-menu {
       opacity: 1;
       visibility: visible;
-      margin-top: 0;
+      transform: translateY(0);
+      max-height: 600px;
     }
 
-    .header__dropdown-section {
-      margin-bottom: 1.5rem;
+    .header__mega-menu-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr) 400px;
+      gap: 3rem;
     }
 
-    .header__dropdown-section:last-child {
-      margin-bottom: 0;
+    /* Single column for simple menus */
+    .header__mega-menu--single .header__mega-menu-container {
+      grid-template-columns: 1fr;
+      max-width: 600px;
     }
 
-    .header__dropdown-title {
-      font-size: 1rem;
+    .header__mega-menu-column {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header__mega-menu-title {
+      font-size: 0.9rem;
       text-transform: uppercase;
-      letter-spacing: 1px;
-      color: #3f5562;
-      margin-bottom: 0.8rem;
-      font-family: 'Arial', sans-serif;
+      letter-spacing: 1.5px;
+      color: #121212;
+      margin-bottom: 1.5rem;
+     
       font-weight: bold;
     }
 
-    .header__dropdown-links {
+    .header__mega-menu-links {
       list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
     }
 
-    .header__dropdown-link {
-      margin-bottom: 0.5rem;
+    .header__mega-menu-link {
+      font-size: 0.95rem;
+      color: #666;
+  
+      transition: all 0.3s ease;
+      padding: 0.3rem 0;
     }
 
-    .header__dropdown-link a {
+    .header__mega-menu-link:hover {
+      color: #121212;
+      transform: translateX(5px);
+    }
+
+    /* Featured Image Column */
+    .header__mega-menu-featured {
+      grid-column: 4;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 1rem;
+    }
+
+    .header__mega-menu-image {
+      width: 100%;
+      height: 300px;
+      background: #f5f5f5;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #999;
+      /* IMAGE PLACEHOLDER */
+    }
+
+    .header__mega-menu-caption {
       font-size: 0.9rem;
       color: #666;
-      font-family: 'Georgia', serif;
-      transition: color 0.3s ease;
+      line-height: 1.6;
+      text-align: center;
+    
     }
-
-    .header__dropdown-link a:hover {
-      color: #3f5562;
-    }
-
-    .header__actions {
-      display: flex;
-      gap: 1.5rem;
-      font-size: 0.9rem;
-    }
-
-    .header__action-link {
-      color: #3f5562;
-      transition: color 0.3s ease;
-    }
-
-    .header--scrolled .header__action-link {
-      color: #ffffff;
-    }
-
-    .header__action-link:hover {
-      color: #fff;
-      opacity: 1;
-    }
-
     /* ========================================
        SECTION 1: HERO CAROUSEL
        ======================================== */
     .hero {
+     
       position: relative;
       height: 100vh;
       overflow: hidden;
@@ -643,7 +705,7 @@
        ======================================== */
     .seasonal {
       padding: 12rem 2rem;
-      background: #280000;
+      background: #480808;
       color: #fff;
     }
     /* background 이미지만 흐리게 설정 */
