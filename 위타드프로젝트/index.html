@@ -28,94 +28,262 @@
   </head>
   <body>
 
-    <header class="header" id="header">
-    <div class="header__container">
-        
-        <a href="/" class="header__logo">
-          <img
-            src="./images/logo.svg"
-            alt="Whittard of Chelsea 로고 - 메인 페이지로 이동"
-            class="logo-image"
-          />
-        </a>
-        
-        <nav class="header__nav">
-          <div class="header__nav-item">
-            <a href="#bestseller" class="header__nav-link">베스트셀러</a>
-          </div>
+<header class="header" id="header">
+  <div class="header__container">
+    
+    <!-- 상단: 로고(중앙) + 아이콘(우측) -->
+    <div class="header__top">
+      <a href="/" class="header__logo">
+        <img
+          src="./images/logo.svg"
+          alt="Whittard of Chelsea 로고"
+          class="logo-image"
+        />
+      </a>
+      
+      <!-- 아이콘 (우측 절대 위치) -->
+      <div class="header__actions">
+        <a href="#" class="header__action-link" aria-label="검색">🔍</a>
+        <a href="#" class="header__action-link" aria-label="로그인">👤</a>
+        <a href="#" class="header__action-link" aria-label="장바구니">🛒</a>
+      </div>
 
-          <div class="header__nav-item">
-            <a href="#seasonal" class="header__nav-link">시즌 컬렉션</a>
-            <div class="header__dropdown">
-              <div class="header__dropdown-section">
-                <h4 class="header__dropdown-title">시즌 컬렉션</h4>
-                <ul class="header__dropdown-links">
-                  <li class="header__dropdown-link">
-                    <a href="#christmas">크리스마스</a>
-                  </li>
-                  <li class="header__dropdown-link">
-                    <a href="#winter">윈터 스페셜</a>
-                  </li>
-                  <li class="header__dropdown-link">
-                    <a href="#new-arrivals">신제품</a>
-                  </li>
+      <!-- 모바일 메뉴 토글 -->
+      <div class="header__mobile-toggle" id="mobileToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+
+    <!-- 하단: 네비게이션(중앙) -->
+    <div class="header__bottom" id="headerNav">
+      <nav class="header__nav">
+        
+        <!-- 1. 베스트셀러 (드롭다운 없음) -->
+        <div class="header__nav-item">
+          <a href="#bestseller" class="header__nav-link">베스트셀러</a>
+        </div>
+
+        <!-- 2. 시즌 컬렉션 -->
+        <div class="header__nav-item">
+          <a href="#seasonal" class="header__nav-link">시즌 컬렉션</a>
+          <div class="header__mega-menu header__mega-menu--with-image">
+            <div class="header__mega-menu-inner">
+              
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">특별 컬렉션</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#christmas">크리스마스 컬렉션</a></li>
+                  <li class="header__mega-menu-link"><a href="#winter">윈터 스페셜</a></li>
+                  <li class="header__mega-menu-link"><a href="#new-arrivals">신제품</a></li>
+                  <li class="header__mega-menu-link"><a href="#limited">한정판</a></li>
                 </ul>
               </div>
-            </div>
-          </div>
-          
-          <div class="header__nav-item">
-            <a href="#tea-collection" class="header__nav-link">티 컬렉션</a>
-            <div class="header__dropdown">
-              <div class="header__dropdown-section">
-                 <h4 class="header__dropdown-title">티 컬렉션</h4>
-                 <ul class="header__dropdown-links">
-                   <li class="header__dropdown-link"> <a href="#black-tea">홍차</a> </li>
-                   <li class="header__dropdown-link"> <a href="#green-white-tea">녹차 & 백차</a> </li>
-                   <li class="header__dropdown-link"> <a href="#instant-tea">인스턴트 티</a> </li>
-                   <li class="header__dropdown-link"> <a href="#rooibos">루이보스</a> </li>
-                   <li class="header__dropdown-link"> <a href="#fruit-blend">과일 블렌드</a> </li>
-                   <li class="header__dropdown-link"> <a href="#herbal-tea">허브 티</a> </li>
-                 </ul>
-              </div>
-            </div>
-          </div>
 
-          <div class="header__nav-item">
-            <a href="#hot-chocolate" class="header__nav-link">핫초콜릿</a>
-          </div>
-
-          <div class="header__nav-item">
-            <a href="#gifting" class="header__nav-link">선물하기</a>
-            <div class="header__dropdown">
-              <div class="header__dropdown-section">
-                <h4 class="header__dropdown-title">선물하기</h4>
-                <ul class="header__dropdown-links">
-                  <li class="header__dropdown-link"> <a href="#gift-sets">선물 세트 & 햄퍼</a> </li>
-                  <li class="header__dropdown-link"> <a href="#kakaotalk-gift">카카오톡 선물하기</a> </li>
-                  <li class="header__dropdown-link"> <a href="#coupang-gift">쿠팡 선물하기</a> </li>
-                  <li class="header__dropdown-link"> <a href="#corporate-gift">단체 선물</a> </li>
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">인기 제품</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#advent">어드벤트 캘린더</a></li>
+                  <li class="header__mega-menu-link"><a href="#gift-box">시즌 선물 세트</a></li>
+                  <li class="header__mega-menu-link"><a href="#holiday-tea">홀리데이 티</a></li>
                 </ul>
               </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">추천</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#bestseller-season">시즌 베스트</a></li>
+                  <li class="header__mega-menu-link"><a href="#sale">특가 상품</a></li>
+                </ul>
+              </div>
+
+              <!-- 이미지 영역 -->
+              <div class="header__mega-menu-featured">
+                <div class="header__mega-menu-image">
+                  <!-- IMAGE: seasonal_menu_featured.jpg -->
+                  <!-- 크리스마스 컬렉션 이미지 삽입 -->
+                  <img src="./images/seasonal_menu_featured.jpg" alt="시즌 컬렉션">
+                </div>
+                <p class="header__mega-menu-caption">
+                  2025 윈터 컬렉션 - 따뜻한 겨울을 위한 특별한 선물
+                </p>
+              </div>
+
             </div>
           </div>
-
-          <div class="header__nav-item">
-            <a href="#heritage" class="header__nav-link">브랜드 스토리</a>
-          </div>
-
-          <div class="header__nav-item">
-            <a href="#event" class="header__nav-link">이벤트 & 혜택</a>
-          </div>
-        </nav>
-        
-        <div class="header__actions">
-          <a href="#" class="header__action-link">돋보기아이콘</a>
-          <a href="#" class="header__action-link">로그인아이콘</a>
-          <a href="#" class="header__action-link">카트아이콘</a>
         </div>
         
+        <!-- 3. 티 컬렉션 -->
+        <div class="header__nav-item">
+          <a href="#tea-collection" class="header__nav-link">티 컬렉션</a>
+          <div class="header__mega-menu header__mega-menu--with-image">
+            <div class="header__mega-menu-inner">
+              
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Tea Family</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#black-tea">홍차</a></li>
+                  <li class="header__mega-menu-link"><a href="#green-tea">녹차</a></li>
+                  <li class="header__mega-menu-link"><a href="#white-tea">백차</a></li>
+                  <li class="header__mega-menu-link"><a href="#oolong">우롱차</a></li>
+                  <li class="header__mega-menu-link"><a href="#matcha">말차</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Flavored & Blends</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#earl-grey">얼그레이</a></li>
+                  <li class="header__mega-menu-link"><a href="#fruit-blend">과일 블렌드</a></li>
+                  <li class="header__mega-menu-link"><a href="#herbal-tea">허브 티</a></li>
+                  <li class="header__mega-menu-link"><a href="#chai">차이 티</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Special</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#instant-tea">인스턴트 티</a></li>
+                  <li class="header__mega-menu-link"><a href="#iced-tea">아이스 티</a></li>
+                  <li class="header__mega-menu-link"><a href="#rooibos">루이보스</a></li>
+                  <li class="header__mega-menu-link"><a href="#decaf">디카페인</a></li>
+                </ul>
+              </div>
+
+              <!-- 이미지 영역 -->
+              <div class="header__mega-menu-featured">
+                <div class="header__mega-menu-image">
+                  <!-- IMAGE: tea_menu_featured.jpg -->
+                  <!-- 티 컬렉션 대표 이미지 삽입 -->
+                  <img src="./images/tea_menu_featured.jpg" alt="티 컬렉션">
+                </div>
+                <p class="header__mega-menu-caption">
+                  세계 각지의 프리미엄 티를 만나보세요
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. 핫초콜릿 -->
+        <div class="header__nav-item">
+          <a href="#hot-chocolate" class="header__nav-link">핫초콜릿</a>
+          <div class="header__mega-menu">
+            <div class="header__mega-menu-inner">
+              
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Classic</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#milk-chocolate">밀크 초콜릿</a></li>
+                  <li class="header__mega-menu-link"><a href="#dark-chocolate">다크 초콜릿</a></li>
+                  <li class="header__mega-menu-link"><a href="#white-chocolate">화이트 초콜릿</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Flavored</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#salted-caramel">솔티드 캐러멜</a></li>
+                  <li class="header__mega-menu-link"><a href="#mint">민트 초콜릿</a></li>
+                  <li class="header__mega-menu-link"><a href="#orange">오렌지 초콜릿</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Premium</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#luxury">럭셔리 초콜릿</a></li>
+                  <li class="header__mega-menu-link"><a href="#organic">유기농 초콜릿</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">Sets</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#chocolate-gift">초콜릿 선물 세트</a></li>
+                  <li class="header__mega-menu-link"><a href="#variety">버라이어티 팩</a></li>
+                </ul>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. 선물하기 -->
+        <div class="header__nav-item">
+          <a href="#gifting" class="header__nav-link">선물하기</a>
+          <div class="header__mega-menu header__mega-menu--with-image">
+            <div class="header__mega-menu-inner">
+              
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">선물 세트</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#gift-sets">선물 세트 & 햄퍼</a></li>
+                  <li class="header__mega-menu-link"><a href="#premium-gift">프리미엄 선물</a></li>
+                  <li class="header__mega-menu-link"><a href="#mini-gift">미니 선물 세트</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">디지털 선물</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#kakaotalk-gift">카카오톡 선물하기</a></li>
+                  <li class="header__mega-menu-link"><a href="#coupang-gift">쿠팡 선물하기</a></li>
+                  <li class="header__mega-menu-link"><a href="#gift-card">기프트 카드</a></li>
+                </ul>
+              </div>
+
+              <div class="header__mega-menu-column">
+                <h4 class="header__mega-menu-title">기업 선물</h4>
+                <ul class="header__mega-menu-links">
+                  <li class="header__mega-menu-link"><a href="#corporate-gift">단체 선물</a></li>
+                  <li class="header__mega-menu-link"><a href="#custom">맞춤 제작</a></li>
+                  <li class="header__mega-menu-link"><a href="#bulk">대량 구매</a></li>
+                </ul>
+              </div>
+
+              <!-- 이미지 영역 -->
+              <div class="header__mega-menu-featured">
+                <div class="header__mega-menu-image">
+                  <!-- IMAGE: gift_menu_featured.jpg -->
+                  <!-- 선물 세트 이미지 삽입 -->
+                  <img src="./images/gift_menu_featured.jpg" alt="선물하기">
+                </div>
+                <p class="header__mega-menu-caption">
+                  소중한 분께 위타드의 특별한 선물을
+                </p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- 6. 브랜드 스토리 -->
+        <div class="header__nav-item">
+          <a href="#heritage" class="header__nav-link">브랜드 스토리</a>
+        </div>
+
+        <!-- 7. 이벤트 & 혜택 -->
+        <div class="header__nav-item">
+          <a href="#event" class="header__nav-link">이벤트 & 혜택</a>
+        </div>
+
+      </nav>
+
+      <!-- 모바일 아이콘 (모바일 메뉴 내부) -->
+      <div class="header__actions header__actions--mobile">
+        <a href="#" class="header__action-link" aria-label="검색">🔍</a>
+        <a href="#" class="header__action-link" aria-label="로그인">👤</a>
+        <a href="#" class="header__action-link" aria-label="장바구니">🛒</a>
+      </div>
     </div>
+
+  </div>
+
+  <!-- 모바일 오버레이 -->
+  <div class="header__overlay" id="headerOverlay"></div>
 </header>
 
     <!-- SECTION 1: HERO & KEY EVENTS CAROUSEL -->
