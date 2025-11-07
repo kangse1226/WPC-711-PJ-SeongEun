@@ -114,6 +114,7 @@
 
   const slides = Array.from(carousel.querySelectorAll('.hero__slide:not(.hero__slide--clone)'));
   const dots = document.querySelectorAll('.hero__nav-dot');
+  const progressBars = document.querySelectorAll('.hero__progress-bar');
   const prevArrow = document.getElementById('prevArrow');
   const nextArrow = document.getElementById('nextArrow');
   
@@ -137,13 +138,18 @@
     if (immediate) {
       carousel.style.transition = 'none';
     } else {
-      // ease-in-out으로 부드러운 전환
       carousel.style.transition = 'transform 1s ease-in-out';
     }
     carousel.style.transform = `translateX(${offset}%)`;
     
+    // 기존 dot 업데이트
     dots.forEach((dot, index) => {
       dot.classList.toggle('hero__nav-dot--active', index === currentSlide % totalSlides);
+    });
+
+    // 프로그레스 바 업데이트
+    progressBars.forEach((bar, index) => {
+      bar.classList.toggle('hero__progress-bar--active', index === currentSlide % totalSlides);
     });
   }
 
@@ -154,7 +160,7 @@
     currentSlide = index;
     updateCarousel(immediate);
     
-          setTimeout(() => {
+    setTimeout(() => {
       if (currentSlide === totalSlides) {
         currentSlide = 0;
         updateCarousel(true);
@@ -163,7 +169,7 @@
         updateCarousel(true);
       }
       isTransitioning = false;
-    }, immediate ? 0 : 1000); // 1초로 변경
+    }, immediate ? 0 : 1000);
   }
 
   function nextSlide() {
@@ -179,7 +185,7 @@
   }
 
   function startAutoPlay() {
-    autoPlayInterval = setInterval(nextSlide, 5000); // 5초로 변경 (더 여유있게)
+    autoPlayInterval = setInterval(nextSlide, 5000);
   }
 
   function stopAutoPlay() {
@@ -189,6 +195,17 @@
   // Dot navigation
   dots.forEach((dot, index) => {
     dot.addEventListener('click', () => {
+      if (!isTransitioning) {
+        goToSlide(index);
+        stopAutoPlay();
+        startAutoPlay();
+      }
+    });
+  });
+
+  // Progress bar navigation
+  progressBars.forEach((bar, index) => {
+    bar.addEventListener('click', () => {
       if (!isTransitioning) {
         goToSlide(index);
         stopAutoPlay();
@@ -225,7 +242,7 @@
     if (!isDragging) startAutoPlay();
   });
 
-  // Drag/Swipe functionality - 수정된 버전
+  // Drag/Swipe functionality - 민감도 20-30px로 개선
   function handleStart(e) {
     if (isTransitioning) return;
     isDragging = true;
@@ -249,8 +266,8 @@
     const timeDiff = Date.now() - startTime;
     const velocity = Math.abs(diff) / timeDiff;
 
-    // 스와이프 임계값: 80px 이상 또는 빠른 스와이프(velocity > 0.3)
-    if (Math.abs(diff) > 80 || velocity > 0.3) {
+    // 스와이프 민감도: 25px 이상 또는 빠른 스와이프(velocity > 0.3)
+    if (Math.abs(diff) > 25 || velocity > 0.3) {
       if (diff > 0) {
         // 오른쪽으로 스와이프 = 이전 슬라이드
         prevSlide();
