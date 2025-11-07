@@ -654,7 +654,7 @@ a {
 }
 
 .hero__slide-title {
-  font-size: 3.5rem;
+  font-size: 3.6rem;
   font-weight: normal;
   letter-spacing: 3px;
   margin-bottom: 24px;
@@ -663,7 +663,7 @@ a {
 }
 
 .hero__slide-description {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   margin-bottom: 40px;
   line-height: 1.8;
   opacity: 0.95;
@@ -676,12 +676,12 @@ a {
   border: 2px solid #fff;
   background: transparent;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.4s ease;
-  font-family: 'Arial', sans-serif;
+  /* font-family: 'Arial', sans-serif; */
 }
 
 .hero__slide-cta:hover {
@@ -690,8 +690,8 @@ a {
   opacity: 1;
 }
 
-/* Carousel Navigation */
-.hero__nav {
+/* Carousel Navigation dot 삭제*/
+/* .hero__nav {
   position: absolute;
   bottom: 48px;
   left: 50%;
@@ -718,9 +718,9 @@ a {
 
 .hero__nav-dot:hover {
   background: rgba(255, 255, 255, 0.8);
-}
+} */
 
-/* Progress Bar  */
+/* Progress Bar  로 변경*/
 .hero__progress {
   position: absolute;
   bottom: 32px;
@@ -734,17 +734,27 @@ a {
 
 .hero__progress-bar {
   width: 60px;
-  height: 3px;
+  height: 2px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 2px;
   overflow: hidden;
   position: relative;
   cursor: pointer;
   transition: all 0.3s ease;
+  /* 비활성 상태 투명도 */
+  opacity: 0.5;
 }
 
 .hero__progress-bar:hover {
+ 
+  opacity: 0.8; /* 호버시 약간 진하게 */
   height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hero__progress-bar--active {
+ 
+  opacity: 1;/* 활성 상태 완전 불투명 */
   background: rgba(255, 255, 255, 0.4);
 }
 
@@ -760,14 +770,14 @@ a {
   width: 100%;
 }
 
-/* Swipe Hint - 초기 가이드 */
+/* Swipe Hint - 초기 가이드, 모바일 전용 */
 .hero__swipe-hint {
   position: absolute;
   bottom: 80px;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
-  display: flex;
+  display: none; /* 기본적으로 숨김 (모바일에서만 표시)*/
   align-items: center;
   gap: 16px;
   color: #fff;
@@ -779,6 +789,12 @@ a {
   pointer-events: none;
 }
 
+/* 모바일에서만 표시 */
+@media (max-width: 768px) {
+  .hero__swipe-hint {
+    display: flex;
+  }
+}
 @keyframes swipeHintFade {
   0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
   20% { opacity: 1; transform: translateX(-50%) translateY(0); }

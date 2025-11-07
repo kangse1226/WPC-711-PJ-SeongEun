@@ -80,6 +80,7 @@
         <!-- 하단: 네비게이션(중앙) -->
         <div class="header__bottom" id="headerNav">
           <nav class="header__nav">
+
             <!-- 1. 베스트셀러 (드롭다운 없음) -->
             <div class="header__nav-item">
               <a href="#bestseller" class="header__nav-link">베스트셀러</a>
@@ -445,6 +446,22 @@
       <div class="hero__arrow hero__arrow--next" id="nextArrow">
         <img src="./images/logo/화살표.svg" alt="오른쪽화살표">
       </div>
+
+ <!-- Progress Bar - 추가 -->
+  <div class="hero__progress" id="heroProgress">
+    <div class="hero__progress-bar hero__progress-bar--active" data-slide="0">
+      <div class="hero__progress-fill"></div>
+    </div>
+    <div class="hero__progress-bar" data-slide="1">
+      <div class="hero__progress-fill"></div>
+    </div>
+    <div class="hero__progress-bar" data-slide="2">
+      <div class="hero__progress-fill"></div>
+    </div>
+  </div>
+
+  <!-- Swipe Hint - 초기 가이드 (NEW!) -->
+  <div class="hero__swipe-hint">Swipe</div>
 
       <!-- Carousel Navigation Dots -->
       <div class="hero__nav" id="heroNav">
