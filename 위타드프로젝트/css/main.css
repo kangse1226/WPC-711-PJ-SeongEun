@@ -720,6 +720,94 @@ a {
   background: rgba(255, 255, 255, 0.8);
 }
 
+/* Progress Bar  */
+.hero__progress {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.hero__progress-bar {
+  width: 60px;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.hero__progress-bar:hover {
+  height: 4px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.hero__progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: width 0.3s ease;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.hero__progress-bar--active .hero__progress-fill {
+  width: 100%;
+}
+
+/* Swipe Hint - 초기 가이드 */
+.hero__swipe-hint {
+  position: absolute;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  color: #fff;
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: swipeHintFade 4s ease-in-out;
+  pointer-events: none;
+}
+
+@keyframes swipeHintFade {
+  0% { opacity: 0; transform: translateX(-50%) translateY(10px); }
+  20% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  80% { opacity: 1; transform: translateX(-50%) translateY(0); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-10px); }
+}
+
+.hero__swipe-hint::before {
+  content: '←';
+  font-size: 2rem;
+  animation: swipeLeft 2s ease-in-out infinite;
+}
+
+.hero__swipe-hint::after {
+  content: '→';
+  font-size: 2rem;
+  animation: swipeRight 2s ease-in-out infinite;
+}
+
+@keyframes swipeLeft {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(-8px); }
+}
+
+@keyframes swipeRight {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
 /* Carousel Arrows */
 .hero__arrow {
   position: absolute;
