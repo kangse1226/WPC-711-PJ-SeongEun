@@ -225,7 +225,7 @@
     if (!isDragging) startAutoPlay();
   });
 
-  // Drag/Swipe functionality
+  // Drag/Swipe functionality - 수정된 버전
   function handleStart(e) {
     if (isTransitioning) return;
     isDragging = true;
@@ -249,10 +249,13 @@
     const timeDiff = Date.now() - startTime;
     const velocity = Math.abs(diff) / timeDiff;
 
-    if (Math.abs(diff) > 50 || velocity > 0.5) {
+    // 스와이프 임계값: 80px 이상 또는 빠른 스와이프(velocity > 0.3)
+    if (Math.abs(diff) > 80 || velocity > 0.3) {
       if (diff > 0) {
+        // 오른쪽으로 스와이프 = 이전 슬라이드
         prevSlide();
       } else {
+        // 왼쪽으로 스와이프 = 다음 슬라이드
         nextSlide();
       }
     }
@@ -260,13 +263,18 @@
     startAutoPlay();
   }
 
+  // 마우스 이벤트
   carousel.addEventListener('mousedown', handleStart);
   document.addEventListener('mousemove', handleMove);
   document.addEventListener('mouseup', handleEnd);
 
+  // 터치 이벤트 (모바일)
   carousel.addEventListener('touchstart', handleStart, { passive: true });
   carousel.addEventListener('touchmove', handleMove, { passive: false });
   carousel.addEventListener('touchend', handleEnd);
+
+  // 드래그 중 텍스트 선택 방지
+  carousel.addEventListener('dragstart', (e) => e.preventDefault());
 
   // Initialize
   goToSlide(0, true);

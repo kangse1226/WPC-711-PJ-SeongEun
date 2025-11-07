@@ -9,12 +9,18 @@
     <link rel="shortcut icon" href="./images/logo.PNG" type="image/ico" />
     <!-- 폰트 불러오기:-->
     <link rel="stylesheet" href="" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cherry+Bomb+One&family=Henny+Penny&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+KR:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bangers&family=Cherry+Bomb+One&family=Henny+Penny&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Cherry+Bomb+One&family=Henny+Penny&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif+KR:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&family=Cherry+Bomb+One&family=Henny+Penny&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Sans+KR:wght@100..900&family=Noto+Serif+KR:wght@200..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- 메인 CSS -->
     <link rel="stylesheet" href="./css/main.css" />
@@ -26,266 +32,339 @@
     <!-- 메인 JS -->
     <script src="./js/main.js" defer></script>
   </head>
+
   <body>
+    <header class="header" id="header">
+      <div class="header__container">
+        <!-- 상단: 로고(중앙) + 아이콘(우측) -->
+        <div class="header__top">
+          <a href="/" class="header__logo">
+            <img
+              src="./images/logo.svg"
+              alt="Whittard of Chelsea 로고"
+              class="logo-image"
+            />
+          </a>
+          <!-- 개런티 아이콘(좌측 절대 위치) -->
+          <div class="header__guarantee">
+            <img
+              src="./images/logo/Taste_Guarantee.webp"
+              alt="품질 보장"
+            />
+            </div>
+            
+          <!-- 아이콘 (우측 절대 위치) -->
+          <div class="header__actions">
+            <a href="#" class="header__action-link" aria-label="검색"
+              >검색아이콘</a
+            >
+            <a href="#" class="header__action-link" aria-label="로그인"
+              >로그인<img src="./images/logo/사람.svg" alt="로그인,회원가입"></a
+            >
+            <a href="#" class="header__action-link" aria-label="찜"
+              >하트<img src="./images/logo/하트.svg" alt="찜"></a
+            >
+            <a href="#" class="header__action-link" aria-label="장바구니"
+              >카트<img src="./images/logo/장바구니.svg" alt="장바구니"></a
+            >
+          </div>
 
-<header class="header" id="header">
-  <div class="header__container">
-    
-    <!-- 상단: 로고(중앙) + 아이콘(우측) -->
-    <div class="header__top">
-      <a href="/" class="header__logo">
-        <img
-          src="./images/logo.svg"
-          alt="Whittard of Chelsea 로고"
-          class="logo-image"
-        />
-      </a>
-      
-      <!-- 아이콘 (우측 절대 위치) -->
-      <div class="header__actions">
-        <a href="#" class="header__action-link" aria-label="검색">검색아이콘</a>
-        <a href="#" class="header__action-link" aria-label="로그인">로그인</a>
-        <a href="#" class="header__action-link" aria-label="장바구니">카트</a>
+          <!-- 모바일 메뉴 토글 -->
+          <div class="header__mobile-toggle" id="mobileToggle">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <!-- 하단: 네비게이션(중앙) -->
+        <div class="header__bottom" id="headerNav">
+          <nav class="header__nav">
+            <!-- 1. 베스트셀러 (드롭다운 없음) -->
+            <div class="header__nav-item">
+              <a href="#bestseller" class="header__nav-link">베스트셀러</a>
+            </div>
+
+            <!-- 2. 시즌 컬렉션 -->
+            <div class="header__nav-item">
+              <a href="#seasonal" class="header__nav-link">시즌 컬렉션</a>
+              <div class="header__mega-menu header__mega-menu--with-image">
+                <div class="header__mega-menu-inner">
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">2025 윈터 시즌</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#christmas">할로윈 컬렉션</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#winter">수능 응원 컬렉션</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#new-arrivals">크리스마스 컬렉션</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#limited">송년회 선물</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">수능 응원 세트</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#christmas">긴장완화 티 컬렉션</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">크리스마스 스페셜</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#christmas">선물세트</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- 이미지 영역 -->
+                  <div class="header__mega-menu-featured">
+                    <div class="header__mega-menu-image">
+                      <!-- IMAGE:  -->
+                      <!-- 크리스마스 컬렉션 이미지 삽입 -->
+                      <img src="./images/header5.png" alt="시즌 컬렉션" />
+                    </div>
+                    <p class="header__mega-menu-caption">
+                      2025 윈터 컬렉션 - 따뜻한 겨울을 위한 특별한 선물
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 3. 티 컬렉션 -->
+            <div class="header__nav-item">
+              <a href="#tea-collection" class="header__nav-link">티 컬렉션</a>
+              <div class="header__mega-menu header__mega-menu--with-image">
+                <div class="header__mega-menu-inner">
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">Tea Family</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#black-tea">홍차</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#green-tea">녹차</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#white-tea">백차</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#oolong">우롱차</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#matcha">말차</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">Flavored & Blends</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#earl-grey">얼그레이</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#fruit-blend">과일 블렌드</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#herbal-tea">허브 티</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#chai">차이 티</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">Special</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#instant-tea">인스턴트 티</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#iced-tea">아이스 티</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#rooibos">루이보스</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#decaf">디카페인</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- 이미지 영역 -->
+                  <div class="header__mega-menu-featured">
+                    <div class="header__mega-menu-image">
+                      <!-- IMAGE -->
+
+                      <img src="./images/header1.webp" alt="티 컬렉션" />
+                    </div>
+                    <p class="header__mega-menu-caption">
+                      세계 각지의 프리미엄 티를 만나보세요
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 4. 핫초콜릿 -->
+            <div class="header__nav-item">
+              <a href="#hot-chocolate" class="header__nav-link">핫초콜릿</a>
+              <div class="header__mega-menu header__mega-menu--with-image">
+                <div class="header__mega-menu-inner">
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">Classic</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#milk-chocolate">밀크 초콜릿</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#dark-chocolate">다크 초콜릿</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#white-chocolate">화이트 초콜릿</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">Flavored</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#salted-caramel">솔티드 캐러멜</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#mint">민트 초콜릿</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#orange">카라멜 초콜릿</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">세트</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#salted-caramel">솔티드 캐러멜</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#mint">민트 초콜릿</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#orange">오렌지 초콜릿</a>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- 이미지 영역 -->
+                  <div class="header__mega-menu-featured">
+                    <div class="header__mega-menu-image">
+                      <!-- IMAGE -->
+
+                      <img src="./images/header2.jpg" alt="핫초콜릿 컬렉션" />
+                    </div>
+                    <p class="header__mega-menu-caption">깊고 진한 풍미의 럭셔리 핫 초콜릿</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 5. 선물하기 -->
+            <div class="header__nav-item">
+              <a href="#gifting" class="header__nav-link">선물하기</a>
+              <div class="header__mega-menu header__mega-menu--with-image">
+                <div class="header__mega-menu-inner">
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">선물 세트</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#gift-sets">선물 세트 & 햄퍼</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#premium-gift">프리미엄 선물</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#mini-gift">미니 선물 세트</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">온라인 선물</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#kakaotalk-gift">카카오톡 선물하기</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#coupang-gift">쿠팡 선물하기</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#gift-card">기프트 카드</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div class="header__mega-menu-column">
+                    <h4 class="header__mega-menu-title">기업 선물</h4>
+                    <ul class="header__mega-menu-links">
+                      <li class="header__mega-menu-link">
+                        <a href="#corporate-gift">단체 선물</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#custom">맞춤 제작</a>
+                      </li>
+                      <li class="header__mega-menu-link">
+                        <a href="#bulk">대량 구매</a>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <!-- 이미지 영역 -->
+                  <div class="header__mega-menu-featured">
+                    <div class="header__mega-menu-image">
+                      <!-- IMAGEjpg -->
+
+                      <img src="./images/header3.jpg" alt="선물하기" />
+                    </div>
+                    <p class="header__mega-menu-caption">
+                      소중한 분께 따뜻한 마음을 선물하세요
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- 6. 브랜드 스토리 -->
+            <div class="header__nav-item">
+              <a href="#heritage" class="header__nav-link">브랜드 스토리</a>
+            </div>
+
+            <!-- 7. 이벤트 & 혜택 -->
+            <div class="header__nav-item">
+              <a href="#event" class="header__nav-link">이벤트 & 혜택</a>
+            </div>
+          </nav>
+
+          <!-- 모바일 아이콘 (모바일 메뉴 내부) -->
+          <div class="header__actions header__actions--mobile">
+            <a href="#" class="header__action-link" aria-label="검색">🔍</a>
+            <a href="#" class="header__action-link" aria-label="로그인">👤</a>
+            <a href="#" class="header__action-link" aria-label="장바구니">🛒</a>
+          </div>
+        </div>
       </div>
 
-      <!-- 모바일 메뉴 토글 -->
-      <div class="header__mobile-toggle" id="mobileToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-    <!-- 하단: 네비게이션(중앙) -->
-    <div class="header__bottom" id="headerNav">
-      <nav class="header__nav">
-        
-        <!-- 1. 베스트셀러 (드롭다운 없음) -->
-        <div class="header__nav-item">
-          <a href="#bestseller" class="header__nav-link">베스트셀러</a>
-        </div>
-
-        <!-- 2. 시즌 컬렉션 -->
-        <div class="header__nav-item">
-          <a href="#seasonal" class="header__nav-link">시즌 컬렉션</a>
-          <div class="header__mega-menu header__mega-menu--with-image">
-            <div class="header__mega-menu-inner">
-              
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">2025 윈터 시즌</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#christmas">할로윈 컬렉션</a></li>
-                  <li class="header__mega-menu-link"><a href="#winter">수능 응원 컬렉션</a></li>
-                  <li class="header__mega-menu-link"><a href="#new-arrivals">크리스마스 컬렉션</a></li>
-                  <li class="header__mega-menu-link"><a href="#limited">송년회 선물</a></li>
-                </ul>
-              </div>
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">수능 응원 세트</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#christmas">긴장완화 티 컬렉션</a></li>
-                  
-                </ul>
-              </div>
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">크리스마스 스페셜</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#christmas">선물세트</a></li>
-                 
-                </ul>
-              </div>
-
-              <!-- 이미지 영역 -->
-              <div class="header__mega-menu-featured">
-                <div class="header__mega-menu-image">
-                  <!-- IMAGE:  -->
-                  <!-- 크리스마스 컬렉션 이미지 삽입 -->
-                  <img src="./images/header5.png" alt="시즌 컬렉션">
-                </div>
-                <p class="header__mega-menu-caption">
-                  2025 윈터 컬렉션 - 따뜻한 겨울을 위한 특별한 선물
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-        
-        <!-- 3. 티 컬렉션 -->
-        <div class="header__nav-item">
-          <a href="#tea-collection" class="header__nav-link">티 컬렉션</a>
-          <div class="header__mega-menu header__mega-menu--with-image">
-            <div class="header__mega-menu-inner">
-              
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">Tea Family</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#black-tea">홍차</a></li>
-                  <li class="header__mega-menu-link"><a href="#green-tea">녹차</a></li>
-                  <li class="header__mega-menu-link"><a href="#white-tea">백차</a></li>
-                  <li class="header__mega-menu-link"><a href="#oolong">우롱차</a></li>
-                  <li class="header__mega-menu-link"><a href="#matcha">말차</a></li>
-                </ul>
-              </div>
-
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">Flavored & Blends</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#earl-grey">얼그레이</a></li>
-                  <li class="header__mega-menu-link"><a href="#fruit-blend">과일 블렌드</a></li>
-                  <li class="header__mega-menu-link"><a href="#herbal-tea">허브 티</a></li>
-                  <li class="header__mega-menu-link"><a href="#chai">차이 티</a></li>
-                </ul>
-              </div>
-
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">Special</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#instant-tea">인스턴트 티</a></li>
-                  <li class="header__mega-menu-link"><a href="#iced-tea">아이스 티</a></li>
-                  <li class="header__mega-menu-link"><a href="#rooibos">루이보스</a></li>
-                  <li class="header__mega-menu-link"><a href="#decaf">디카페인</a></li>
-                </ul>
-              </div>
-
-              <!-- 이미지 영역 -->
-              <div class="header__mega-menu-featured">
-                <div class="header__mega-menu-image">
-                  <!-- IMAGE -->
-                 
-                  <img src="./images/header1.webp" alt="티 컬렉션">
-                </div>
-                <p class="header__mega-menu-caption">
-                  세계 각지의 프리미엄 티를 만나보세요
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- 4. 핫초콜릿 -->
-        <div class="header__nav-item">
-          <a href="#hot-chocolate" class="header__nav-link">핫초콜릿</a>
-          <div class="header__mega-menu">
-            <div class="header__mega-menu-inner">
-              
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">Classic</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#milk-chocolate">밀크 초콜릿</a></li>
-                  <li class="header__mega-menu-link"><a href="#dark-chocolate">다크 초콜릿</a></li>
-                  <li class="header__mega-menu-link"><a href="#white-chocolate">화이트 초콜릿</a></li>
-                </ul>
-              </div>
-
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">Flavored</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#salted-caramel">솔티드 캐러멜</a></li>
-                  <li class="header__mega-menu-link"><a href="#mint">민트 초콜릿</a></li>
-                  <li class="header__mega-menu-link"><a href="#orange">오렌지 초콜릿</a></li>
-                </ul>
-              </div>
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">세트</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#salted-caramel">솔티드 캐러멜</a></li>
-                  <li class="header__mega-menu-link"><a href="#mint">민트 초콜릿</a></li>
-                  <li class="header__mega-menu-link"><a href="#orange">오렌지 초콜릿</a></li>
-                </ul>
-              </div>
- <!-- 이미지 영역 -->
-              <div class="header__mega-menu-featured">
-                <div class="header__mega-menu-image">
-                  <!-- IMAGE -->
-                 
-                  <img src="./images/header2.jpg" alt="핫초콜릿 컬렉션">
-                </div>
-                <p class="header__mega-menu-caption">
-                  
-                </p>
-              </div>
-             
-
-            </div>
-          </div>
-        </div>
-
-        <!-- 5. 선물하기 -->
-        <div class="header__nav-item">
-          <a href="#gifting" class="header__nav-link">선물하기</a>
-          <div class="header__mega-menu header__mega-menu--with-image">
-            <div class="header__mega-menu-inner">
-              
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">선물 세트</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#gift-sets">선물 세트 & 햄퍼</a></li>
-                  <li class="header__mega-menu-link"><a href="#premium-gift">프리미엄 선물</a></li>
-                  <li class="header__mega-menu-link"><a href="#mini-gift">미니 선물 세트</a></li>
-                </ul>
-              </div>
-
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">온라인 선물</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#kakaotalk-gift">카카오톡 선물하기</a></li>
-                  <li class="header__mega-menu-link"><a href="#coupang-gift">쿠팡 선물하기</a></li>
-                  <li class="header__mega-menu-link"><a href="#gift-card">기프트 카드</a></li>
-                </ul>
-              </div>
-
-              <div class="header__mega-menu-column">
-                <h4 class="header__mega-menu-title">기업 선물</h4>
-                <ul class="header__mega-menu-links">
-                  <li class="header__mega-menu-link"><a href="#corporate-gift">단체 선물</a></li>
-                  <li class="header__mega-menu-link"><a href="#custom">맞춤 제작</a></li>
-                  <li class="header__mega-menu-link"><a href="#bulk">대량 구매</a></li>
-                </ul>
-              </div>
-
-              <!-- 이미지 영역 -->
-              <div class="header__mega-menu-featured">
-                <div class="header__mega-menu-image">
-                  <!-- IMAGEjpg -->
-          
-                  <img src="./images/header3.jpg" alt="선물하기">
-                </div>
-                <p class="header__mega-menu-caption">
-                  소중한 분께 위타드의 특별한 선물을
-                </p>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        <!-- 6. 브랜드 스토리 -->
-        <div class="header__nav-item">
-          <a href="#heritage" class="header__nav-link">브랜드 스토리</a>
-        </div>
-
-        <!-- 7. 이벤트 & 혜택 -->
-        <div class="header__nav-item">
-          <a href="#event" class="header__nav-link">이벤트 & 혜택</a>
-        </div>
-
-      </nav>
-
-      <!-- 모바일 아이콘 (모바일 메뉴 내부) -->
-      <div class="header__actions header__actions--mobile">
-        <a href="#" class="header__action-link" aria-label="검색">🔍</a>
-        <a href="#" class="header__action-link" aria-label="로그인">👤</a>
-        <a href="#" class="header__action-link" aria-label="장바구니">🛒</a>
-      </div>
-    </div>
-
-  </div>
-
-  <!-- 모바일 오버레이 -->
-  <div class="header__overlay" id="headerOverlay"></div>
-</header>
+      <!-- 모바일 오버레이 -->
+      <div class="header__overlay" id="headerOverlay"></div>
+    </header>
 
     <!-- SECTION 1: HERO & KEY EVENTS CAROUSEL -->
     <section class="hero" id="hero">
@@ -299,7 +378,8 @@
             <!-- <p class="hero__slide-subtitle">Since 1886</p> -->
             <h1 class="hero__slide-title">위타드 홀리데이 컬렉션</h1>
             <p class="hero__slide-description">
-              시즌 한정으로 만나는 우아함. <br> 소중한 이에게 특별한 기쁨을 선물하세요.
+              시즌 한정으로 만나는 우아함. <br />
+              소중한 이에게 특별한 기쁨을 선물하세요.
             </p>
             <a href="#heritage" class="hero__slide-cta">컬렉션 보기</a>
           </div>
@@ -312,10 +392,10 @@
           </div>
           <div class="hero__slide-content">
             <!-- <p class="hero__slide-subtitle">선물 컬렉션</p> -->
-            <h1 class="hero__slide-title"> 한 모금에 녹아드는 포근함</h1>
+            <h1 class="hero__slide-title">한 모금에 녹아드는 포근함</h1>
             <p class="hero__slide-description">
-              부드럽게 스며드는 깊고 진한 초콜릿. <br>
-일상에 달콤한 휴식을 더하세요.
+              부드럽게 스며드는 깊고 진한 초콜릿. <br />
+              일상에 달콤한 휴식을 더하세요.
             </p>
             <a href="#gifting" class="hero__slide-cta">컬렉션 보기</a>
           </div>
@@ -328,9 +408,13 @@
           </div>
           <div class="hero__slide-content">
             <!-- <p class="hero__slide-subtitle">신제품 출시</p> -->
-            <h1 class="hero__slide-title">한 잔에 담긴 영국의 우아함, <br> 잉글리시 로즈</h1>
+            <h1 class="hero__slide-title">
+              한 잔에 담긴 영국의 우아함, <br />
+              잉글리시 로즈
+            </h1>
             <p class="hero__slide-description">
-              섬세한 장미 향과 홍차의 깊은 조화. <br> 영국의 티 타임을 한 잔에 담았습니다.
+              섬세한 장미 향과 홍차의 깊은 조화. <br />
+              영국의 티 타임을 한 잔에 담았습니다.
             </p>
             <a href="#seasonal" class="hero__slide-cta">컬렉션 보기</a>
           </div>
@@ -345,7 +429,8 @@
             <!-- <p class="hero__slide-subtitle"></p> -->
             <h1 class="hero__slide-title">위타드 홀리데이 컬렉션</h1>
             <p class="hero__slide-description">
-               시즌 한정으로 만나는 우아함. <br> 소중한 이에게 특별한 기쁨을 선물하세요.
+              시즌 한정으로 만나는 우아함. <br />
+              소중한 이에게 특별한 기쁨을 선물하세요.
             </p>
             <a href="#heritage" class="hero__slide-cta">컬렉션 보기</a>
           </div>
@@ -353,8 +438,13 @@
       </div>
 
       <!-- Carousel Arrows -->
-      <div class="hero__arrow hero__arrow--prev" id="prevArrow">‹</div>
-      <div class="hero__arrow hero__arrow--next" id="nextArrow">›</div>
+      <div class="hero__arrow hero__arrow--prev" id="prevArrow"> 
+
+        <img src="./images/logo/화살표.svg" alt="왼쪽화살표">
+      </div>
+      <div class="hero__arrow hero__arrow--next" id="nextArrow">
+        <img src="./images/logo/화살표.svg" alt="오른쪽화살표">
+      </div>
 
       <!-- Carousel Navigation Dots -->
       <div class="hero__nav" id="heroNav">
@@ -368,9 +458,9 @@
     <section class="tea-finder" id="tea-finder">
       <div class="tea-finder__container">
         <header class="tea-finder__header">
-          <h2 class="tea-finder__title"> 지금, 당신이 찾는 티</h2>
+          <h2 class="tea-finder__title">지금, 당신이 찾는 티</h2>
           <p class="tea-finder__subtitle">
-          기분과 시간의 흐름에 따라, 우아한 선택을 즐기세요.
+            기분과 시간의 흐름에 따라, 우아한 선택을 즐기세요.
           </p>
         </header>
 
@@ -378,40 +468,46 @@
           <article class="tea-time-card">
             <!-- <img src="./images/morning.png" alt="아침 홍차"> -->
             <!-- <img src="./images/morning_tea.jpg" alt="잉글리쉬 로즈"> -->
-            <div class="tea-time-card-container"><img src="./images/morning_eb.jpg" alt="잉글리쉬 로즈"></div>
-            
+            <div class="tea-time-card-container">
+              <img src="./images/morning_eb.jpg" alt="잉글리쉬 로즈" />
+            </div>
+
             <!-- <div class="tea-time-card__icon">☀️</div> -->
             <h3 class="tea-time-card__period">아침</h3>
             <p class="tea-time-card__recommendation">잉글리쉬 로즈</p>
             <p class="tea-time-card__description">
-             깊고 묵직한 맛과 말티한 향. <br>
-하루를 힘차게 여는 클래식 블렌드입니다.
+              깊고 묵직한 맛과 말티한 향. <br />
+              하루를 힘차게 여는 클래식 블렌드입니다.
             </p>
           </article>
 
           <article class="tea-time-card">
             <div class="tea-time-card-container">
-              <img src="./images/ice_tea.png" alt="라즈베리">
+              <img src="./images/ice_tea.png" alt="라즈베리" />
             </div>
-            
+
             <!-- <div class="tea-time-card__icon">☕</div> -->
             <h3 class="tea-time-card__period">오후</h3>
-            <p class="tea-time-card__recommendation">시원하게 즐기는 아이스티</p>
+            <p class="tea-time-card__recommendation">
+              시원하게 즐기는 아이스티
+            </p>
             <p class="tea-time-card__description">
-           오후에 생기를 불어넣는 <br>
-달콤한 향과 상큼한 맛의 라즈베리 아이스티 어떠세요?
+              오후에 생기를 불어넣는 <br />
+              달콤한 향과 상큼한 맛의 라즈베리 아이스티 어떠세요?
             </p>
           </article>
 
           <article class="tea-time-card">
-            <div class="tea-time-card-container"> <img src="./images/night_tea.jpg" alt="카페인프리"></div>
-            
+            <div class="tea-time-card-container">
+              <img src="./images/night_tea.jpg" alt="카페인프리" />
+            </div>
+
             <!-- <div class="tea-time-card__icon">🌙</div> -->
             <h3 class="tea-time-card__period">저녁</h3>
             <p class="tea-time-card__recommendation">Blueberry Rooibos</p>
             <p class="tea-time-card__description">
-             천연 루이보스에 달콤한 베리 향을 더했습니다. <br>
-편안하게 하루를 마무리해보세요.
+              천연 루이보스에 달콤한 베리 향을 더했습니다. <br />
+              편안하게 하루를 마무리해보세요.
             </p>
           </article>
         </div>
@@ -424,7 +520,7 @@
         <header class="signature-collections__header">
           <h2 class="signature-collections__title">시그니처 컬렉션</h2>
           <p class="signature-collections__subtitle">
-          정성스럽게 선별한 프리미엄 티 & 핫초콜릿 라인업을 만나보세요.
+            정성스럽게 선별한 프리미엄 티 & 핫초콜릿 라인업을 만나보세요.
           </p>
         </header>
 
@@ -432,13 +528,13 @@
           <article class="signature-card">
             <div class="signature-card__image">
               <!-- IMAGE: signature_1 -->
-             <img src="./images/signature01.jpg" alt="잉글리쉬 로즈">
+              <img src="./images/signature01.jpg" alt="잉글리쉬 로즈" />
             </div>
             <div class="signature-card__content">
               <h3 class="signature-card__name">Classic Black Teas</h3>
               <p class="signature-card__description">
-               클래식한 잉글리시 브렉퍼스트부터
-세련된 얼그레이까지 다양하게 즐겨보세요.
+                클래식한 잉글리시 브렉퍼스트부터 세련된 얼그레이까지 다양하게
+                즐겨보세요.
               </p>
               <a href="#" class="signature-card__link">Explore</a>
             </div>
@@ -447,13 +543,13 @@
           <article class="signature-card">
             <div class="signature-card__image">
               <!-- IMAGE: signature_2 -->
-           <img src="./images/signature02.jpg" alt="베리베리 크러쉬">
+              <img src="./images/signature02.jpg" alt="베리베리 크러쉬" />
             </div>
             <div class="signature-card__content">
               <h3 class="signature-card__name">Fruit & Herbal</h3>
               <p class="signature-card__description">
-                상큼한 과일 향과 허브가 어우러진 블렌드.
-카페인 없이도 풍부한 향을 느껴보세요.
+                상큼한 과일 향과 허브가 어우러진 블렌드. 카페인 없이도 풍부한
+                향을 느껴보세요.
               </p>
               <a href="#" class="signature-card__link">Explore</a>
             </div>
@@ -462,13 +558,13 @@
           <article class="signature-card">
             <div class="signature-card__image">
               <!-- IMAGE: signature_3 -->
-            <img src="./images/signature03.jpg" alt="핫 초콜릿">
+              <img src="./images/signature03.jpg" alt="핫 초콜릿" />
             </div>
             <div class="signature-card__content">
               <h3 class="signature-card__name">Hot Chocolate & Instant</h3>
               <p class="signature-card__description">
-               진하고 풍부한 대표 핫초콜릿과
-간편하게 즐기는 인스턴트 티 라인입니다.
+                진하고 풍부한 대표 핫초콜릿과 간편하게 즐기는 인스턴트 티
+                라인입니다.
               </p>
               <a href="#" class="signature-card__link">Explore</a>
             </div>
@@ -482,14 +578,16 @@
       <div class="favorites__container">
         <header class="favorites__header">
           <h2 class="favorites__title">지금 가장 사랑받는 티</h2>
-          <p class="favorites__subtitle">많은 분들이 선택한 베스트셀러 블렌드</p>
+          <p class="favorites__subtitle">
+            많은 분들이 선택한 베스트셀러 블렌드
+          </p>
         </header>
 
         <div class="favorites__grid">
           <article class="favorite-product">
             <div class="favorite-product__image">
               <!-- IMAGE: favorite_1 -->
-              <img src="./images/signature02.jpg" alt="베리 베리 크러쉬">
+              <img src="./images/signature02.jpg" alt="베리 베리 크러쉬" />
             </div>
             <h3 class="favorite-product__name">베리 베리 크러쉬</h3>
             <p class="favorite-product__description">
@@ -502,7 +600,7 @@
           <article class="favorite-product">
             <div class="favorite-product__image">
               <!-- IMAGE: favorite_2 -->
-              <img src="./images/best02.jpg" alt="사우어 체리 인스턴트티">
+              <img src="./images/best02.jpg" alt="사우어 체리 인스턴트티" />
             </div>
             <h3 class="favorite-product__name">사우어 체리 인스턴트티</h3>
             <p class="favorite-product__description">
@@ -515,7 +613,7 @@
           <article class="favorite-product">
             <div class="favorite-product__image">
               <!-- IMAGE: favorite_3 -->
-              <img src="./images/best03.jpg" alt="화이트 핫 초코">
+              <img src="./images/best03.jpg" alt="화이트 핫 초코" />
             </div>
             <h3 class="favorite-product__name">화이트 핫 초코</h3>
             <p class="favorite-product__description">
@@ -532,24 +630,22 @@
     <section class="seasonal" id="seasonal">
       <div class="seasonal__banner__container">
         <div class="seasonal__banner">
-      <header class="seasonal__header">
-          <span class="seasonal__badge">Limited Edition</span>
-          <h2 class="seasonal__title">2025 윈터 컬렉션</h2>
-          <p class="seasonal__subtitle">
-           겨울을 따뜻하게 채워줄 시즌 한정 블렌드
-          </p>
-        </header>
+          <header class="seasonal__header">
+            <span class="seasonal__badge">Limited Edition</span>
+            <h2 class="seasonal__title">2025 윈터 컬렉션</h2>
+            <p class="seasonal__subtitle">
+              겨울을 따뜻하게 채워줄 시즌 한정 블렌드
+            </p>
+          </header>
+        </div>
       </div>
-      
-      </div>
-    
+
       <div class="seasonal__container">
-      
         <div class="seasonal__grid">
           <article class="seasonal-product">
             <div class="seasonal-product__image">
               <!-- IMAGE: seasonal_1 -->
-              <img src="./images/christmas1.png" alt="크리스마스제품1">
+              <img src="./images/christmas1.png" alt="크리스마스제품1" />
             </div>
             <h3 class="seasonal-product__name">크렌베리 & 라즈베리 티</h3>
             <p class="seasonal-product__price">₩18,000</p>
@@ -558,25 +654,25 @@
           <article class="seasonal-product">
             <div class="seasonal-product__image">
               <!-- IMAGE: seasonal_2 -->
-              <img src="./images/christmas2.webp" alt="크리스마스제품1">
+              <img src="./images/christmas2.webp" alt="크리스마스제품1" />
             </div>
-            <h3 class="seasonal-product__name">크리스마스 티 </h3>
+            <h3 class="seasonal-product__name">크리스마스 티</h3>
             <p class="seasonal-product__price">₩16,000</p>
           </article>
 
           <article class="seasonal-product">
             <div class="seasonal-product__image">
               <!-- IMAGE: seasonal_3 -->
-              <img src="./images/christmas3.png" alt="크리스마스제품1">
+              <img src="./images/christmas3.png" alt="크리스마스제품1" />
             </div>
-            <h3 class="seasonal-product__name">럭셔리 핫 초콜릿 </h3>
+            <h3 class="seasonal-product__name">럭셔리 핫 초콜릿</h3>
             <p class="seasonal-product__price">₩22,000</p>
           </article>
 
           <article class="seasonal-product">
             <div class="seasonal-product__image">
               <!-- IMAGE: seasonal_4 -->
-              <img src="./images/한국엔없지만....png" alt="크리스마스제품1">
+              <img src="./images/한국엔없지만....png" alt="크리스마스제품1" />
             </div>
             <h3 class="seasonal-product__name">선물세트</h3>
             <p class="seasonal-product__price">₩25,000</p>
@@ -600,9 +696,14 @@
           <article class="story-card">
             <div class="story-card__image">
               <!-- IMAGE: story_1 -->
-              <img src="./images/teatime1.webp" alt="The Ultimate Luxury Christmas Hot Chocolate Recipe">
+              <img
+                src="./images/teatime1.webp"
+                alt="The Ultimate Luxury Christmas Hot Chocolate Recipe"
+              />
             </div>
-            <span class="story-card__category">위타드 제품으로 만드는 레시피</span>
+            <span class="story-card__category"
+              >위타드 제품으로 만드는 레시피</span
+            >
             <h3 class="story-card__title">한층 깊어진 애프터눈 티 경험</h3>
             <p class="story-card__text">
               티와 디저트를 조화롭게 즐기는 방법을 소개합니다.
@@ -613,7 +714,7 @@
           <article class="story-card">
             <div class="story-card__image">
               <!-- IMAGE: story_2 -->
-              <img src="./images/teatime5.png" alt="티팟">
+              <img src="./images/teatime5.png" alt="티팟" />
             </div>
             <span class="story-card__category">브루잉 가이드</span>
             <h3 class="story-card__title">완벽한 한 잔을 위한 브루잉 가이드</h3>
@@ -634,7 +735,7 @@
       <div class="heritage__content">
         <h2 class="heritage__title">역사와 장인정신</h2>
         <p class="heritage__subtitle">
-         위타드 오브 첼시의 헤리티지를 만나보세요
+          위타드 오브 첼시의 헤리티지를 만나보세요
         </p>
         <a href="#" class="heritage__button">더 알아보기</a>
       </div>
@@ -646,7 +747,7 @@
         <header class="social__header">
           <h2 class="social__title">위타드의 소식</h2>
           <p class="social__subtitle">
-           당신만의 위타드 레시피를 공유해 주세요!
+            당신만의 위타드 레시피를 공유해 주세요!
           </p>
           <div class="social__divider"></div>
         </header>
@@ -654,19 +755,19 @@
         <div class="social__grid">
           <div class="social-post">
             <!-- IMAGE: social_1 -->
-            <img src="./images/teamoment1.webp" alt="sns용 사진">
+            <img src="./images/teamoment1.webp" alt="sns용 사진" />
           </div>
           <div class="social-post">
             <!-- IMAGE: social_2 -->
-            <img src="./images/teamoment3.webp" alt="sns용 사진">
+            <img src="./images/teamoment3.webp" alt="sns용 사진" />
           </div>
           <div class="social-post">
             <!-- IMAGE: social_3 -->
-            <img src="./images/teamoment5.webp" alt="sns용 사진">
+            <img src="./images/teamoment5.webp" alt="sns용 사진" />
           </div>
           <div class="social-post">
             <!-- IMAGE: social_4 -->
-            <img src="./images/teamoment4.webp" alt="sns용 사진">
+            <img src="./images/teamoment4.webp" alt="sns용 사진" />
           </div>
         </div>
       </div>
