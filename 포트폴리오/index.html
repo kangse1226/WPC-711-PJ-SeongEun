@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mo(ve)ment - Portfolio</title>
+    <!-- 탭메뉴 아이콘 넣기 -->
+    <link rel="shortcut icon" href="./images/logo.PNG" type="image/ico" />
+    <!-- 폰트 불러오기:-->
+   <!-- css 불러오기 -->
+    <link rel="stylesheet" href="./style.css">
+    
+</head>
+<body>
+    <header class="header">
+        <nav class="header__nav">
+            <a class="header__nav-link" onclick="scrollToSection('projects')">Projects</a>
+            <a class="header__nav-link" onclick="scrollToSection('about')">About</a>
+            <a class="header__nav-link" onclick="scrollToSection('contact')">Contact</a>
+        </nav>
+        <div class="header__logo" onclick="scrollToSection('hero')">mo(ve)ment</div>
+        <div class="header__contact">
+            <div class="header__icon"></div>
+            <div class="header__icon"></div>
+        </div>
+    </header>
+
+    <section class="hero" id="hero">
+        <div class="hero__container">
+            <div class="hero__header">
+                <div class="hero__tagline">작은 순간에서 움직임을 설계하는 UIUX 디자이너</div>
+            </div>
+            <div class="hero__content">
+                <h1 class="hero__title">mo(ve)ment:<br>Moment → Movement</h1>
+            </div>
+            <div class="hero__grid">
+                <div class="hero__info">
+                    <p class="hero__info-text">
+                        Moment → Movement. <br> 순간의 이동성을 UI/UX에 적용하여, <br>
+                        사용자의 작은 순간을 
+                        <br>관찰 → 행동·감정 흐름으로 설계합니다.
+                    </p>
+                </div>
+                <div class="hero__info">
+                    <div class="hero__skills">
+                        <!-- 스킬 로고 이미지들을 여기에 넣으세요 -->
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">Figma</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">Photoshop</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">Illustrator</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">Clip Studio</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">GitHub</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">HTML</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">CSS</div>
+                        </div>
+                        <div class="hero__skill-item">
+                            <div class="hero__skill-icon">JS</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="projects" id="projects">
+        <div class="projects__list">
+            <div class="project-card" onclick="scrollToSection('project1')">
+                <div class="project-card__inner">
+                    <div class="project-card__number">01</div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">일정은 미정 - Plan(less) 앱 기획</h3>
+                        <p class="project-card__description">
+                            게으른 완벽주의자들을 위한<br>
+                            개인 맞춤형 플래너 앱
+                        </p>
+                    </div>
+                    <div class="project-card__arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="scrollToSection('project2')">
+                <div class="project-card__inner">
+                    <div class="project-card__number">02</div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">위타드 사이트 리디자인</h3>
+                        <p class="project-card__description">
+                            브랜드 아이덴티티를 강화하고<br>
+                            사용성을 개선한 웹사이트/앱 리뉴얼
+                        </p>
+                    </div>
+                    <div class="project-card__arrow">→</div>
+                </div>
+            </div>
+
+            <div class="project-card" onclick="scrollToSection('project3')">
+                <div class="project-card__inner">
+                    <div class="project-card__number">03</div>
+                    <div class="project-card__content">
+                        <h3 class="project-card__title">샤오미 사이트 리디자인</h3>
+                        <p class="project-card__description">
+                            프리미엄 전자제품 브랜드로 스토리텔링<br>
+                            워치 S4 제품 서브페이지 리디자인
+                        </p>
+                    </div>
+                    <div class="project-card__arrow">→</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="project1">
+        <div class="project-detail__container">
+            <div class="project-detail__image">
+                <!-- 프로젝트 이미지를 여기에 넣으세요 -->
+                <div class="project-detail__image-placeholder">
+                    Project Image 1<br>
+                    (앱 기획 이미지)
+                </div>
+            </div>
+            <div class="project-detail__content">
+                <div class="project-detail__label">MOBILE APP</div>
+                <h2 class="project-detail__title">일정은 미정 -<br>Plan(less) 앱 기획</h2>
+                <p class="project-detail__description">
+                    게으른 완벽주의자들을 위한 개인 맞춤형 플래너 앱입니다. 
+                    완벽한 계획보다는 유연한 실행을, 복잡한 기능보다는 직관적인 사용성을 
+                    우선시하며 사용자의 생활 패턴에 자연스럽게 녹아드는 플래닝 경험을 제공합니다.
+                </p>
+                <div class="project-detail__meta">
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Role</div>
+                        <div class="project-detail__meta-value">기획<br>UI/UX<br>프로토타입</div>
+                    </div>
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Tool</div>
+                        <div class="project-detail__meta-value">Figma<br>Adobe XD<br>Sketch</div>
+                    </div>
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Period</div>
+                        <div class="project-detail__meta-value">2024.01<br>~<br>2024.03</div>
+                    </div>
+                </div>
+                <div class="project-detail__links">
+                    <a href="https://www.figma.com/design/DFG1VyQOFehJyr9uTCWnTK/%EC%83%A4%EC%98%A4%EB%AF%B8%ED%94%84%EB%A1%9C%EC%A0%9D%ED%8A%B8?node-id=5-5" target="_blank" class="project-detail__link">FIGMA</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="project2">
+        <div class="project-detail__container">
+            <div class="project-detail__image">
+                <!-- <img src="./images/whittard.png" alt="위타드
+                리디자인 이미지"> -->
+                <div class="project-detail__image-placeholder">
+             
+                </div>
+            </div>
+            <div class="project-detail__content">
+                <div class="project-detail__label">UIUX REDESIGN</div>
+                <h2 class="project-detail__title">위타드<br>사이트 리디자인</h2>
+                <p class="project-detail__description">
+                    기존 위타드 웹사이트의 사용성을 개선하고 브랜드 아이덴티티를 강화하는 
+                    리디자인 프로젝트를 진행했습니다. 모던한 디자인 언어를 적용하고 
+                    반응형 레이아웃으로 모든 디바이스에서 최적의 경험을 제공합니다.
+                </p>
+                <div class="project-detail__meta">
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Role</div>
+                        <div class="project-detail__meta-value">웹 디자인<br>프론트엔드<br>개발</div>
+                    </div>
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Tool</div>
+                        <div class="project-detail__meta-value">Figma<br>HTML/CSS<br>JavaScript</div>
+                    </div>
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Period</div>
+                        <div class="project-detail__meta-value">2024.04<br>~<br>2024.06</div>
+                    </div>
+                </div>
+                <div class="project-detail__links">
+                    <a href="https://figma.com" target="_blank" class="project-detail__link">FIGMA</a>
+                    <a href="#" target="_blank" class="project-detail__link">WEBSITE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-detail" id="project3">
+        <div class="project-detail__container">
+            <div class="project-detail__image">
+                <!-- 프로젝트 이미지를 여기에 넣으세요 -->
+                <div class="project-detail__image-placeholder">
+                    Project Image 3<br>
+                    (샤오미 리디자인 이미지)
+                </div>
+            </div>
+            <div class="project-detail__content">
+                <div class="project-detail__label">WEB REDESIGN</div>
+                <h2 class="project-detail__title">샤오미<br>사이트 리디자인</h2>
+                <p class="project-detail__description">
+                    글로벌 브랜드 샤오미의 한국 웹사이트를 한국 사용자들의 특성에 맞게 
+                    재구성했습니다. 제품의 특장점을 효과적으로 전달하면서도 
+                    세련되고 현대적인 디자인으로 브랜드 가치를 높였습니다.
+                </p>
+                <div class="project-detail__meta">
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Role</div>
+                        <div class="project-detail__meta-value">웹 디자인<br>UI/UX<br>개선</div>
+                    </div>
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Tool</div>
+                        <div class="project-detail__meta-value">Figma<br>React<br>TypeScript</div>
+                    </div>
+                    <div class="project-detail__meta-item">
+                        <div class="project-detail__meta-label">Period</div>
+                        <div class="project-detail__meta-value">2024.07<br>~<br>2024.09</div>
+                    </div>
+                </div>
+                <div class="project-detail__links">
+                    <a href="https://figma.com" target="_blank" class="project-detail__link">FIGMA</a>
+                    <a href="#" target="_blank" class="project-detail__link">WEBSITE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer" id="contact">
+        <h2 class="footer__title">Contact</h2>
+        <p class="footer__message">
+            언제든지 연락주세요.<br>
+            
+        </p>
+        <div class="footer__contact">
+            <a href="mailto:contact@movement.com" class="footer__contact-item">EMAIL</a>
+            <a href="https://github.com" target="_blank" class="footer__contact-item">GITHUB</a>
+            <a href="https://linkedin.com" target="_blank" class="footer__contact-item">LINKEDIN</a>
+        </div>
+    </footer>
+
+    <script>
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.project-card, .project-detail').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.6s ease-out';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
