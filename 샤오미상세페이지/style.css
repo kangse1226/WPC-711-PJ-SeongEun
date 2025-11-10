@@ -1,0 +1,535 @@
+@charset    "UTF-8";
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    background-color: #000;
+    color: #fff;
+}
+
+/* Placeholder Image */
+.placeholder-image {
+    width: 100%;
+    height: 100%;
+    background-color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Animation Classes */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+[data-animate].is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: linear-gradient(180deg, #000 0%, #1a1a1a 100%);
+}
+
+.hero__content {
+    text-align: center;
+    margin-bottom: 40px;
+    z-index: 2;
+}
+
+.hero__title {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+    line-height: 1.1;
+}
+
+.hero__subtitle {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    color: #a1a1a6;
+    letter-spacing: 0.01em;
+}
+
+.hero__image {
+    width: 100%;
+    max-width: 400px;
+    height: 400px;
+}
+
+/* Design Section */
+.design-section {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+}
+
+.design-section--dark {
+    background-color: #000;
+}
+
+.design-section--light {
+    background-color: #f5f5f7;
+    color: #1d1d1f;
+}
+
+.design-section__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.design-section__title {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.design-section--light .design-section__title {
+    color: #1d1d1f;
+}
+
+.design-section__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.design-section--light .design-section__description {
+    color: #6e6e73;
+}
+
+.design-section__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Durability Section */
+.durability {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+}
+
+.durability__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.durability__title {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.durability__subtitle {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    color: #0071e3;
+}
+
+.durability__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.durability__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Water Resistance Section */
+.water-resistance {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #001a33 0%, #000d1a 100%);
+}
+
+.water-resistance__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.water-resistance__title {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.water-resistance__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.water-resistance__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Sports Section */
+.sports {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #000;
+}
+
+.sports__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.sports__title {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.sports__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.sports__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Premium Section */
+.premium {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+}
+
+.premium__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.premium__title {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.premium__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.premium__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Battery Section */
+.battery {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #000;
+}
+
+.battery__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.battery__title {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+    color: #30d158;
+}
+
+.battery__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.battery__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Classic Section */
+.classic {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+}
+
+.classic__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.classic__title {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.classic__subtitle {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    background: linear-gradient(90deg, #ffd60a 0%, #ff9500 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.classic__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.classic__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Comfort Section */
+.comfort {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #000;
+}
+
+.comfort__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.comfort__title {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 12px;
+    line-height: 1.1;
+}
+
+.comfort__subtitle {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 24px;
+    line-height: 1.1;
+    color: #bf5af2;
+}
+
+.comfort__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.comfort__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Health Section */
+.health {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background: linear-gradient(180deg, #1a1a1a 0%, #000 100%);
+}
+
+.health__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.health__title {
+    font-size: clamp(28px, 7vw, 48px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.health__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.health__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Customize Section */
+.customize {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    background-color: #000;
+}
+
+.customize__content {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.customize__title {
+    font-size: clamp(32px, 8vw, 56px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.customize__description {
+    font-size: clamp(16px, 4vw, 21px);
+    font-weight: 400;
+    line-height: 1.5;
+    color: #a1a1a6;
+}
+
+.customize__image {
+    width: 100%;
+    max-width: 500px;
+    height: 500px;
+}
+
+/* Responsive Adjustments */
+@media (min-width: 768px) {
+    .hero,
+    .design-section,
+    .durability,
+    .water-resistance,
+    .sports,
+    .premium,
+    .battery,
+    .classic,
+    .comfort,
+    .health,
+    .customize {
+        padding: 80px 40px;
+    }
+
+    .hero__image,
+    .design-section__image,
+    .durability__image,
+    .water-resistance__image,
+    .sports__image,
+    .premium__image,
+    .battery__image,
+    .classic__image,
+    .comfort__image,
+    .health__image,
+    .customize__image {
+        max-width: 600px;
+        height: 600px;
+    }
+}
