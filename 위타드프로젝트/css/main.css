@@ -1154,7 +1154,7 @@ a {
    ======================================== */
 .seasonal {
   padding: 96px 32px;
-  background: #480808;
+ background: url('../images/seasonal_banner.jpg') no-repeat center center/cover;
   color: #fff;
 }
 
@@ -1165,7 +1165,7 @@ a {
 
 .seasonal__banner__container {
   height: 690px;
-  background: url('../images/seasonal_banner.jpg') no-repeat center center/cover;
+  /* background: url('../images/seasonal_banner.jpg') no-repeat center center/cover; */
   margin-bottom: 64px;
   position: relative;
 }
