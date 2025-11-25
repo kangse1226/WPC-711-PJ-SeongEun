@@ -1136,7 +1136,7 @@ a {
   border: 2px solid #3f5562;
   background: transparent;
   color: #3f5562;
-  font-size: 0.85rem;
+  font-size: 1rem;
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
@@ -1147,14 +1147,15 @@ a {
 .favorite-product__button:hover {
   background: #3f5562;
   color: #fff;
+ 
 }
 
 /* ========================================
    SECTION 5: SEASONAL SECTIONS
    ======================================== */
 .seasonal {
-  padding: 96px 32px;
- background: url('../images/seasonal_banner.jpg') no-repeat center center/cover;
+  
+  background: #480808;
   color: #fff;
 }
 
@@ -1164,8 +1165,8 @@ a {
 }
 
 .seasonal__banner__container {
-  height: 690px;
-  /* background: url('../images/seasonal_banner.jpg') no-repeat center center/cover; */
+  height: 70vh;
+  background: url('../images/seasonal_banner.jpg') no-repeat center center/cover;
   margin-bottom: 64px;
   position: relative;
 }
@@ -1252,7 +1253,7 @@ a {
   border: 2px solid #fff;
   background: transparent;
   color: #fff;
-  font-size: 0.9rem;
+  font-size: 1.7rem;
   letter-spacing: 2px;
   text-transform: uppercase;
   cursor: pointer;
