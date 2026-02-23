@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jellycat Space 팝업스토어</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Apple SD Gothic Neo', sans-serif;
+            background: #fff;
+        }
+
+        /* 히어로 섹션 */
+        .hero {
+            background: linear-gradient(180deg, #00d4ff 0%, #0099ff 100%);
+            padding: 40px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="2" fill="white" opacity="0.3"/></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero .subtitle {
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+
+        /* 정보 카드 */
+        .info-card {
+            background: white;
+            margin: -30px 20px 20px;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .info-card h2 {
+            font-size: 20px;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .info-item .label {
+            font-weight: bold;
+            color: #0099ff;
+            min-width: 70px;
+            flex-shrink: 0;
+        }
+
+        .info-item .value {
+            color: #666;
+        }
+
+        .reservation-btn {
+            display: block;
+            width: 100%;
+            padding: 16px;
+            background: #ff6b35;
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+
+        /* 섹션 헤더 */
+        .section-header {
+            text-align: center;
+            padding: 40px 20px 20px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .section-header p {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* 테마존 */
+        .theme-zones {
+            padding: 20px;
+        }
+
+        .zone-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+        }
+
+        .zone-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 48px;
+        }
+
+        .zone-content {
+            padding: 20px;
+        }
+
+        .zone-content h3 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .zone-content p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* 스페이스 매장 */
+        .space-store {
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            padding: 40px 20px;
+            text-align: center;
+            color: white;
+        }
+
+        .space-store h2 {
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .store-image {
+            width: 100%;
+            max-width: 350px;
+            height: 250px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 16px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 64px;
+        }
+
+        /* What's new */
+        .whats-new {
+            padding: 40px 20px;
+            background: #f8f9fa;
+        }
+
+        .whats-new h2 {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #333;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 160px;
+            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .product-name {
+            padding: 12px;
+            font-size: 13px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* 푸터 */
+        footer {
+            background: #00d4ff;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 14px;
+        }
+
+        footer p {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 히어로 섹션 -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🚀 Jellycat</h1>
+            <div class="subtitle">시끌벅적한<br>시끌스페이스</div>
+            <div class="hero-image">🧸🌟🎈</div>
+        </div>
+    </section>
+
+    <!-- 팝업스토어 정보 -->
+    <div class="info-card">
+        <h2>📍 팝업스토어 안내</h2>
+        <div class="info-item">
+            <span class="label">기간</span>
+            <span class="value">2024.12.01 - 2025.01.31</span>
+        </div>
+        <div class="info-item">
+            <span class="label">장소</span>
+            <span class="value">서울 강남구 테헤란로 123<br>스페이스빌딩 1층</span>
+        </div>
+        <div class="info-item">
+            <span class="label">시간</span>
+            <span class="value">평일 11:00 - 20:00<br>주말 10:00 - 21:00</span>
+        </div>
+        <button class="reservation-btn">사전 예약하기 →</button>
+    </div>
+
+    <!-- 테마존 소개 -->
+    <div class="section-header">
+        <h2>🎨 즐길거리 스페이스 테마존 체험</h2>
+        <p>다양한 테마존에서 특별한 경험을 즐겨보세요</p>
+    </div>
+
+    <div class="theme-zones">
+        <div class="zone-card">
+            <div class="zone-image">🎪</div>
+            <div class="zone-content">
+                <h3>포토존</h3>
+                <p>젤리캣 캐릭터들과 함께하는 특별한 포토존</p>
+            </div>
+        </div>
+
+        <div class="zone-card">
+            <div class="zone-image">🎮</div>
+            <div class="zone-content">
+                <h3>체험존</h3>
+                <p>다양한 인터랙티브 체험 공간</p>
+            </div>
+        </div>
+
+        <div class="zone-card">
+            <div class="zone-image">🎁</div>
+            <div class="zone-content">
+                <h3>굿즈샵</h3>
+                <p>한정판 젤리캣 상품 만나보기</p>
+            </div>
+        </div>
+
+        <div class="zone-card">
+            <div class="zone-image">☕</div>
+            <div class="zone-content">
+                <h3>카페존</h3>
+                <p>젤리캣 테마 음료와 디저트</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- 스페이스 매장 -->
+    <section class="space-store">
+        <h2>🌌 스페이스 매장</h2>
+        <div class="store-image">🏪</div>
+        <p>우주 컨셉의 특별한 매장에서<br>젤리캣을 만나보세요</p>
+    </section>
+
+    <!-- What's new -->
+    <section class="whats-new">
+        <h2>What's new? ✨</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="product-image">🐰</div>
+                <div class="product-name">스페이스 버니</div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🐻</div>
+                <div class="product-name">코스믹 베어</div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🦄</div>
+                <div class="product-name">갤럭시 유니콘</div>
+            </div>
+            <div class="product-card">
+                <div class="product-image">🐱</div>
+                <div class="product-name">스타 키티</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 푸터 -->
+    <footer>
+        <p><strong>Jellycat Space 팝업스토어</strong></p>
+        <p>문의: 02-1234-5678</p>
+        <p>Instagram: @jellycatkorea</p>
+    </footer>
+</body>
+</html>
